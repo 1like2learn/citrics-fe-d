@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function useVisibilityToggler(
   component,
   altComponent = null,
-  visability = false
+  visibility = false
 ) {
-  const [visible, setVisibility] = useState(() => visability);
+  const [visible, setVisibility] = useState(() => visibility);
   return [visible ? component : altComponent, () => setVisibility(v => !v)];
 }
 
