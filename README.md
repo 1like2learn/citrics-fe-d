@@ -108,3 +108,4 @@ See [Backend Documentation](https://labs27-c-citrics-api.herokuapp.com/swagger-u
 - Login does not work on deployed branch, it returns a CORS policy error 
 - When removing CityCard items from top down on /compare page it rearranges order of the cards, and leads to duplicate colors
 - National Average data is hardcoded at state/actions/cardContainerActs.js line 65. Needs to be updated to work with new National Average DS API endpoint 
+
