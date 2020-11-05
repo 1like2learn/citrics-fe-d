@@ -1,14 +1,39 @@
+* {
+    border: grey 1px solid;
+}
 .landingPage {
+    background-image: url('./images/heroImage.png');
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     .headerComponent{
-
+        padding: 2%;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
     }
-    img {
-
-    }
-    h1 {
-
-    }
-    p {
-        
+    div {
+        padding: 3% 7%;
+        align-content: center;
+        width: 40%;
+        text-align: center;
+        img {
+            width: 80%;
+            padding: 10% auto;
+        }
+        h1 {
+            font-family: titleFont;
+            color: @c-accent1;
+            font-size: 4rem;
+            margin: 4% 0;
+        }
+        p {
+            font-family: subHeadFont;
+            text-align: center;
+            font-stretch: extra-expanded;
+        }
     }
 }
