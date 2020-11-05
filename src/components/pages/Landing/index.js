@@ -1,20 +1,18 @@
 import React from 'react';
-import LandingPage from './Component';
-import { mobileStyles, tabletStyles, desktopStyles } from './styles';
-import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
+
+import logic from './logic.js';
+import logo from '../../../styles/images/logo.png';
+// import Header from '../../common/header';
+
+logic();
 
 export default () => (
-  <>
-    <IsMobile>
-      <LandingPage styles={mobileStyles} />
-    </IsMobile>
-
-    <IsTablet>
-      <LandingPage styles={tabletStyles} />
-    </IsTablet>
-
-    <IsDesktop>
-      <LandingPage styles={desktopStyles} />
-    </IsDesktop>
-  </>
+  <div class="landingPage">
+    <div class="headerComponent">Header Component</div>
+    <div>
+      <img src={logo} alt="Citrics Logo"></img>
+      <h1>Citrics</h1>
+      <p>A Nomad's Guide to the City</p>
+    </div>
+  </div>
 );
