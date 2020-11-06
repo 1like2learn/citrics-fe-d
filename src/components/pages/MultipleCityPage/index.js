@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import MultipleCityCard from '../../common/MultipleCityCard';
+import Footer from '../../common/Footer';
 
 export default function MultipleCityPage() {
   const [selectedCities, setSelectedCities] = useState();
@@ -20,7 +21,7 @@ export default function MultipleCityPage() {
           return <MultipleCityCard city={city} selectCity={setSelectedCities} />;
         })}
       </div>
-      {/* <Footer/> */}
+      <Footer />
     </div>
   );
 }
