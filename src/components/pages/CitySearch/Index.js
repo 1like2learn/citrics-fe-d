@@ -1,14 +1,13 @@
 import React from 'react';
 
 import logic from './logic.js';
-import dummyData from '../../../utils/dummyData';
 // import map from 'map';
 // import
 // import Header from '../../common/header';
 
 logic();
 
-export default function CitySearch() {
+export default function CitySearch(props) {
   const {
     citynamestate,
     wikiimgurl,
@@ -21,7 +20,7 @@ export default function CitySearch() {
     averagehouse,
     rent,
     averagetemp,
-  } = dummyData;
+  } = props;
   return (
     <div class="citySearch">
       {/* nav */}
