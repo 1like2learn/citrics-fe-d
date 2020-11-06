@@ -1,6 +1,7 @@
 import React from 'react';
 
 import logic from './logic.js';
+import dummyData from '../../../utils/dummyData';
 // import map from 'map';
 // import
 // import Header from '../../common/header';
@@ -8,25 +9,41 @@ import logic from './logic.js';
 logic();
 
 export default function CitySearch() {
+  const {
+    citynamestate,
+    wikiimgurl,
+    population,
+    densitymisq,
+    averageage,
+    costoflivingindex,
+    individualincome,
+    householdincome,
+    averagehouse,
+    rent,
+    averagetemp,
+  } = dummyData;
   return (
     <div class="citySearch">
       {/* nav */}
-      <div>
-        <div>
-          {/* left */}
-          <h2>city</h2>
-          <p>description</p>
-        </div>
-        {/* left */}
-        <div>
-          {/* right */}
-          <div>Map</div>
-          <div>
+      <div class="citySearchCont">
+        <section
+          class="citySearchTextDescription"
+          style={{ backgroundImage: `url(${wikiimgurl})` }}
+        >
+          <div class="citySearchTextCont">
+            <h2>{citynamestate}</h2>
+            <p>description</p>
+          </div>
+        </section>
+
+        <section class="citySearchDataPanel">
+          <div class="citySearchMap">Map</div>
+
+          <div class="citySearchDataCont">
             <div>graph</div>
             <div>data</div>
           </div>
-        </div>
-        {/* right */}
+        </section>
       </div>
     </div>
   );
