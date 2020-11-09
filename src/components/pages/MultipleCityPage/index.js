@@ -13,7 +13,7 @@ import MultipleCityChart from '../../common/MultipleCityChart';
 const temp_data = [
   {
     cityid: 199131,
-    citynamestate: 'Los Angeles, California',
+    citynamestate: 'Los Angeles, CA',
     statecode: 'CA',
     timezone: 'UTC\u22128 Pacific',
     latitude: 34.0536909,
@@ -238,7 +238,7 @@ const temp_data = [
   },
   {
     cityid: 269526,
-    citynamestate: 'New York, New York',
+    citynamestate: 'New York, NY',
     statecode: 'NY',
     timezone: 'UTC\u22125 Eastern',
     latitude: 40.7127281,
@@ -440,7 +440,7 @@ const temp_data = [
   },
   {
     cityid: 510890,
-    citynamestate: 'Austin, Texas',
+    citynamestate: 'Austin, TX',
     statecode: 'TX',
     timezone: 'UTC\u22126 Central',
     latitude: 30.2711286,
