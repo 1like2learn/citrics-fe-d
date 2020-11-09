@@ -2,6 +2,7 @@ import React from 'react';
 
 import logic from './logic.js';
 import dummyData from '../../../utils/dummyData';
+import DataPanel from '../../common/DataPanel';
 // import map from 'map';
 // import
 // import Header from '../../common/header';
@@ -9,19 +10,7 @@ import dummyData from '../../../utils/dummyData';
 logic();
 
 export default function CitySearch() {
-  const {
-    citynamestate,
-    wikiimgurl,
-    population,
-    densitymisq,
-    averageage,
-    costoflivingindex,
-    individualincome,
-    householdincome,
-    averagehouse,
-    rent,
-    averagetemp,
-  } = dummyData;
+  const { citynamestate, wikiimgurl } = dummyData;
   return (
     <div class="citySearch">
       {/* nav */}
@@ -41,7 +30,7 @@ export default function CitySearch() {
 
           <div class="citySearchDataCont">
             <div>graph</div>
-            <div>data</div>
+            <DataPanel props={dummyData} />
           </div>
         </section>
       </div>

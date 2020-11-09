@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logic from './logic.js';
-import logo from '../../../styles/images/logo.png';
+import logo from './logo.png';
 // import Header from '../../common/header';
 
 logic();
