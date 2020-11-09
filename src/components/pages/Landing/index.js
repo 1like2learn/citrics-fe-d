@@ -8,8 +8,8 @@ logic();
 
 export default function LandingPage() {
   return (
-    <div class="landingPage">
-      <div class="headerComponent">Header Component</div>
+    <div className="landingPage">
+      <div className="headerComponent">Header Component</div>
       <div>
         <img src={logo} alt="Citrics Logo"></img>
         <h1>Citrics</h1>
