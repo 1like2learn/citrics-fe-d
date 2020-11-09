@@ -5,9 +5,8 @@ import dummyData from '../../../utils/dummyData';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 // import map from 'map';
-// import
 // import Header from '../../common/header';
-//tst
+
 export default function CitySearch() {
   const { citynamestate, wikiimgurl, latitude, longitude } = dummyData;
 
