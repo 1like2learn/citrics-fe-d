@@ -6,13 +6,15 @@ import logo from '../../../styles/images/logo.png';
 
 logic();
 
-export default () => (
-  <div class="landingPage">
-    <div class="headerComponent">Header Component</div>
-    <div>
-      <img src={logo} alt="Citrics Logo"></img>
-      <h1>Citrics</h1>
-      <p>A Nomad's Guide to the City</p>
+export default function LandingPage() {
+  return (
+    <div class="landingPage">
+      <div class="headerComponent">Header Component</div>
+      <div>
+        <img src={logo} alt="Citrics Logo"></img>
+        <h1>Citrics</h1>
+        <p>A Nomad's Guide to the City</p>
+      </div>
     </div>
-  </div>
-);
+  );
+}
