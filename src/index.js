@@ -20,6 +20,7 @@ import {
   LandingPage,
   FavoritesPage,
 } from './components/pages';
+import MultipleCityPage from './components/pages/MultipleCityPage';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -45,6 +46,7 @@ function App() {
       <Route path="/login" component={LoginPage} />
       <Route path="/compare" component={ComparisonPage} />
       <Route path="/" exact component={LandingPage} />
+      <Route path="/multiple-city" component={MultipleCityPage} />
 
       {/* temporairly putting the landing component until we have a profile/favorites page */}
       <Security {...config} onAuthRequired={authHandler}>
