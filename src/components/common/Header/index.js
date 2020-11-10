@@ -6,7 +6,7 @@ const HeaderBar = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  hneight: 15vh;
+  height: 15vh;
   align-items: center;
   align-content: center;
   margin: 0 auto;
