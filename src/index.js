@@ -18,6 +18,7 @@ import {
   LoginPage,
   ComparisonPage,
   LandingPage,
+  CitySearch,
   FavoritesPage,
 } from './components/pages';
 import MultipleCityPage from './components/pages/MultipleCityPage';
