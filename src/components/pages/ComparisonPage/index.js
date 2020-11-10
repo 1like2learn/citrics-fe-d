@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import logo from './assets/Citrics Icon.svg';
+import logo from '../../../assets/Citrics Icon.svg';
 import {
   FaSearchengin,
   FaUserCircle,
@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { fetchCities } from '../store/actions/searchBarActions';
+import { fetchCities } from '../../../state/actions/searchBarActs';
 import { Bar, Line } from 'react-chartjs-2';
 
 const Bottom = styled.div`
