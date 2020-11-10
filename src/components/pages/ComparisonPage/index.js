@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import logo from '../../../assets/Citrics Icon.svg';
-import {
-  FaSearchengin,
-  FaUserCircle,
-  FaRegPlusSquare,
-  FaCity,
-  FaTemperatureHigh,
-  FaTemperatureLow,
-} from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { fetchCities } from '../../../state/actions/searchBarActs';
-import { Bar, Line } from 'react-chartjs-2';
+import { Container } from './Container';
 
 const Bottom = styled.div`
   width: 100%;
@@ -40,5 +31,9 @@ export const ComparisonPage = () => {
     dispatch(fetchCities());
   }, [dispatch]);
 
-  return <></>;
+  return (
+    <>
+      <Container />
+    </>
+  );
 };

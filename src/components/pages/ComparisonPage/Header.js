@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import logo from './assets/Citrics Icon.svg';
+import logo from '../../../assets/Citrics Icon.svg';
 import { FaSearchengin, FaUserCircle } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
@@ -22,23 +22,27 @@ const HeaderBar = styled.div`
     h1 {
       font-family: 'Norwester', sans serif;
       text-transform: uppercase;
-      font-size: 2rem;
-      align-items: flex-start;
+      font-size: 3.5rem;
       letter-spacing: 3px;
       color: #d35540;
     }
 
     h3 {
-      font-size: 0.45rem;
+      position: relative;
+      font-size: 0.75rem;
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
+      top: -50px;
     }
 
     div {
+      position: relative;
       display: flex;
       flex-direction: column;
       margin: 0 2%;
       align-items: flex-start;
+      justify-content: center;
+      top: 22.5px;
     }
   }
 
@@ -101,7 +105,7 @@ export const Header = () => {
   return (
     <HeaderBar>
       <div className="left">
-        <img src={logo} alt="Citrics Logo" height="40px" />
+        <img src={logo} alt="Citrics Logo" height="90px" />
 
         <div>
           <h1>CITRICS</h1>
@@ -131,9 +135,9 @@ export const Header = () => {
             Advanced <br /> Search
           </p>{' '}
           &nbsp;
-          <FaSearchengin size="25px" />
+          <FaSearchengin size="45px" />
         </div>
-        <FaUserCircle className="profile" size="30px" />
+        <FaUserCircle className="profile" size="50px" />
       </div>
     </HeaderBar>
   );
