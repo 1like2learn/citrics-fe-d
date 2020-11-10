@@ -17,7 +17,6 @@ import {
   RiGiftLine,
   RiHome4Line,
   RiMoneyDollarBoxLine,
-  RiSurgicalMaskLine,
   RiTimerLine,
   RiFahrenheitLine,
 } from 'react-icons/ri';
@@ -37,6 +36,13 @@ const CityDetailsContainer = styled.aside`
     justify-content: space-around;
     .info-div {
       padding: 0;
+      .UTC {
+        font-family: 'Roboto';
+        font-size: 1rem;
+        font-weight: 800;
+        height: 1rem;
+        padding-left: 2.4rem;
+      }
       span {
         font-family: 'Roboto';
         font-size: 0.75rem;
@@ -81,6 +87,13 @@ export default function CityDetails(props) {
   const { city } = props;
   const formatNumber = num => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  };
+
+  const cutString = (str, pos) => {
+    if (pos === 'after') return str.substring(str.indexOf(str.match(/\d/)) + 2);
+    else if (pos === 'before')
+      return str.substring(0, str.indexOf(str.match(/\d/)) + 2);
+    else return str;
   };
 
   return (
@@ -228,11 +241,13 @@ export default function CityDetails(props) {
         {/* Timezone */}
         <div className="info-div">
           <span>Timezone</span> &nbsp;{' '}
+          <h6 className="UTC"> {cutString(city.timezone, 'before')} </h6>
           <div className="count-div">
             <span className="icon">
               <RiTimerLine size="30px" />
             </span>
-            <h4 className="count"> {city.timezone} </h4>
+
+            <h4 className="count"> {cutString(city.timezone, 'after')} </h4>
           </div>
         </div>
       </div>
