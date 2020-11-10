@@ -4,7 +4,7 @@ import React from 'react';
 import dummyData from '../../../utils/dummyData';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-// import map from 'map';
+import CitySearchDiv from './style';
 // import Header from '../../common/header';
 
 export default function CitySearch() {
@@ -16,7 +16,7 @@ export default function CitySearch() {
   console.log('accessToken', Map.accessToken);
 
   return (
-    <div className="citySearch">
+    <CitySearchDiv>
       {/* nav */}
       <div className="citySearchCont">
         <section
@@ -55,6 +55,6 @@ export default function CitySearch() {
           </div>
         </section>
       </div>
-    </div>
+    </CitySearchDiv>
   );
 }
