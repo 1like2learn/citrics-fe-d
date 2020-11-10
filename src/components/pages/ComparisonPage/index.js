@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchCities } from '../../../state/actions/searchBarActs';
 import { Container } from './Container';
+import Footer from '../../common/Footer';
 
 const Bottom = styled.div`
   width: 100%;
@@ -34,6 +35,7 @@ export const ComparisonPage = () => {
   return (
     <>
       <Container />
+      <Footer />
     </>
   );
 };

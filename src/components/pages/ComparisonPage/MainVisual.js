@@ -10,7 +10,6 @@ import {
 } from 'react-icons/fa';
 import {
   RiBankFill,
-  RiBankLine,
   RiBuilding4Line,
   RiContrastDrop2Line,
   RiDropLine,
@@ -26,12 +25,14 @@ import { Line } from 'react-chartjs-2';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  max-width: 100vw;
+  min-width: 100%;
   align-content: center;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-start;
+  justify-content: center;
   height: 100%;
   font-size: 1rem;
+  overflow-x: hidden;
 
   .h3 {
     margin: 2% auto 0;
@@ -42,11 +43,16 @@ const Container = styled.div`
   .split {
     flex-direction: column;
     display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
+    margin: 1% auto;
     align-items: center;
-    width: 50%;
+    justify-content: flex-end;
+    width: 50vw;
     height: 100%;
+
+    h2 {
+      font-family: 'Norwester', sans-serif;
+      font-size: 2.25rem;
+    }
   }
 
   .float {
@@ -57,6 +63,8 @@ const Container = styled.div`
     font-size: 2.5rem;
     text-align: center;
     align-items: center;
+    color: #000000;
+    margin: 15% 0;
 
     div {
       display: flex;
@@ -78,7 +86,7 @@ const Container = styled.div`
   .info {
     display: flex;
     flex-flow: row wrap;
-    width: 80%;
+    width: 90%;
     margin: 1% auto;
     justify-content: center;
   }
@@ -96,7 +104,6 @@ const Container = styled.div`
   }
 
   .graph {
-    margin-left: 2%;
     height: 50vh;
     width: 40vw;
     text-align: center;
@@ -105,12 +112,13 @@ const Container = styled.div`
   }
 
   .infographic {
-    width: 48%;
+    width: 30%;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    margin: 2% auto;
+    margin: 0.75% auto;
+    text-align: center;
   }
 `;
 
@@ -456,7 +464,7 @@ export const MainVisual = () => {
     datasets: [
       {
         label: 'Individual Income',
-        backgroundColor: 'rgba(211, 85, 64, .7)',
+        backgroundColor: '#d35540',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: individual,
@@ -465,12 +473,22 @@ export const MainVisual = () => {
       },
       {
         label: 'Household Income',
-        backgroundColor: 'rgba(211, 85, 64, .7)',
+        backgroundColor: '#dd7a6a',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: household,
         pointBorderWidth: 1,
         pointBackgroundColor: '#000000',
+      },
+      {
+        label: '',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: 'rgba(0,0,0,0)',
+        borderWidth: 0,
+        data: [0, 100000],
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
+        pointRadius: 0,
       },
     ],
   };
@@ -480,7 +498,7 @@ export const MainVisual = () => {
     datasets: [
       {
         label: 'Individual Income',
-        backgroundColor: 'rgba(64, 86, 211, .7)',
+        backgroundColor: '#218921',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: individual2,
@@ -489,12 +507,22 @@ export const MainVisual = () => {
       },
       {
         label: 'Household Income',
-        backgroundColor: 'rgba(64, 86, 211, .7)',
+        backgroundColor: '#32cd32',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: household2,
         pointBorderWidth: 1,
         pointBackgroundColor: '#000000',
+      },
+      {
+        label: '',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: 'rgba(0,0,0,0)',
+        borderWidth: 0,
+        data: [0, 100000],
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
+        pointRadius: 0,
       },
     ],
   };
@@ -507,6 +535,7 @@ export const MainVisual = () => {
     <>
       <Container>
         <div className="split">
+          <h2>{c1.citynamestate}</h2>
           <article className="graph">
             <Line
               data={state}
@@ -527,8 +556,12 @@ export const MainVisual = () => {
                   yAxes: [
                     {
                       ticks: {
-                        callback: function(label, index, labels) {
-                          return label / 1000 + 'k';
+                        callback: function(label) {
+                          if (label === 0) {
+                            return '0';
+                          } else {
+                            return '$' + formatNumber(label);
+                          }
                         },
                         fontSize: 18,
                         fontFamily: 'Montserrat',
@@ -536,7 +569,6 @@ export const MainVisual = () => {
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: '1k = $1,000',
                         fontSize: 18,
                         fontFamily: 'Montserrat',
                         fontColor: '#000000',
@@ -566,8 +598,6 @@ export const MainVisual = () => {
             />
           </article>
 
-          <h3 className="h3">{c1.citynamestate}</h3>
-
           <aside className="info">
             <h4 className="infographic">
               {c1.population > 500000 ? (
@@ -581,7 +611,8 @@ export const MainVisual = () => {
                   )}
                 </span>
               )}
-              &nbsp; Pop. Total: &nbsp; {formatNumber(c1.population)}{' '}
+              &nbsp; <strong>Pop. Total:</strong> &nbsp;{' '}
+              {formatNumber(c1.population)}{' '}
             </h4>
 
             <h4 className="infographic">
@@ -590,7 +621,8 @@ export const MainVisual = () => {
               ) : (
                 <FaTemperatureLow size="30px" />
               )}
-              &nbsp; Avg Temp: {c1.averagetemp.toFixed(1)}
+              &nbsp; <strong>Avg Temp:</strong> &nbsp;{' '}
+              {c1.averagetemp.toFixed(1)}
               &deg;
             </h4>
 
@@ -600,7 +632,8 @@ export const MainVisual = () => {
               ) : (
                 <RiDropLine size="30px" />
               )}
-              &nbsp; Avg Perc.: {c1.averageperc.toFixed(1)}
+              &nbsp; <strong>Avg Prec.:</strong> &nbsp;{' '}
+              {c1.averageperc.toFixed(1)}
             </h4>
 
             <h4 className="infographic">
@@ -609,33 +642,35 @@ export const MainVisual = () => {
               ) : (
                 <FaArrowCircleDown size="30px" />
               )}
-              &nbsp; CLI: {c1.costoflivingindex}%
+              &nbsp; <strong>CLI:</strong> &nbsp; {c1.costoflivingindex}%
             </h4>
 
             <h4 className="infographic">
               <RiTimerLine size="30px" />
-              &nbsp; TZ: {c1.timezone}
+              &nbsp; <strong>TZ:</strong> &nbsp; {c1.timezone}
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Avg Age:{' '}
+              <RiGiftLine size="30px" /> &nbsp; <strong>Avg Age:</strong> &nbsp;
               {Math.round(c1.averageage)}
             </h4>
 
             <h4 className="infographic">
               {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: $
-              {formatNumber(c1.rent)}{' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp;{' '}
+              <strong>Avg. Rent:</strong> &nbsp; ${formatNumber(c1.rent)}{' '}
             </h4>
             <h4 className="infographic">
               {' '}
-              <RiBankFill size="30px" /> &nbsp; Avg House Price: $
+              <RiBankFill size="30px" /> &nbsp;{' '}
+              <strong>Avg House Price:</strong> &nbsp; $
               {formatNumber(Math.round(c1.averagehouse))}{' '}
             </h4>
 
             {c1.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
+                <RiSurgicalMaskLine size="30px" /> &nbsp;{' '}
+                <strong>Avg Covid Cases:</strong>{' '}
                 {formatNumber(Math.round(c1.avgnewcovidcases))}/month
               </h4>
             ) : null}
@@ -646,14 +681,13 @@ export const MainVisual = () => {
 
         <div className="float">
           vs.
-          <br />
-          <br />
           <div>
-            <p>COMPARE</p>
+            <p className="txtShdw">COMPARE</p>
           </div>
         </div>
 
         <div className="split">
+          <h2>{c2.citynamestate}</h2>
           <article className="graph">
             <Line
               data={state2}
@@ -674,8 +708,12 @@ export const MainVisual = () => {
                   yAxes: [
                     {
                       ticks: {
-                        callback: function(label, index, labels) {
-                          return label / 1000 + 'k';
+                        callback: function(label) {
+                          if (label === 0) {
+                            return '0';
+                          } else {
+                            return '$' + formatNumber(label);
+                          }
                         },
                         fontSize: 18,
                         fontFamily: 'Montserrat',
@@ -683,7 +721,6 @@ export const MainVisual = () => {
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: '1k = $1,000',
                         fontSize: 18,
                         fontFamily: 'Montserrat',
                         fontColor: '#000000',
@@ -713,8 +750,6 @@ export const MainVisual = () => {
             />
           </article>
 
-          <h3 className="h3">{c2.citynamestate}</h3>
-
           <aside className="info">
             <h4 className="infographic">
               {c2.population > 250000 ? (
@@ -730,7 +765,8 @@ export const MainVisual = () => {
                   )
                 </span>
               )}
-              &nbsp; Pop. Total: &nbsp; {formatNumber(c2.population)}{' '}
+              &nbsp; <strong>Pop. Total:</strong> &nbsp;{' '}
+              {formatNumber(c2.population)}{' '}
             </h4>
 
             <h4 className="infographic">
@@ -739,7 +775,8 @@ export const MainVisual = () => {
               ) : (
                 <FaTemperatureLow size="30px" />
               )}
-              &nbsp; Avg Temp: {c2.averagetemp.toFixed(1)}
+              &nbsp; <strong>Avg Temp:</strong> &nbsp;{' '}
+              {c2.averagetemp.toFixed(1)}
               &deg;
             </h4>
 
@@ -749,7 +786,8 @@ export const MainVisual = () => {
               ) : (
                 <RiDropLine size="30px" />
               )}
-              &nbsp; Avg Perc.: {c2.averageperc.toFixed(1)}
+              &nbsp; <strong>Avg Perc.:</strong> &nbsp;{' '}
+              {c2.averageperc.toFixed(1)}
             </h4>
 
             <h4 className="infographic">
@@ -758,69 +796,40 @@ export const MainVisual = () => {
               ) : (
                 <FaArrowCircleDown size="30px" />
               )}
-              &nbsp; CLI: {c2.costoflivingindex}%
+              &nbsp; <strong>CLI:</strong> &nbsp; {c2.costoflivingindex}%
             </h4>
 
             <h4 className="infographic">
               <RiTimerLine size="30px" />
-              &nbsp; TZ: {c2.timezone}
+              &nbsp; <strong>TZ:</strong> &nbsp; {c2.timezone}
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Avg Age:{' '}
+              <RiGiftLine size="30px" /> &nbsp; <strong>Avg Age:</strong> &nbsp;{' '}
               {Math.round(c2.averageage)}
             </h4>
 
             <h4 className="infographic">
               {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: $
-              {formatNumber(c2.rent)}{' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp;{' '}
+              <strong>Avg. Rent:</strong>&nbsp; ${formatNumber(c2.rent)}{' '}
             </h4>
             <h4 className="infographic">
               {' '}
-              <RiBankFill size="30px" /> &nbsp; Avg House Price: $
+              <RiBankFill size="30px" /> &nbsp;{' '}
+              <strong>Avg House Price:</strong>&nbsp; $
               {formatNumber(Math.round(c2.averagehouse))}{' '}
             </h4>
 
             {c2.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
+                <RiSurgicalMaskLine size="30px" /> &nbsp;{' '}
+                <strong>Avg Covid Cases:</strong> &nbsp;{' '}
                 {formatNumber(Math.round(c2.avgnewcovidcases))}/month
               </h4>
             ) : null}
           </aside>
           {/* <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} /> */}
-        </div>
-      </Container>
-
-      <Container>
-        <div className="split">
-          {cityOne ? (
-            <div></div>
-          ) : (
-            <div className="icons">
-              <FaRegPlusSquare size="50px" />
-            </div>
-          )}
-        </div>
-
-        <div className="float">
-          vs.
-          <br />
-          <br />
-          <div>
-            <p>COMPARE</p>
-          </div>
-        </div>
-
-        <div className="split">
-          {cityTwo ? (
-            <div></div>
-          ) : (
-            <div className="icons">
-              <FaRegPlusSquare size="50px" />
-            </div>
-          )}
         </div>
       </Container>
     </>

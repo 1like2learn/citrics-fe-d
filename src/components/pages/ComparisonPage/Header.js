@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../../assets/Citrics Icon.svg';
 import { FaSearchengin, FaUserCircle } from 'react-icons/fa';
@@ -96,6 +97,7 @@ const searchable = {
 export const Header = () => {
   const [searchTerm, setSearchTerm] = useState(searchable);
   const searching = useSelector(state => state.isSearching);
+  const { push } = useHistory();
 
   const handleChanges = e => {
     e.preventDefault();
@@ -104,7 +106,7 @@ export const Header = () => {
 
   return (
     <HeaderBar>
-      <div className="left">
+      <div onClick={() => push('/')} className="left">
         <img src={logo} alt="Citrics Logo" height="90px" />
 
         <div>
