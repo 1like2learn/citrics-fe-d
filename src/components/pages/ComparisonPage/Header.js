@@ -114,7 +114,7 @@ export const Header = () => {
       </div>
 
       <div className="search">
-        {searching ? null : (
+        {searching ? (
           <SearchBar className="sb-dis">
             <label name="term" htmlFor="term">
               <input
@@ -126,7 +126,7 @@ export const Header = () => {
               />
             </label>
           </SearchBar>
-        )}
+        ) : null}
       </div>
 
       <div className="right">

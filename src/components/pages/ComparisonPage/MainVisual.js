@@ -9,11 +9,13 @@ import {
   FaArrowCircleUp,
 } from 'react-icons/fa';
 import {
+  RiBankLine,
   RiBuilding4Line,
   RiContrastDrop2Line,
   RiDropLine,
   RiGiftLine,
   RiHome4Line,
+  RiMoneyDollarBoxLine,
   RiSurgicalMaskLine,
   RiTimerLine,
 } from 'react-icons/ri';
@@ -194,837 +196,228 @@ const c1 = {
 };
 
 const c2 = {
-  cityid: 164,
-  citynamestate: 'Watertown, Massachusetts',
-  statecode: 'MA',
-  timezone: 'UTC−5 Eastern',
-  latitude: 42.37083300000001,
-  logitude: -71.18333299999998,
-  fpis: '25-7344',
+  cityid: 199131,
+  citynamestate: 'Los Angeles, CA',
+  statecode: 'CA',
+  timezone: 'UTC\u22128 Pacific',
+  latitude: 34.0536909,
+  logitude: -118.2427666,
+  fpis: '06-4400',
   gnis: null,
   wikiimgurl:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Main_Street_Watertown_MA_2.jpg/500px-Main_Street_Watertown_MA_2.jpg',
-  website: 'https://www.ci.watertown.ma.us/',
-  population: 35756.0,
-  densitymisq: 8987.0,
-  densitykmsq: 3470.22,
-  averageage: 38.0,
-  householdincome: 96842.0,
-  individualincome: 53348.0,
-  averagehouse: 577652.0,
-  rent: 1828.0,
-  costoflivingindex: 143.7,
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Los_Angeles_with_Mount_Baldy.jpg/560px-Los_Angeles_with_Mount_Baldy.jpg',
+  website: 'www.lacity.org ',
+  population: 3999759.0,
+  densitymisq: 8485.74,
+  densitykmsq: 3276.37,
+  averageage: 35.8,
+  householdincome: 60197.0,
+  individualincome: 33496.0,
+  averagehouse: 647000.0,
+  rent: 1397.0,
+  costoflivingindex: 145.8,
   acastatus: 'Adopted',
-  averagetemp: 50.86666666666667,
-  averageperc: 4.523333333333333,
-  avgnewcovidcases: 15606.373584905661,
+  averagetemp: 65.60833333333333,
+  averageperc: 1.9216666666666669,
+  avgnewcovidcases: 'NaN',
   zipcodes: [
-    {
-      code: '02472',
-    },
+    { code: '\\nList\\n90001\u201390084' },
+    { code: '90086\u201390089' },
+    { code: '90091' },
+    { code: '90093\u201390097' },
+    { code: '90099' },
+    { code: '90101\u201390103' },
+    { code: '90174' },
+    { code: '90185' },
+    { code: '90189' },
+    { code: '90291\u201390293' },
+    { code: '91040\u201391043' },
+    { code: '91303\u201391308' },
+    { code: '91311' },
+    { code: '91316' },
+    { code: '91324\u201391328' },
+    { code: '91330' },
+    { code: '91331' },
+    { code: '91335' },
+    { code: '91340' },
+    { code: '91342\u201391349' },
+    { code: '91352\u201391353' },
+    { code: '91356\u201391357' },
+    { code: '91364\u201391367' },
+    { code: '91401\u201391499' },
+    { code: '91504\u201391505' },
+    { code: '91601\u20139160915' },
+    { code: '\\n' },
   ],
-  counties: [
-    {
-      name: 'Middlesex',
-    },
-  ],
+  counties: 'Los Angeles',
   populationhist: [
-    {
-      year: 2014,
-      pop: 34308.0,
-    },
-    {
-      year: 2012,
-      pop: 33050.0,
-    },
-    {
-      year: 2013,
-      pop: 33238.0,
-    },
-    {
-      year: 2015,
-      pop: 34385.0,
-    },
-    {
-      year: 2018,
-      pop: 35846.0,
-    },
-    {
-      year: 2011,
-      pop: 32357.0,
-    },
-    {
-      year: 2019,
-      pop: 35939.0,
-    },
-    {
-      year: 2010,
-      pop: 31915.0,
-    },
-    {
-      year: 2016,
-      pop: 35141.0,
-    },
-    {
-      year: 2017,
-      pop: 35741.0,
-    },
+    { year: 2010, pop: 3792621.0 },
+    { year: 2011, pop: 3820876.0 },
+    { year: 2012, pop: 3851202.0 },
+    { year: 2013, pop: 3881622.0 },
+    { year: 2014, pop: 3909901.0 },
+    { year: 2015, pop: 3938568.0 },
+    { year: 2016, pop: 3963226.0 },
+    { year: 2017, pop: 3975788.0 },
+    { year: 2018, pop: 3977596.0 },
+    { year: 2019, pop: 3979576.0 },
   ],
   historicalincome: [
-    {
-      year: 2010,
-      individualincome: 36803,
-      householdincome: 62072,
-    },
-    {
-      year: 2011,
-      individualincome: 36654,
-      householdincome: 62859,
-    },
-    {
-      year: 2012,
-      individualincome: 37769,
-      householdincome: 65339,
-    },
-    {
-      year: 2013,
-      individualincome: 38610,
-      householdincome: 66768,
-    },
-    {
-      year: 2014,
-      individualincome: 40329,
-      householdincome: 69160,
-    },
-    {
-      year: 2015,
-      individualincome: 41510,
-      householdincome: 70628,
-    },
-    {
-      year: 2016,
-      individualincome: 42343,
-      householdincome: 75297,
-    },
-    {
-      year: 2017,
-      individualincome: 43824,
-      householdincome: 77385,
-    },
-    {
-      year: 2018,
-      individualincome: 45392,
-      householdincome: 79835,
-    },
-    {
-      year: 2019,
-      individualincome: 50338,
-      householdincome: 85843,
-    },
+    { year: 2010, individualincome: 38460, householdincome: 57708 },
+    { year: 2011, individualincome: 37584, householdincome: 57287 },
+    { year: 2012, individualincome: 39504, householdincome: 58328 },
+    { year: 2013, individualincome: 40319, householdincome: 60190 },
+    { year: 2014, individualincome: 40842, householdincome: 61933 },
+    { year: 2015, individualincome: 42068, householdincome: 64500 },
+    { year: 2016, individualincome: 44115, householdincome: 67739 },
+    { year: 2017, individualincome: 46599, householdincome: 71805 },
+    { year: 2018, individualincome: 48563, householdincome: 75277 },
+    { year: 2019, individualincome: 51676, householdincome: 80440 },
   ],
   historicalaveragehouse: [
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 527510,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 382955,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 383420,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 492886,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 476956,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 514229,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 510935,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 601177,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 512904,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 464964,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 394174,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 416296,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 627720,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 442120,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 556181,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 524824,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 631548,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 614405,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 386897,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 625220,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 401586,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 397218,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 552326,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 467222,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 419819,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 395581,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 605769,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 618060,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 506410,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 520883,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 484002,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 625097,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 405711,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 502582,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 447770,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 635867,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 512490,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 592874,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 436599,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 389950,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 384766,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 547046,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 400756,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 447118,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 400600,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 570760,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 548427,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 384713,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 396071,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 422014,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 623530,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 411075,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 610266,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 619523,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 629210,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 386886,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 397965,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 488584,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 628326,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 467069,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 490739,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 507958,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 590766,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 381679,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 620317,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 405845,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 389749,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 562787,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 398034,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 534233,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 403748,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 392621,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 447152,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 565642,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 451886,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 632501,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 468224,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 446251,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 448256,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 466323,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 397294,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 381699,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 581428,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 626150,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 490464,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 513027,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 385587,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 471384,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 385396,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 569091,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 619948,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 491715,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 402942,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 639354,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 385285,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 531126,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 426374,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 458850,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 498709,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 466744,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 389245,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 619382,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 623292,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 398728,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 539022,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 393428,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 423462,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 596802,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 627379,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 404220,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 406974,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 406260,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 575916,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 402340,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 629370,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 392298,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 645888,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 635072,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 515066,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 618885,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 624376,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 619470,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 430062,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 542404,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 626251,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 626981,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 586694,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 382148,
-    },
+    { year: 2010, month: 1, housingcost: 439447 },
+    { year: 2010, month: 2, housingcost: 437254 },
+    { year: 2010, month: 3, housingcost: 436814 },
+    { year: 2010, month: 4, housingcost: 437860 },
+    { year: 2010, month: 5, housingcost: 441781 },
+    { year: 2010, month: 6, housingcost: 440185 },
+    { year: 2010, month: 7, housingcost: 438497 },
+    { year: 2010, month: 8, housingcost: 434700 },
+    { year: 2010, month: 9, housingcost: 431774 },
+    { year: 2010, month: 10, housingcost: 428473 },
+    { year: 2010, month: 11, housingcost: 424073 },
+    { year: 2010, month: 12, housingcost: 421494 },
+    { year: 2011, month: 1, housingcost: 419847 },
+    { year: 2011, month: 2, housingcost: 419482 },
+    { year: 2011, month: 3, housingcost: 416985 },
+    { year: 2011, month: 4, housingcost: 414319 },
+    { year: 2011, month: 5, housingcost: 408965 },
+    { year: 2011, month: 6, housingcost: 408002 },
+    { year: 2011, month: 7, housingcost: 406625 },
+    { year: 2011, month: 8, housingcost: 405298 },
+    { year: 2011, month: 9, housingcost: 402306 },
+    { year: 2011, month: 10, housingcost: 399150 },
+    { year: 2011, month: 11, housingcost: 398832 },
+    { year: 2011, month: 12, housingcost: 397403 },
+    { year: 2012, month: 1, housingcost: 396836 },
+    { year: 2012, month: 2, housingcost: 395759 },
+    { year: 2012, month: 3, housingcost: 395234 },
+    { year: 2012, month: 4, housingcost: 395298 },
+    { year: 2012, month: 5, housingcost: 396841 },
+    { year: 2012, month: 6, housingcost: 398930 },
+    { year: 2012, month: 7, housingcost: 401451 },
+    { year: 2012, month: 8, housingcost: 403893 },
+    { year: 2012, month: 9, housingcost: 407545 },
+    { year: 2012, month: 10, housingcost: 413169 },
+    { year: 2012, month: 11, housingcost: 418017 },
+    { year: 2012, month: 12, housingcost: 424751 },
+    { year: 2013, month: 1, housingcost: 429744 },
+    { year: 2013, month: 2, housingcost: 438236 },
+    { year: 2013, month: 3, housingcost: 446911 },
+    { year: 2013, month: 4, housingcost: 457616 },
+    { year: 2013, month: 5, housingcost: 466421 },
+    { year: 2013, month: 6, housingcost: 475145 },
+    { year: 2013, month: 7, housingcost: 483888 },
+    { year: 2013, month: 8, housingcost: 494942 },
+    { year: 2013, month: 9, housingcost: 504384 },
+    { year: 2013, month: 10, housingcost: 510936 },
+    { year: 2013, month: 11, housingcost: 515754 },
+    { year: 2013, month: 12, housingcost: 518461 },
+    { year: 2014, month: 1, housingcost: 522860 },
+    { year: 2014, month: 2, housingcost: 523540 },
+    { year: 2014, month: 3, housingcost: 525221 },
+    { year: 2014, month: 4, housingcost: 524907 },
+    { year: 2014, month: 5, housingcost: 526398 },
+    { year: 2014, month: 6, housingcost: 527087 },
+    { year: 2014, month: 7, housingcost: 529749 },
+    { year: 2014, month: 8, housingcost: 529409 },
+    { year: 2014, month: 9, housingcost: 529752 },
+    { year: 2014, month: 10, housingcost: 529835 },
+    { year: 2014, month: 11, housingcost: 533060 },
+    { year: 2014, month: 12, housingcost: 536369 },
+    { year: 2015, month: 1, housingcost: 540770 },
+    { year: 2015, month: 2, housingcost: 545462 },
+    { year: 2015, month: 3, housingcost: 550008 },
+    { year: 2015, month: 4, housingcost: 551627 },
+    { year: 2015, month: 5, housingcost: 554491 },
+    { year: 2015, month: 6, housingcost: 557255 },
+    { year: 2015, month: 7, housingcost: 559571 },
+    { year: 2015, month: 8, housingcost: 562283 },
+    { year: 2015, month: 9, housingcost: 565193 },
+    { year: 2015, month: 10, housingcost: 569886 },
+    { year: 2015, month: 11, housingcost: 573642 },
+    { year: 2015, month: 12, housingcost: 579216 },
+    { year: 2016, month: 1, housingcost: 582365 },
+    { year: 2016, month: 2, housingcost: 586197 },
+    { year: 2016, month: 3, housingcost: 588492 },
+    { year: 2016, month: 4, housingcost: 594689 },
+    { year: 2016, month: 5, housingcost: 598774 },
+    { year: 2016, month: 6, housingcost: 603456 },
+    { year: 2016, month: 7, housingcost: 605783 },
+    { year: 2016, month: 8, housingcost: 609825 },
+    { year: 2016, month: 9, housingcost: 614680 },
+    { year: 2016, month: 10, housingcost: 620009 },
+    { year: 2016, month: 11, housingcost: 622959 },
+    { year: 2016, month: 12, housingcost: 624786 },
+    { year: 2017, month: 1, housingcost: 628294 },
+    { year: 2017, month: 2, housingcost: 631427 },
+    { year: 2017, month: 3, housingcost: 635070 },
+    { year: 2017, month: 4, housingcost: 637393 },
+    { year: 2017, month: 5, housingcost: 642084 },
+    { year: 2017, month: 6, housingcost: 646086 },
+    { year: 2017, month: 7, housingcost: 650858 },
+    { year: 2017, month: 8, housingcost: 654837 },
+    { year: 2017, month: 9, housingcost: 658634 },
+    { year: 2017, month: 10, housingcost: 661764 },
+    { year: 2017, month: 11, housingcost: 667512 },
+    { year: 2017, month: 12, housingcost: 673141 },
+    { year: 2018, month: 1, housingcost: 678422 },
+    { year: 2018, month: 2, housingcost: 683876 },
+    { year: 2018, month: 3, housingcost: 689956 },
+    { year: 2018, month: 4, housingcost: 695163 },
+    { year: 2018, month: 5, housingcost: 698885 },
+    { year: 2018, month: 6, housingcost: 702314 },
+    { year: 2018, month: 7, housingcost: 705315 },
+    { year: 2018, month: 8, housingcost: 706598 },
+    { year: 2018, month: 9, housingcost: 707110 },
+    { year: 2018, month: 10, housingcost: 708120 },
+    { year: 2018, month: 11, housingcost: 708970 },
+    { year: 2018, month: 12, housingcost: 708244 },
+    { year: 2019, month: 1, housingcost: 707563 },
+    { year: 2019, month: 2, housingcost: 704230 },
+    { year: 2019, month: 3, housingcost: 701150 },
+    { year: 2019, month: 4, housingcost: 700470 },
+    { year: 2019, month: 5, housingcost: 705092 },
+    { year: 2019, month: 6, housingcost: 711511 },
+    { year: 2019, month: 7, housingcost: 712553 },
+    { year: 2019, month: 8, housingcost: 712147 },
+    { year: 2019, month: 9, housingcost: 711833 },
+    { year: 2019, month: 10, housingcost: 715554 },
+    { year: 2019, month: 11, housingcost: 718081 },
+    { year: 2019, month: 12, housingcost: 722161 },
+    { year: 2020, month: 1, housingcost: 726321 },
+    { year: 2020, month: 2, housingcost: 732885 },
+    { year: 2020, month: 3, housingcost: 739346 },
+    { year: 2020, month: 4, housingcost: 744932 },
+    { year: 2020, month: 5, housingcost: 747136 },
+    { year: 2020, month: 6, housingcost: 748717 },
+    { year: 2020, month: 7, housingcost: 755233 },
+    { year: 2020, month: 8, housingcost: 764528 },
   ],
+  covid: [],
   historicalweather: [
-    {
-      month: 'Nov',
-      precipitation: 3.35,
-      temperature: 40.3,
-    },
-    {
-      month: 'Jan',
-      precipitation: 4.4,
-      temperature: 28.5,
-    },
-    {
-      month: 'Jul',
-      precipitation: 5.1,
-      temperature: 76.5,
-    },
-    {
-      month: 'Mar',
-      precipitation: 3.06,
-      temperature: 35.5,
-    },
-    {
-      month: 'Aug',
-      precipitation: 5.08,
-      temperature: 72.7,
-    },
-    {
-      month: 'Dec',
-      precipitation: 6.48,
-      temperature: 32.6,
-    },
-    {
-      month: 'Apr',
-      precipitation: 6.96,
-      temperature: 50.0,
-    },
-    {
-      month: 'Oct',
-      precipitation: 5.93,
-      temperature: 54.7,
-    },
-    {
-      month: 'Feb',
-      precipitation: 3.56,
-      temperature: 30.2,
-    },
-    {
-      month: 'May',
-      precipitation: 3.48,
-      temperature: 56.4,
-    },
-    {
-      month: 'Sep',
-      precipitation: 2.6,
-      temperature: 65.3,
-    },
-    {
-      month: 'Jun',
-      precipitation: 4.28,
-      temperature: 67.7,
-    },
+    { month: 'Sep', precipitation: 0.05, temperature: 76.0 },
+    { month: 'Mar', precipitation: 2.3, temperature: 60.3 },
+    { month: 'Nov', precipitation: 1.91, temperature: 64.4 },
+    { month: 'Apr', precipitation: 0.03, temperature: 65.1 },
+    { month: 'Dec', precipitation: 4.79, temperature: 57.9 },
+    { month: 'Jan', precipitation: 5.0, temperature: 57.9 },
+    { month: 'Jun', precipitation: 0.06, temperature: 68.8 },
+    { month: 'Oct', precipitation: 0.0, temperature: 71.3 },
+    { month: 'Jul', precipitation: 0.0, temperature: 74.1 },
+    { month: 'May', precipitation: 1.05, temperature: 63.0 },
+    { month: 'Feb', precipitation: 7.87, temperature: 53.5 },
+    { month: 'Aug', precipitation: 0.0, temperature: 75.0 },
   ],
 };
 
@@ -1065,6 +458,8 @@ export const MainVisual = () => {
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: individual,
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
       },
       {
         label: 'Household Income',
@@ -1072,6 +467,8 @@ export const MainVisual = () => {
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: household,
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
       },
     ],
   };
@@ -1085,6 +482,8 @@ export const MainVisual = () => {
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: individual2,
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
       },
       {
         label: 'Household Income',
@@ -1092,6 +491,8 @@ export const MainVisual = () => {
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         data: household2,
+        pointBorderWidth: 1,
+        pointBackgroundColor: '#000000',
       },
     ],
   };
@@ -1108,6 +509,8 @@ export const MainVisual = () => {
                   display: true,
                   text: 'Average Individual & Household Income',
                   fontSize: 20,
+                  fontFamily: 'Roboto',
+                  fontColor: '#000000',
                 },
                 maintainAspectRatio: false,
                 animation: {
@@ -1122,11 +525,15 @@ export const MainVisual = () => {
                           return label / 1000 + 'k';
                         },
                         fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: '1k = 1,000',
+                        labelString: '1k = $1,000',
                         fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                     },
                   ],
@@ -1134,6 +541,8 @@ export const MainVisual = () => {
                     {
                       ticks: {
                         fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                     },
                   ],
@@ -1143,6 +552,8 @@ export const MainVisual = () => {
                   position: 'bottom',
                   labels: {
                     fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontColor: '#000000',
                   },
                 },
               }}
@@ -1153,12 +564,18 @@ export const MainVisual = () => {
 
           <aside className="info">
             <h4 className="infographic">
-              {c1.population > 100000 ? (
-                <RiBuilding4Line size="30px" />
+              {c1.population > 500000 ? (
+                <FaCity size="30px" />
               ) : (
-                <RiHome4Line size="30px" />
-              )}{' '}
-              &nbsp; Population Total: &nbsp; {c1.population}{' '}
+                <span>
+                  {c1.population > 100000 ? (
+                    <RiBuilding4Line size="30px" />
+                  ) : (
+                    <RiHome4Line size="30px" />
+                  )}
+                </span>
+              )}
+              &nbsp; Pop. Total: &nbsp; {c1.population}{' '}
             </h4>
 
             <h4 className="infographic">
@@ -1167,7 +584,7 @@ export const MainVisual = () => {
               ) : (
                 <FaTemperatureLow size="30px" />
               )}
-              &nbsp; Average Yearly Temperature: {c1.averagetemp.toFixed(1)}
+              &nbsp; Avg Temp: {c1.averagetemp.toFixed(1)}
               &deg;
             </h4>
 
@@ -1177,8 +594,7 @@ export const MainVisual = () => {
               ) : (
                 <RiDropLine size="30px" />
               )}
-              &nbsp; Average Precipitation: {c1.averageperc.toFixed(1)}
-              &deg;
+              &nbsp; Avg Perc.: {c1.averageperc.toFixed(1)}
             </h4>
 
             <h4 className="infographic">
@@ -1187,34 +603,37 @@ export const MainVisual = () => {
               ) : (
                 <FaArrowCircleDown size="30px" />
               )}
-              &nbsp; Cost of Living Index: {c1.costoflivingindex}%
+              &nbsp; CLI: {c1.costoflivingindex}%
             </h4>
 
             <h4 className="infographic">
               <RiTimerLine size="30px" />
-              &nbsp; Timezone: {c1.timezone}
+              &nbsp; TZ: {c1.timezone}
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Average Age: {c1.averageage}
+              <RiGiftLine size="30px" /> &nbsp; Avg Age: {c1.averageage}
             </h4>
 
             {c1.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp; Average New Covid
-                Cases: {Math.round(c1.avgnewcovidcases)} per month
+                <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
+                {Math.round(c1.avgnewcovidcases)}/month
               </h4>
             ) : null}
 
-            <div>
-              <ul>
-                <li>Average Montly Rent Cost: ${c1.rent} </li>
-                <li>Average House Cost: ${Math.round(c1.averagehouse)} </li>
-              </ul>
-            </div>
+            <h4 className="infographic">
+              {' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: ${c1.rent}{' '}
+            </h4>
+            <h4 className="infographic">
+              {' '}
+              <RiBankLine size="30px" /> &nbsp; Avg House Price: $
+              {Math.round(c1.averagehouse)}{' '}
+            </h4>
           </aside>
 
-          <img src={c1.wikiimgurl} width="500px" alt={c1.citynamestate} />
+          {/* <img src={c1.wikiimgurl} width="500px" alt={c1.citynamestate} /> */}
         </div>
 
         <div className="float">
@@ -1235,6 +654,8 @@ export const MainVisual = () => {
                   display: true,
                   text: 'Average Individual & Household Income',
                   fontSize: 20,
+                  fontFamily: 'Roboto',
+                  fontColor: '#000000',
                 },
                 maintainAspectRatio: false,
                 animation: {
@@ -1249,11 +670,15 @@ export const MainVisual = () => {
                           return label / 1000 + 'k';
                         },
                         fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: '1k = 1,000',
+                        labelString: '1k = $1,000',
                         fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                     },
                   ],
@@ -1261,6 +686,8 @@ export const MainVisual = () => {
                     {
                       ticks: {
                         fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontColor: '#000000',
                       },
                     },
                   ],
@@ -1270,6 +697,8 @@ export const MainVisual = () => {
                   position: 'bottom',
                   labels: {
                     fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontColor: '#000000',
                   },
                 },
               }}
@@ -1280,21 +709,29 @@ export const MainVisual = () => {
 
           <aside className="info">
             <h4 className="infographic">
-              {c2.population > 100000 ? (
-                <RiBuilding4Line size="30px" />
+              {c2.population > 250000 ? (
+                <FaCity size="30px" />
               ) : (
-                <RiHome4Line size="30px" />
-              )}{' '}
-              &nbsp; Population Total: &nbsp; {c2.population}{' '}
+                <span>
+                  (
+                  {c2.population > 100000 ? (
+                    <RiBuilding4Line size="30px" />
+                  ) : (
+                    <RiHome4Line size="30px" />
+                  )}
+                  )
+                </span>
+              )}
+              &nbsp; Pop. Total: &nbsp; {c2.population}{' '}
             </h4>
 
             <h4 className="infographic">
-              {c1.averagetemp > 40 ? (
+              {c2.averagetemp > 40 ? (
                 <FaTemperatureHigh size="30px" />
               ) : (
                 <FaTemperatureLow size="30px" />
               )}
-              &nbsp; Average Yearly Temperature: {c2.averagetemp.toFixed(1)}
+              &nbsp; Avg Temp: {c2.averagetemp.toFixed(1)}
               &deg;
             </h4>
 
@@ -1304,8 +741,7 @@ export const MainVisual = () => {
               ) : (
                 <RiDropLine size="30px" />
               )}
-              &nbsp; Average Precipitation: {c2.averageperc.toFixed(1)}
-              &deg;
+              &nbsp; Avg Perc.: {c2.averageperc.toFixed(1)}
             </h4>
 
             <h4 className="infographic">
@@ -1314,33 +750,36 @@ export const MainVisual = () => {
               ) : (
                 <FaArrowCircleDown size="30px" />
               )}
-              &nbsp; Cost of Living Index: {c2.costoflivingindex}%
+              &nbsp; CLI: {c2.costoflivingindex}%
             </h4>
 
             <h4 className="infographic">
               <RiTimerLine size="30px" />
-              &nbsp; Timezone: {c2.timezone}
+              &nbsp; TZ: {c2.timezone}
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Average Age: {c2.averageage}
+              <RiGiftLine size="30px" /> &nbsp; Avg Age: {c2.averageage}
             </h4>
 
             {c2.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp; Average New Covid
-                Cases: {Math.round(c2.avgnewcovidcases)} per month
+                <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
+                {Math.round(c2.avgnewcovidcases)}/month
               </h4>
             ) : null}
 
-            <div>
-              <ul>
-                <li>Average Montly Rent Cost: ${c2.rent} </li>
-                <li>Average House Cost: ${Math.round(c2.averagehouse)} </li>
-              </ul>
-            </div>
+            <h4 className="infographic">
+              {' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: ${c2.rent}{' '}
+            </h4>
+            <h4 className="infographic">
+              {' '}
+              <RiBankLine size="30px" /> &nbsp; Avg House Price: $
+              {Math.round(c2.averagehouse)}{' '}
+            </h4>
           </aside>
-          <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} />
+          {/* <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} /> */}
         </div>
       </Container>
 
