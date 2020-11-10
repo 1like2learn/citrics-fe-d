@@ -9,6 +9,7 @@ import {
   FaArrowCircleUp,
 } from 'react-icons/fa';
 import {
+  RiBankFill,
   RiBankLine,
   RiBuilding4Line,
   RiContrastDrop2Line,
@@ -104,11 +105,12 @@ const Container = styled.div`
   }
 
   .infographic {
+    width: 48%;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    margin: 2%;
+    margin: 2% auto;
   }
 `;
 
@@ -497,6 +499,10 @@ export const MainVisual = () => {
     ],
   };
 
+  const formatNumber = num => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  };
+
   return (
     <>
       <Container>
@@ -575,7 +581,7 @@ export const MainVisual = () => {
                   )}
                 </span>
               )}
-              &nbsp; Pop. Total: &nbsp; {c1.population}{' '}
+              &nbsp; Pop. Total: &nbsp; {formatNumber(c1.population)}{' '}
             </h4>
 
             <h4 className="infographic">
@@ -612,25 +618,27 @@ export const MainVisual = () => {
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Avg Age: {c1.averageage}
+              <RiGiftLine size="30px" /> &nbsp; Avg Age:{' '}
+              {Math.round(c1.averageage)}
+            </h4>
+
+            <h4 className="infographic">
+              {' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: $
+              {formatNumber(c1.rent)}{' '}
+            </h4>
+            <h4 className="infographic">
+              {' '}
+              <RiBankFill size="30px" /> &nbsp; Avg House Price: $
+              {formatNumber(Math.round(c1.averagehouse))}{' '}
             </h4>
 
             {c1.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
                 <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
-                {Math.round(c1.avgnewcovidcases)}/month
+                {formatNumber(Math.round(c1.avgnewcovidcases))}/month
               </h4>
             ) : null}
-
-            <h4 className="infographic">
-              {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: ${c1.rent}{' '}
-            </h4>
-            <h4 className="infographic">
-              {' '}
-              <RiBankLine size="30px" /> &nbsp; Avg House Price: $
-              {Math.round(c1.averagehouse)}{' '}
-            </h4>
           </aside>
 
           {/* <img src={c1.wikiimgurl} width="500px" alt={c1.citynamestate} /> */}
@@ -722,7 +730,7 @@ export const MainVisual = () => {
                   )
                 </span>
               )}
-              &nbsp; Pop. Total: &nbsp; {c2.population}{' '}
+              &nbsp; Pop. Total: &nbsp; {formatNumber(c2.population)}{' '}
             </h4>
 
             <h4 className="infographic">
@@ -759,25 +767,27 @@ export const MainVisual = () => {
             </h4>
 
             <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; Avg Age: {c2.averageage}
+              <RiGiftLine size="30px" /> &nbsp; Avg Age:{' '}
+              {Math.round(c2.averageage)}
+            </h4>
+
+            <h4 className="infographic">
+              {' '}
+              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: $
+              {formatNumber(c2.rent)}{' '}
+            </h4>
+            <h4 className="infographic">
+              {' '}
+              <RiBankFill size="30px" /> &nbsp; Avg House Price: $
+              {formatNumber(Math.round(c2.averagehouse))}{' '}
             </h4>
 
             {c2.avgnewcovidcases > 0 ? (
               <h4 className="infographic">
                 <RiSurgicalMaskLine size="30px" /> &nbsp; Avg New Covid Cases:{' '}
-                {Math.round(c2.avgnewcovidcases)}/month
+                {formatNumber(Math.round(c2.avgnewcovidcases))}/month
               </h4>
             ) : null}
-
-            <h4 className="infographic">
-              {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp; Avg. Rent: ${c2.rent}{' '}
-            </h4>
-            <h4 className="infographic">
-              {' '}
-              <RiBankLine size="30px" /> &nbsp; Avg House Price: $
-              {Math.round(c2.averagehouse)}{' '}
-            </h4>
           </aside>
           {/* <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} /> */}
         </div>
@@ -786,28 +796,7 @@ export const MainVisual = () => {
       <Container>
         <div className="split">
           {cityOne ? (
-            <div>
-              {/* 
-                                <img src={cityOne.img} alt={cityOne.imagAlt} size='????'>
-                                <div>
-                                    <Graph
-                                        cityOne.details.map(dets => {
-                                            return (
-                                                <line src={} />
-                                                <line src={} />
-                                            )
-                                        })
-                                    />
-                                </div>
-                                <div>
-                                        <Details 
-                                            <h3></h3>
-                                            <h3></h3>
-                                            <h3></h3>
-                                        />
-                                </div>  
-                                */}
-            </div>
+            <div></div>
           ) : (
             <div className="icons">
               <FaRegPlusSquare size="50px" />
@@ -826,28 +815,7 @@ export const MainVisual = () => {
 
         <div className="split">
           {cityTwo ? (
-            <div>
-              {/* 
-                                <img src={cityTwo.img} alt={cityTwo.imagAlt} size='????'>
-                                <div>
-                                    <Graph
-                                        cityTwo.details.map(dets => {
-                                            return (
-                                                <line src={} />
-                                                <line src={} />
-                                            )
-                                        })
-                                    />
-                                </div>
-                                <div>
-                                        <Details 
-                                            <h3></h3>
-                                            <h3></h3>
-                                            <h3></h3>
-                                        />
-                                </div>  
-                                */}
-            </div>
+            <div></div>
           ) : (
             <div className="icons">
               <FaRegPlusSquare size="50px" />
