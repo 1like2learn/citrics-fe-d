@@ -7,9 +7,10 @@ import { cardContainerActs } from '../../../state/actions';
 //COMPONENTS
 import MultipleCityCard from '../../common/MultipleCityCard';
 import Footer from '../../common/Footer';
-import { LandingHeader as Header } from '../../common/Header';
+import { Header } from '../../pages/ComparisonPage/Header';
 import MultipleCityChart from '../../common/MultipleCityChart';
 
+// DUMMY DATA
 const temp_data = [
   {
     cityid: 199131,

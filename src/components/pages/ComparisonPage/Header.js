@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from './assets/Citrics Icon.svg';
+import logo from '../../../assets/Citrics Icon.svg';
 import { FaSearchengin, FaUserCircle } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
@@ -22,23 +23,27 @@ const HeaderBar = styled.div`
     h1 {
       font-family: 'Norwester', sans serif;
       text-transform: uppercase;
-      font-size: 2rem;
-      align-items: flex-start;
+      font-size: 3.5rem;
       letter-spacing: 3px;
       color: #d35540;
     }
 
     h3 {
-      font-size: 0.45rem;
+      position: relative;
+      font-size: 0.75rem;
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
+      top: -50px;
     }
 
     div {
+      position: relative;
       display: flex;
       flex-direction: column;
       margin: 0 2%;
       align-items: flex-start;
+      justify-content: center;
+      top: 22.5px;
     }
   }
 
@@ -62,7 +67,7 @@ const HeaderBar = styled.div`
 
     div {
       display: flex;
-      font-size: 0.5rem;
+      font-size: 0.75rem;
       align-items: flex-end;
       margin: 1% 0 1% 5%;
       color: #d35540;
@@ -92,6 +97,7 @@ const searchable = {
 export const Header = () => {
   const [searchTerm, setSearchTerm] = useState(searchable);
   const searching = useSelector(state => state.isSearching);
+  const { push } = useHistory();
 
   const handleChanges = e => {
     e.preventDefault();
@@ -100,8 +106,8 @@ export const Header = () => {
 
   return (
     <HeaderBar>
-      <div className="left">
-        <img src={logo} alt="Citrics Logo" height="40px" />
+      <div onClick={() => push('/')} className="left">
+        <img src={logo} alt="Citrics Logo" height="90px" />
 
         <div>
           <h1>CITRICS</h1>
@@ -110,7 +116,7 @@ export const Header = () => {
       </div>
 
       <div className="search">
-        {searching ? null : (
+        {searching ? (
           <SearchBar className="sb-dis">
             <label name="term" htmlFor="term">
               <input
@@ -122,7 +128,7 @@ export const Header = () => {
               />
             </label>
           </SearchBar>
-        )}
+        ) : null}
       </div>
 
       <div className="right">
@@ -131,9 +137,9 @@ export const Header = () => {
             Advanced <br /> Search
           </p>{' '}
           &nbsp;
-          <FaSearchengin size="25px" />
+          <FaSearchengin size="45px" />
         </div>
-        <FaUserCircle className="profile" size="30px" />
+        <FaUserCircle className="profile" size="50px" />
       </div>
     </HeaderBar>
   );
