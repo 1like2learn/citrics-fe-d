@@ -11,6 +11,17 @@ const CloseButtonContainer = styled.button`
   outline: none;
   font-size: 1.5rem;
   align-self: center;
+  cursor: pointer;
+  &:hover {
+    display: flex;
+    color: #fff;
+    border-radius: 70%;
+    background-color: #d3553f;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default function CloseButton() {
