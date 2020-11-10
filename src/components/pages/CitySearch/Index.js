@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logic from './logic.js';
+// import logic from './logic.js';
 import dummyData from '../../../utils/dummyData';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -8,7 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // import Header from '../../common/header';
 
 export default function CitySearch() {
-  const { citynamestate, wikiimgurl, latitude, longitude } = dummyData;
+  const { citynamestate, wikiimgurl, summary, latitude, longitude } = dummyData;
 
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
@@ -25,7 +25,7 @@ export default function CitySearch() {
         >
           <div className="citySearchTextCont">
             <h2>{citynamestate}</h2>
-            <p>description</p>
+            <p>{summary}</p>
           </div>
         </section>
 
