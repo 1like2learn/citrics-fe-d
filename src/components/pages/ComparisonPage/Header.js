@@ -66,7 +66,7 @@ const HeaderBar = styled.div`
 
     div {
       display: flex;
-      font-size: 0.5rem;
+      font-size: 0.75rem;
       align-items: flex-end;
       margin: 1% 0 1% 5%;
       color: #d35540;
