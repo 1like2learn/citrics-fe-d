@@ -1,6 +1,31 @@
 import React from 'react';
-import CloseButton from '../CloseButton';
+
+// STYLING
 import styled from 'styled-components';
+import {
+  FaRegPlusSquare,
+  FaCity,
+  FaTemperatureHigh,
+  FaTemperatureLow,
+  FaArrowCircleDown,
+  FaArrowCircleUp,
+} from 'react-icons/fa';
+import {
+  RiBankFill,
+  RiBuilding4Line,
+  RiContrastDrop2Line,
+  RiDropLine,
+  RiGiftLine,
+  RiHome4Line,
+  RiMoneyDollarBoxLine,
+  RiSurgicalMaskLine,
+  RiTimerLine,
+  RiHospitalLine,
+} from 'react-icons/ri';
+
+//COMPONENTS
+import CloseButton from '../CloseButton';
+import CityDetails from '../CityDetails';
 
 const CardContainer = styled.div`
   display: flex;
@@ -28,13 +53,15 @@ const CardContainer = styled.div`
       }
     }
     .city-card-cityDetails {
-      height: 100%;
+      height: 90%;
+      padding: 2rem;
     }
   }
 `;
 
 export default function MultipleCityCard(props) {
   const { city } = props;
+
   return (
     <CardContainer>
       <img src={city.wikiimgurl} alt={city.citynamestate} />
@@ -49,6 +76,7 @@ export default function MultipleCityCard(props) {
         <div className="city-card-cityDetails">
           {' '}
           {/*city details component goes here*/}
+          <CityDetails city={city} />
         </div>
       </div>
     </CardContainer>
