@@ -12,6 +12,7 @@ const Bottom = styled.div`
     margin: 1% auto;
     text-align: center;
     font-size: 0.75rem;
+    color: #000000;
   }
 `;
 

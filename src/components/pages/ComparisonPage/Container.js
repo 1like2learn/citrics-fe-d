@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import { DescriptionSection } from './DecriptionSection';
 import { Header } from './Header';
 import { MainVisual } from './MainVisual';
