@@ -9,12 +9,11 @@ export default function SingleCityChart(props) {
   const years = city.historicalincome.map(c => c.year);
   const income = city.historicalincome.map(c => c.householdincome);
   const housingCost = [];
-  city.historicalaveragehouse.forEach((month) => {
-      if (month.month === 12) {
-        housingCost.push(month.housingcost);
-      }
+  city.historicalaveragehouse.forEach(month => {
+    if (month.month === 12) {
+      housingCost.push(month.housingcost);
+    }
   });
-
 
   const chartData = {
     labels: years,
