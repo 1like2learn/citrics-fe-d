@@ -109,8 +109,6 @@ export const LandingHeader = () => {
           <button>Compare Cities</button>
         </div>
       </HeaderBar>
-
-      <div className="spacer"></div>
     </div>
   );
 };

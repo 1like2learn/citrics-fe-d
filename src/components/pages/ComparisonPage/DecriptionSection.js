@@ -11,8 +11,9 @@ const Bottom = styled.div`
     width: 75%;
     margin: 1% auto;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #000000;
+    font-weight: bold;
   }
 `;
 
@@ -21,19 +22,15 @@ export const DescriptionSection = () => {
     <Bottom className="bottom">
       <div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget nisi,
-          ridiculus amet in diam. Cras ipsum lacus, amet adipiscing risus
-          egestas. Aenean porttitor tortor ridiculus ligula non at. Aliquet
-          viverra elit maecenas lorem nascetur tellus quam. Consectetur dictum
-          nulla tristique eget faucibus placerat morbi feugiat. Praesent turpis
-          porta aliquam ut vel ultricies hendrerit. Volutpat ac pulvinar in sed
-          fringilla egestas mattis suspendisse. Turpis tortor sagittis natoque
-          pellentesque turpis. Urna rhoncus, elementum et pellentesque donec sed
-          amet. Adipiscing quisque mollis sagittis bibendum lectus. Id justo ut
-          viverra sem consectetur ullamcorper mauris. Sagittis suscipit ut eu
-          platea molestie eu. Tristique et, turpis viverra semper ut commodo at.
-          Tempor aliquet cursus scelerisque lobortis augue non habitasse hac.
-          Interdum fermentum.
+          * The Cost-of-Living Index (CLI) is based on a National Average of
+          consumer costs for goods and services. A score of 100% means that the
+          CLI in the given city is at the National Average. Whereas, a score
+          above or below reflects a CLI of above average prices or below average
+          prices, respectively, when compared to the National Average.
+        </p>
+        <p>
+          ** Covid case count numbers may not be available in all areas. Where
+          data has been gathered, it has been provided.{' '}
         </p>
       </div>
     </Bottom>
