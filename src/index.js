@@ -22,6 +22,7 @@ import {
   FavoritesPage,
 } from './components/pages';
 import MultipleCityPage from './components/pages/MultipleCityPage';
+import { ProfilePage } from './components/pages/ProfilePage';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -44,6 +45,7 @@ function App() {
   };
   return (
     <Switch>
+      <Route path="/testprofile" component={ProfilePage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/compare" component={ComparisonPage} />
       <Route path="/" exact component={LandingPage} />
