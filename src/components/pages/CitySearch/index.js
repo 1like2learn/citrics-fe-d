@@ -5,8 +5,9 @@ import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import dummyData from '../../../utils/dummyData';
 import SingleCityDetails from '../../common/SingleCityDetails';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import CitySearchDiv from './style';
+import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
+import CitySearchHeader from './CitySearchHeader';
 // import Header from '../../common/header';
 
 export default function CitySearch() {
@@ -15,10 +16,9 @@ export default function CitySearch() {
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
-
   return (
     <CitySearchDiv>
-      {/* nav */}
+      <CitySearchHeader />
       <div className="citySearchCont">
         <section
           className="citySearchTextDescription"

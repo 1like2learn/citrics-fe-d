@@ -1,26 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  FaRegPlusSquare,
-  FaCity,
-  FaTemperatureHigh,
-  FaTemperatureLow,
-  FaArrowCircleDown,
-  FaArrowCircleUp,
-} from 'react-icons/fa';
-import {
-  RiBankFill,
-  RiBuilding4Line,
-  RiContrastDrop2Line,
-  RiDropLine,
-  RiGiftLine,
-  RiHome4Line,
-  RiMoneyDollarBoxLine,
-  RiSurgicalMaskLine,
-  RiTimerLine,
-} from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
+import CityDetails from '../../common/CityDetails';
 
 const Container = styled.div`
   display: flex;
@@ -45,7 +27,7 @@ const Container = styled.div`
     display: flex;
     margin: 1% auto;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     width: 50vw;
     height: 100%;
 
@@ -86,8 +68,8 @@ const Container = styled.div`
   .info {
     display: flex;
     flex-flow: row wrap;
-    width: 90%;
-    margin: 1% auto;
+    width: 100%;
+    margin: 1%;
     justify-content: center;
   }
 
@@ -104,21 +86,11 @@ const Container = styled.div`
   }
 
   .graph {
-    height: 50vh;
+    height: 35vh;
     width: 40vw;
     text-align: center;
     display: flex;
     font-size: 5rem;
-  }
-
-  .infographic {
-    width: 30%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5% auto;
-    text-align: center;
   }
 `;
 
@@ -127,1079 +99,1259 @@ This is hard coded city data for Tampa, FL to test the graphs with.
 */
 
 let c1 = {
-  cityid: 395264,
-  citynamestate: 'National Average, USA',
-  statecode: null,
-  timezone: null,
-  latitude: 37.48712116492545,
-  logitude: -96.031425068364,
-  fpis: null,
+  cityid: 192531,
+  citynamestate: 'Tampa, Florida',
+  statecode: 'FL',
+  timezone: 'UTC−5 Eastern',
+  latitude: 27.9477595,
+  logitude: -82.458444,
+  fpis: '12-71000',
   gnis: null,
-  wikiimgurl: null,
-  website: null,
-  population: 113846.68421052632,
-  densitymisq: 0.0,
-  densitykmsq: 0.0,
-  averageage: 36.50746268656718,
-  householdincome: 65208.21523959152,
-  individualincome: 32457.170463472114,
-  averagehouse: 306294.276512176,
-  rent: 1152.3778476040848,
-  costoflivingindex: 102.8215239591515,
-  acastatus: null,
-  averagetemp: 'NaN',
-  averageperc: 'NaN',
-  avgnewcovidcases: 'NaN',
-  zipcodes: [],
-  counties: [],
+  wikiimgurl:
+    'https://upload.wikimedia.org/wikipedia/commons/8/8c/TampaCollection1.png',
+  website: 'www.tampagov.net',
+  population: 385430.0,
+  densitymisq: 3505.68,
+  densitykmsq: 1353.55,
+  averageage: 36.6,
+  householdincome: 50489.0,
+  individualincome: 34278.0,
+  averagehouse: 233800.0,
+  rent: 1082.0,
+  costoflivingindex: 95.8,
+  acastatus: 'Not Adopted',
+  averagetemp: 74.91666666666667,
+  averageperc: 4.965833333333333,
+  avgnewcovidcases: 13765.445283018867,
+  zipcodes: [
+    {
+      code: '33672–33675',
+    },
+    {
+      code: '33633–33635',
+    },
+    {
+      code: '33660–33664',
+    },
+    {
+      code: '33677',
+    },
+    {
+      code: '33601–33626',
+    },
+    {
+      code: '33646',
+    },
+    {
+      code: '33684–33689',
+    },
+    {
+      code: '33655',
+    },
+    {
+      code: '336948',
+    },
+    {
+      code: '33650',
+    },
+    {
+      code: '33679–33682',
+    },
+    {
+      code: '33637',
+    },
+    {
+      code: '33647',
+    },
+    {
+      code: '33629–33631',
+    },
+  ],
+  counties: [
+    {
+      name: 'Hillsborough',
+    },
+  ],
   populationhist: [
     {
-      year: 2017,
-      pop: 113698.48075412412,
-    },
-    {
       year: 2019,
-      pop: 114815.25451688924,
-    },
-    {
-      year: 2018,
-      pop: 114277.68656716419,
-    },
-    {
-      year: 2016,
-      pop: 112925.99685781618,
-    },
-    {
-      year: 2012,
-      pop: 108799.0534171249,
-    },
-    {
-      year: 2014,
-      pop: 110880.33857030637,
-    },
-    {
-      year: 2011,
-      pop: 107677.59073055774,
-    },
-    {
-      year: 2010,
-      pop: 105982.08326787117,
+      pop: 399700.0,
     },
     {
       year: 2013,
-      pop: 109834.82953652789,
+      pop: 355172.0,
+    },
+    {
+      year: 2018,
+      pop: 397232.0,
+    },
+    {
+      year: 2011,
+      pop: 342589.0,
+    },
+    {
+      year: 2016,
+      pop: 380344.0,
+    },
+    {
+      year: 2014,
+      pop: 362664.0,
+    },
+    {
+      year: 2017,
+      pop: 391026.0,
+    },
+    {
+      year: 2012,
+      pop: 348090.0,
+    },
+    {
+      year: 2010,
+      pop: 335709.0,
     },
     {
       year: 2015,
-      pop: 111954.4619010212,
+      pop: 371464.0,
     },
   ],
   historicalincome: [
     {
-      year: 2012,
-      individualincome: 32551,
-      householdincome: 52609,
+      year: 2017,
+      individualincome: 33962,
+      householdincome: 52594,
     },
     {
       year: 2019,
-      individualincome: 41818,
-      householdincome: 68191,
-    },
-    {
-      year: 2016,
-      individualincome: 36334,
-      householdincome: 59474,
-    },
-    {
-      year: 2010,
-      individualincome: 31534,
-      householdincome: 50982,
-    },
-    {
-      year: 2018,
-      individualincome: 39170,
-      householdincome: 64334,
-    },
-    {
-      year: 2017,
-      individualincome: 37856,
-      householdincome: 62068,
-    },
-    {
-      year: 2015,
-      individualincome: 35269,
-      householdincome: 57350,
+      individualincome: 37292,
+      householdincome: 59227,
     },
     {
       year: 2014,
-      individualincome: 34015,
-      householdincome: 55319,
+      individualincome: 30563,
+      householdincome: 47463,
+    },
+    {
+      year: 2012,
+      individualincome: 29072,
+      householdincome: 45040,
+    },
+    {
+      year: 2018,
+      individualincome: 34769,
+      householdincome: 55462,
+    },
+    {
+      year: 2016,
+      individualincome: 32389,
+      householdincome: 50860,
     },
     {
       year: 2013,
-      individualincome: 33282,
-      householdincome: 53870,
+      individualincome: 29772,
+      householdincome: 46036,
+    },
+    {
+      year: 2015,
+      individualincome: 31445,
+      householdincome: 49426,
     },
     {
       year: 2011,
-      individualincome: 31562,
-      householdincome: 51464,
+      individualincome: 28348,
+      householdincome: 44299,
+    },
+    {
+      year: 2010,
+      individualincome: 28922,
+      householdincome: 44409,
     },
   ],
   historicalaveragehouse: [
     {
-      year: 2012,
-      month: 2012,
-      housingcost: 208889,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 210294,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 307428,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 281909,
-    },
-    {
       year: 2010,
       month: 2010,
-      housingcost: 227874,
+      housingcost: 141548,
     },
     {
       year: 2018,
       month: 2018,
-      housingcost: 331353,
+      housingcost: 226495,
     },
     {
-      year: 2010,
-      month: 2010,
-      housingcost: 220722,
+      year: 2019,
+      month: 2019,
+      housingcost: 239266,
     },
     {
-      year: 2015,
-      month: 2015,
-      housingcost: 278865,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 268315,
+      year: 2019,
+      month: 2019,
+      housingcost: 246850,
     },
     {
       year: 2013,
       month: 2013,
-      housingcost: 242922,
+      housingcost: 141907,
     },
     {
       year: 2011,
       month: 2011,
-      housingcost: 209381,
+      housingcost: 116576,
     },
     {
-      year: 2019,
-      month: 2019,
-      housingcost: 338132,
+      year: 2017,
+      month: 2017,
+      housingcost: 214492,
     },
     {
-      year: 2019,
-      month: 2019,
-      housingcost: 341542,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 292684,
+      year: 2018,
+      month: 2018,
+      housingcost: 237388,
     },
     {
       year: 2015,
       month: 2015,
-      housingcost: 270039,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 260864,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 227973,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 256804,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 229640,
+      housingcost: 165244,
     },
     {
       year: 2017,
       month: 2017,
-      housingcost: 317578,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 324737,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 336188,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 223710,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 344861,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 302084,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 222121,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 339290,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 216581,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 343595,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 300466,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 327111,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 309173,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 212432,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 227837,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 255899,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 209002,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 272816,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 335140,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 337655,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 245502,
+      housingcost: 213136,
     },
     {
       year: 2016,
       month: 2016,
-      housingcost: 291337,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 274396,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 228266,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 340617,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 235426,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 224907,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 322404,
+      housingcost: 182864,
     },
     {
       year: 2016,
       month: 2016,
-      housingcost: 297363,
+      housingcost: 189495,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 129078,
     },
     {
       year: 2011,
       month: 2011,
-      housingcost: 210813,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 232684,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 266594,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 315145,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 218247,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 210244,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 214976,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 336826,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 337894,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 222255,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 227682,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 208702,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 329185,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 257519,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 253778,
+      housingcost: 116424,
     },
     {
       year: 2020,
       month: 2020,
-      housingcost: 352919,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 298898,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 251190,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 320026,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 287169,
+      housingcost: 252806,
     },
     {
       year: 2012,
       month: 2012,
-      housingcost: 211269,
+      housingcost: 125647,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 122428,
     },
     {
       year: 2010,
       month: 2010,
-      housingcost: 225967,
+      housingcost: 147561,
     },
     {
       year: 2015,
       month: 2015,
-      housingcost: 263479,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 359273,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 214147,
+      housingcost: 176643,
     },
     {
       year: 2018,
       month: 2018,
-      housingcost: 337391,
+      housingcost: 238494,
     },
     {
-      year: 2015,
-      month: 2015,
-      housingcost: 277588,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 350073,
+      year: 2018,
+      month: 2018,
+      housingcost: 234491,
     },
     {
       year: 2011,
       month: 2011,
-      housingcost: 218462,
+      housingcost: 128131,
     },
     {
       year: 2014,
       month: 2014,
-      housingcost: 252787,
+      housingcost: 161337,
     },
     {
-      year: 2017,
-      month: 2017,
-      housingcost: 303784,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 338031,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 212125,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 247492,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 312969,
+      year: 2015,
+      month: 2015,
+      housingcost: 174792,
     },
     {
       year: 2016,
       month: 2016,
-      housingcost: 284535,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 280335,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 209865,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 337751,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 337940,
-    },
-    {
-      year: 2017,
-      month: 2017,
-      housingcost: 310936,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 258347,
+      housingcost: 198941,
     },
     {
       year: 2010,
       month: 2010,
-      housingcost: 227682,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 283377,
-    },
-    {
-      year: 2012,
-      month: 2012,
-      housingcost: 220123,
+      housingcost: 139222,
     },
     {
       year: 2011,
       month: 2011,
-      housingcost: 211483,
+      housingcost: 116666,
     },
     {
       year: 2011,
       month: 2011,
-      housingcost: 217167,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 212972,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 295787,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 351717,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 227020,
+      housingcost: 116735,
     },
     {
       year: 2019,
       month: 2019,
-      housingcost: 341915,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 259249,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 342614,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 254481,
-    },
-    {
-      year: 2018,
-      month: 2018,
-      housingcost: 333344,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 276036,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 348187,
-    },
-    {
-      year: 2019,
-      month: 2019,
-      housingcost: 341410,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 249379,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 264885,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 356211,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 354207,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 289872,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 255085,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 288625,
-    },
-    {
-      year: 2015,
-      month: 2015,
-      housingcost: 271362,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 294236,
-    },
-    {
-      year: 2010,
-      month: 2010,
-      housingcost: 226839,
-    },
-    {
-      year: 2020,
-      month: 2020,
-      housingcost: 346416,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 237984,
-    },
-    {
-      year: 2016,
-      month: 2016,
-      housingcost: 285917,
-    },
-    {
-      year: 2011,
-      month: 2011,
-      housingcost: 219486,
-    },
-    {
-      year: 2013,
-      month: 2013,
-      housingcost: 224539,
-    },
-    {
-      year: 2014,
-      month: 2014,
-      housingcost: 262116,
+      housingcost: 239772,
     },
     {
       year: 2017,
       month: 2017,
-      housingcost: 305576,
+      housingcost: 211695,
     },
     {
-      year: 2012,
-      month: 2012,
-      housingcost: 213634,
+      year: 2018,
+      month: 2018,
+      housingcost: 229860,
     },
     {
-      year: 2011,
-      month: 2011,
-      housingcost: 215750,
+      year: 2019,
+      month: 2019,
+      housingcost: 244704,
     },
     {
-      year: 2012,
-      month: 2012,
-      housingcost: 209390,
+      year: 2015,
+      month: 2015,
+      housingcost: 163803,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 152605,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 251112,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 156802,
     },
     {
       year: 2013,
       month: 2013,
-      housingcost: 240507,
+      housingcost: 145814,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 170821,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 204184,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 117230,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 209264,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 139926,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 162797,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 124968,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 264815,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 169278,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 229122,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 145890,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 194181,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 200993,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 249556,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 148351,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 166806,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 239897,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 159856,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 191838,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 219127,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 259235,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 206750,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 240396,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 143409,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 155542,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 137979,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 181198,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 123901,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 148736,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 156530,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 217772,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 164721,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 121210,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 116042,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 133878,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 244160,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 131008,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 143836,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 120844,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 145014,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 132230,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 231041,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 147635,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 236173,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 254733,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 137001,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 125949,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 123525,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 154318,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 149628,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 135887,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 145651,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 184971,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 245610,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 261721,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 241641,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 116020,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 167866,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 172979,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 232608,
+    },
+    {
+      year: 2020,
+      month: 2020,
+      housingcost: 256716,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 242553,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 248220,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 179577,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 216381,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 195487,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 118634,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 119554,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 157370,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 146903,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 117750,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 186773,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 130254,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 118283,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 150748,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 228277,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 221147,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 215433,
+    },
+    {
+      year: 2013,
+      month: 2013,
+      housingcost: 132562,
+    },
+    {
+      year: 2011,
+      month: 2011,
+      housingcost: 119502,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 177890,
+    },
+    {
+      year: 2018,
+      month: 2018,
+      housingcost: 223564,
+    },
+    {
+      year: 2017,
+      month: 2017,
+      housingcost: 202554,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 116432,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 158361,
+    },
+    {
+      year: 2012,
+      month: 2012,
+      housingcost: 127030,
+    },
+    {
+      year: 2014,
+      month: 2014,
+      housingcost: 155999,
+    },
+    {
+      year: 2019,
+      month: 2019,
+      housingcost: 243709,
+    },
+    {
+      year: 2010,
+      month: 2010,
+      housingcost: 134401,
+    },
+    {
+      year: 2015,
+      month: 2015,
+      housingcost: 164237,
+    },
+    {
+      year: 2016,
+      month: 2016,
+      housingcost: 197138,
     },
   ],
   covid: [
     {
       year: 2020,
-      month: 5,
-      day: 20,
-      cases: 1891,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 24,
-      cases: 3129,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 2,
-      cases: 303,
-    },
-    {
-      year: 2020,
       month: 9,
-      day: 15,
-      cases: 9098,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 16,
-      cases: 9144,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 4,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 10,
       day: 11,
-      cases: 10419,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 15,
-      cases: 9,
+      cases: 39138,
     },
     {
       year: 2020,
       month: 4,
-      day: 21,
-      cases: 978,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 12,
-      cases: 5,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 13,
-      cases: 1689,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 31,
-      cases: 6486,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 2,
-      cases: 1363,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 21,
-      cases: 9410,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 27,
-      cases: 6094,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 20,
-      cases: 7885,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 16,
-      cases: 806,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 21,
-      cases: 7946,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 20,
-      cases: 5451,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 1,
-      cases: 1331,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 12,
-      cases: 664,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 8,
-      cases: 7051,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 17,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 4,
-      cases: 10033,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 2,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 26,
-      cases: 9651,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 15,
-      cases: 1755,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 3,
-      cases: 6683,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 19,
-      cases: 917,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 2,
-      cases: 9935,
-    },
-    {
-      year: 2020,
-      month: 7,
       day: 24,
-      cases: 5868,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 7,
-      cases: 482,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 25,
-      cases: 8154,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 17,
-      cases: 16,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 6,
-      cases: 1,
+      cases: 1022,
     },
     {
       year: 2020,
       month: 2,
-      day: 18,
+      day: 26,
       cases: 0,
     },
     {
       year: 2020,
-      month: 9,
-      day: 2,
-      cases: 8555,
+      month: 10,
+      day: 7,
+      cases: 43304,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 28,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 9,
+      cases: 1400,
     },
     {
       year: 2020,
       month: 6,
-      day: 30,
-      cases: 3556,
+      day: 15,
+      cases: 3826,
     },
     {
       year: 2020,
-      month: 4,
-      day: 26,
-      cases: 1161,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 13,
-      cases: 692,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 2,
-      cases: 2245,
+      month: 8,
+      day: 15,
+      cases: 34040,
     },
     {
       year: 2020,
       month: 7,
       day: 9,
-      cases: 4396,
+      cases: 16666,
     },
     {
       year: 2020,
       month: 7,
-      day: 2,
-      cases: 3737,
+      day: 19,
+      cases: 23706,
     },
     {
       year: 2020,
       month: 5,
-      day: 25,
-      cases: 2029,
+      day: 15,
+      cases: 1568,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 27,
+      cases: 1995,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 21,
+      cases: 35293,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 20,
+      cases: 32,
+    },
+    {
+      year: 2020,
+      month: 10,
+      day: 5,
+      cases: 43027,
     },
     {
       year: 2020,
       month: 7,
-      day: 23,
-      cases: 5762,
+      day: 6,
+      cases: 14677,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 29,
+      cases: 42118,
     },
     {
       year: 2020,
       month: 2,
-      day: 22,
+      day: 21,
       cases: 0,
     },
     {
       year: 2020,
-      month: 4,
-      day: 15,
-      cases: 768,
-    },
-    {
-      year: 2020,
       month: 1,
-      day: 23,
+      day: 26,
       cases: 0,
     },
     {
       year: 2020,
       month: 3,
-      day: 21,
-      cases: 41,
+      day: 11,
+      cases: 3,
     },
     {
       year: 2020,
       month: 6,
-      day: 13,
-      cases: 2587,
+      day: 21,
+      cases: 5580,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 4,
+      cases: 497,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 22,
+      cases: 5973,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 4,
+      cases: 30798,
+    },
+    {
+      year: 2020,
+      month: 1,
+      day: 27,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 26,
+      cases: 36157,
     },
     {
       year: 2020,
       month: 7,
       day: 7,
-      cases: 4177,
+      cases: 15362,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 26,
+      cases: 41722,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 31,
+      cases: 37136,
     },
     {
       year: 2020,
       month: 6,
+      day: 29,
+      cases: 10323,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 10,
+      cases: 17662,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 8,
+      cases: 32268,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 27,
+      cases: 27483,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 13,
+      cases: 33428,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 21,
+      cases: 24550,
+    },
+    {
+      year: 2020,
+      month: 1,
+      day: 25,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 8,
+      cases: 16099,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 20,
+      cases: 1703,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 22,
+      cases: 24891,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 14,
+      cases: 33694,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 26,
+      cases: 142,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 11,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 5,
       day: 7,
-      cases: 2391,
+      cases: 1364,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 10,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 22,
+      cases: 982,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 14,
+      cases: 3613,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 17,
+      cases: 34368,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 6,
+      cases: 2643,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 22,
+      cases: 58,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 22,
+      cases: 1790,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 12,
+      cases: 1473,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 7,
+      cases: 38545,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 6,
+      cases: 2,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 6,
+      cases: 571,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 27,
+      cases: 41826,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 17,
+      cases: 40126,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 19,
+      cases: 40587,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 13,
+      cases: 3504,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 8,
+      cases: 2861,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 8,
+      cases: 626,
+    },
+    {
+      year: 2020,
+      month: 1,
+      day: 28,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 19,
+      cases: 1670,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 6,
+      cases: 38426,
+    },
+    {
+      year: 2020,
+      month: 1,
+      day: 29,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 27,
+      cases: 1062,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 27,
+      cases: 36354,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 14,
+      cases: 39600,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 1,
+      cases: 11465,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 24,
+      cases: 1883,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 17,
+      cases: 4273,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 2,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 18,
+      cases: 40349,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 17,
+      cases: 7,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 22,
+      cases: 35574,
     },
     {
       year: 2020,
@@ -1209,591 +1361,441 @@ let c1 = {
     },
     {
       year: 2020,
-      month: 2,
-      day: 15,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 28,
-      cases: 3401,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 16,
-      cases: 2697,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 25,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 20,
-      cases: 33,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 17,
-      cases: 1804,
-    },
-    {
-      year: 2020,
       month: 4,
-      day: 27,
-      cases: 1189,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 8,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 13,
-      cases: 4773,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 8,
-      cases: 4279,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 30,
-      cases: 1294,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 14,
-      cases: 9055,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 5,
-      cases: 409,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 5,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 1,
-      cases: 9875,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 22,
-      cases: 3007,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 12,
-      cases: 8977,
-    },
-    {
-      year: 2020,
-      month: 9,
       day: 10,
-      cases: 8883,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 18,
-      cases: 2790,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 26,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 24,
-      cases: 1099,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 9,
-      cases: 7104,
+      cases: 671,
     },
     {
       year: 2020,
       month: 9,
-      day: 23,
-      cases: 9491,
+      day: 1,
+      cases: 37458,
     },
     {
       year: 2020,
-      month: 10,
-      day: 8,
-      cases: 10246,
+      month: 9,
+      day: 22,
+      cases: 41016,
     },
     {
       year: 2020,
       month: 7,
-      day: 4,
-      cases: 3903,
+      day: 18,
+      cases: 23103,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 27,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 29,
+      cases: 218,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 9,
+      cases: 2923,
     },
     {
       year: 2020,
       month: 8,
-      day: 31,
-      cases: 8460,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 28,
-      cases: 8316,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 12,
-      cases: 7339,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 6,
-      cases: 8745,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 13,
-      cases: 7406,
+      day: 24,
+      cases: 35814,
     },
     {
       year: 2020,
       month: 5,
-      day: 7,
-      cases: 1519,
+      day: 28,
+      cases: 2019,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 15,
+      cases: 869,
     },
     {
       year: 2020,
       month: 9,
       day: 30,
-      cases: 9826,
+      cases: 42248,
     },
     {
       year: 2020,
-      month: 6,
-      day: 14,
-      cases: 2617,
+      month: 10,
+      day: 9,
+      cases: 43808,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 12,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 1,
+      cases: 0,
     },
     {
       year: 2020,
       month: 8,
-      day: 26,
-      cases: 8211,
+      day: 1,
+      cases: 29589,
     },
     {
       year: 2020,
       month: 2,
+      day: 22,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 3,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 1,
+      day: 23,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 1,
+      cases: 1163,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 26,
+      cases: 1969,
+    },
+    {
+      year: 2020,
+      month: 10,
+      day: 11,
+      cases: 44138,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 11,
+      cases: 32996,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 25,
+      cases: 1041,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 25,
+      cases: 1939,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 25,
+      cases: 35953,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 21,
+      cases: 40898,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 16,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 2,
+      cases: 30118,
+    },
+    {
+      year: 2020,
+      month: 10,
+      day: 8,
+      cases: 43578,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 15,
+      cases: 21018,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 17,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 9,
+      cases: 644,
+    },
+    {
+      year: 2020,
+      month: 7,
       day: 28,
-      cases: 0,
+      cases: 27823,
     },
     {
       year: 2020,
-      month: 2,
-      day: 14,
-      cases: 0,
+      month: 10,
+      day: 2,
+      cases: 42565,
     },
     {
       year: 2020,
-      month: 2,
-      day: 26,
-      cases: 0,
+      month: 4,
+      day: 11,
+      cases: 690,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 9,
+      cases: 32587,
     },
     {
       year: 2020,
       month: 3,
-      day: 11,
-      cases: 4,
+      day: 3,
+      cases: 2,
     },
     {
       year: 2020,
-      month: 4,
-      day: 29,
-      cases: 1257,
-    },
-    {
-      year: 2020,
-      month: 4,
+      month: 2,
       day: 18,
-      cases: 884,
+      cases: 0,
     },
     {
       year: 2020,
-      month: 8,
-      day: 22,
-      cases: 8006,
+      month: 9,
+      day: 4,
+      cases: 37981,
     },
     {
       year: 2020,
-      month: 8,
-      day: 11,
-      cases: 7242,
+      month: 7,
+      day: 5,
+      cases: 14336,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 16,
+      cases: 39888,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 20,
+      cases: 5319,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 4,
+      cases: 1300,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 26,
+      cases: 27077,
     },
     {
       year: 2020,
       month: 8,
       day: 16,
-      cases: 7631,
+      cases: 34238,
     },
     {
       year: 2020,
       month: 9,
+      day: 9,
+      cases: 38790,
+    },
+    {
+      year: 2020,
+      month: 4,
       day: 18,
-      cases: 9254,
+      cases: 943,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 1,
+      cases: 2251,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 31,
+      cases: 2201,
     },
     {
       year: 2020,
       month: 8,
-      day: 27,
-      cases: 8262,
+      day: 20,
+      cases: 35061,
     },
     {
       year: 2020,
-      month: 9,
-      day: 17,
-      cases: 9198,
+      month: 6,
+      day: 26,
+      cases: 8018,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 30,
+      cases: 253,
     },
     {
       year: 2020,
       month: 8,
-      day: 5,
-      cases: 6829,
+      day: 23,
+      cases: 35721,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 20,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 2,
+      cases: 2285,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 28,
+      cases: 9918,
     },
     {
       year: 2020,
       month: 1,
-      day: 24,
+      day: 31,
       cases: 0,
     },
     {
       year: 2020,
       month: 7,
-      day: 18,
-      cases: 5296,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 12,
-      cases: 1663,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 7,
-      cases: 6982,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 11,
-      cases: 1634,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 28,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 3,
-      cases: 8605,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 29,
-      cases: 0,
+      day: 25,
+      cases: 26626,
     },
     {
       year: 2020,
       month: 3,
-      day: 9,
+      day: 18,
+      cases: 14,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 12,
+      cases: 33198,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 14,
       cases: 2,
     },
     {
       year: 2020,
       month: 7,
-      day: 11,
-      cases: 4612,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 18,
-      cases: 7753,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 3,
-      cases: 339,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 14,
-      cases: 731,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 3,
-      cases: 2272,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 6,
-      cases: 2369,
+      day: 13,
+      cases: 19828,
     },
     {
       year: 2020,
       month: 9,
-      day: 27,
-      cases: 9691,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 10,
-      cases: 7191,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 1,
-      cases: 6567,
+      day: 23,
+      cases: 41178,
     },
     {
       year: 2020,
       month: 10,
       day: 6,
-      cases: 10129,
+      cases: 43166,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 16,
+      cases: 878,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 11,
+      cases: 18360,
     },
     {
       year: 2020,
       month: 9,
       day: 5,
-      cases: 8710,
+      cases: 38262,
     },
     {
       year: 2020,
-      month: 7,
-      day: 29,
-      cases: 6316,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 21,
+      month: 1,
+      day: 24,
       cases: 0,
     },
     {
       year: 2020,
-      month: 6,
-      day: 9,
-      cases: 2450,
+      month: 10,
+      day: 10,
+      cases: 43808,
     },
     {
       year: 2020,
-      month: 9,
-      day: 20,
-      cases: 9344,
+      month: 2,
+      day: 15,
+      cases: 0,
     },
     {
       year: 2020,
       month: 5,
-      day: 31,
-      cases: 2190,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 12,
-      cases: 2555,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 10,
-      cases: 602,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 19,
-      cases: 5365,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 15,
-      cases: 4996,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 7,
-      cases: 1,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 3,
-      cases: 3839,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 27,
-      cases: 3342,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 1,
-      cases: 8507,
-    },
-    {
-      year: 2020,
-      month: 7,
       day: 21,
-      cases: 5559,
+      cases: 1767,
     },
     {
       year: 2020,
-      month: 3,
-      day: 27,
-      cases: 139,
+      month: 6,
+      day: 24,
+      cases: 6892,
     },
     {
       year: 2020,
       month: 2,
       day: 6,
       cases: 0,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 13,
-      cases: 9013,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 13,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 2,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 25,
-      cases: 3195,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 28,
-      cases: 6200,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 14,
-      cases: 8,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 17,
-      cases: 7678,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 20,
-      cases: 952,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 6,
-      cases: 4078,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 5,
-      cases: 3989,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 29,
-      cases: 9779,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 19,
-      cases: 2848,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 17,
-      cases: 5207,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 9,
-      cases: 561,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 18,
-      cases: 19,
     },
     {
       year: 2020,
@@ -1803,255 +1805,27 @@ let c1 = {
     },
     {
       year: 2020,
-      month: 8,
-      day: 19,
-      cases: 7828,
-    },
-    {
-      year: 2020,
       month: 5,
-      day: 5,
-      cases: 1452,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 23,
-      cases: 65,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 19,
-      cases: 1860,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 22,
-      cases: 1017,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 9,
-      cases: 8843,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 4,
-      cases: 8656,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 23,
-      cases: 3074,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 9,
+      day: 16,
       cases: 1585,
     },
     {
       year: 2020,
       month: 4,
-      day: 28,
-      cases: 1220,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 11,
-      cases: 635,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 4,
-      cases: 6767,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 19,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 15,
-      cases: 2655,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 24,
-      cases: 9539,
-    },
-    {
-      year: 2020,
-      month: 3,
       day: 1,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 15,
-      cases: 7567,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 28,
-      cases: 2109,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 11,
-      cases: 2520,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 5,
-      cases: 2339,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 29,
-      cases: 2139,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 19,
-      cases: 25,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 1,
-      cases: 2216,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 27,
-      cases: 2077,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 19,
-      cases: 9305,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 23,
-      cases: 1980,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 25,
-      cases: 9596,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 6,
-      cases: 6917,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 10,
-      cases: 1604,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 22,
-      cases: 1951,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 25,
-      cases: 1131,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 4,
-      cases: 376,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 26,
-      cases: 116,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 29,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 25,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 6,
-      cases: 445,
+      cases: 309,
     },
     {
       year: 2020,
       month: 7,
-      day: 22,
-      cases: 5662,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 10,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 24,
-      cases: 8102,
-    },
-    {
-      year: 2020,
-      month: 4,
       day: 17,
-      cases: 852,
+      cases: 22502,
     },
     {
       year: 2020,
-      month: 3,
-      day: 29,
-      cases: 184,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 16,
-      cases: 12,
+      month: 6,
+      day: 23,
+      cases: 6176,
     },
     {
       year: 2020,
@@ -2061,357 +1835,423 @@ let c1 = {
     },
     {
       year: 2020,
+      month: 6,
+      day: 5,
+      cases: 2554,
+    },
+    {
+      year: 2020,
       month: 3,
-      day: 3,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 26,
-      cases: 2055,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 6,
-      cases: 1488,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 29,
-      cases: 3459,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 1,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 31,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 4,
-      day: 8,
-      cases: 523,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 30,
-      cases: 8410,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 8,
-      cases: 2423,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 3,
-      cases: 9990,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 30,
-      cases: 2167,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 1,
-      cases: 3649,
-    },
-    {
-      year: 2020,
-      month: 2,
       day: 12,
-      cases: 0,
+      cases: 2,
     },
     {
       year: 2020,
-      month: 10,
+      month: 6,
       day: 10,
-      cases: 10369,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 30,
-      cases: 6394,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 31,
-      cases: 238,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 28,
-      cases: 9732,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 16,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 4,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 21,
-      cases: 2950,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 17,
-      cases: 2738,
+      cases: 3027,
     },
     {
       year: 2020,
       month: 7,
       day: 14,
-      cases: 4886,
+      cases: 20508,
     },
     {
       year: 2020,
-      month: 7,
-      day: 12,
-      cases: 4685,
-    },
-    {
-      year: 2020,
-      month: 3,
+      month: 9,
       day: 28,
-      cases: 164,
+      cases: 41947,
     },
     {
       year: 2020,
-      month: 5,
-      day: 16,
-      cases: 1782,
-    },
-    {
-      year: 2020,
-      month: 1,
-      day: 27,
-      cases: 0,
+      month: 6,
+      day: 12,
+      cases: 3295,
     },
     {
       year: 2020,
       month: 4,
-      day: 1,
-      cases: 267,
+      day: 26,
+      cases: 1048,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 7,
+      cases: 2,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 18,
+      cases: 4610,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 18,
+      cases: 34605,
     },
     {
       year: 2020,
       month: 8,
       day: 29,
-      cases: 8369,
+      cases: 36784,
     },
     {
       year: 2020,
       month: 10,
-      day: 9,
-      cases: 10311,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 5,
-      cases: 10085,
+      day: 1,
+      cases: 42380,
     },
     {
       year: 2020,
       month: 3,
-      day: 30,
-      cases: 210,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 22,
-      cases: 9446,
+      day: 1,
+      cases: 0,
     },
     {
       year: 2020,
       month: 7,
+      day: 29,
+      cases: 28268,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 29,
+      cases: 1105,
+    },
+    {
+      year: 2020,
+      month: 9,
       day: 25,
-      cases: 5955,
+      cases: 41506,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 25,
+      cases: 106,
     },
     {
       year: 2020,
       month: 7,
       day: 16,
-      cases: 5095,
+      cases: 21557,
     },
     {
       year: 2020,
-      month: 6,
-      day: 26,
-      cases: 3273,
+      month: 2,
+      day: 9,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 5,
+      cases: 31197,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 15,
+      cases: 4,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 8,
+      cases: 0,
     },
     {
       year: 2020,
       month: 6,
       day: 4,
-      cases: 2297,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 23,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 24,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 6,
-      day: 10,
-      cases: 2484,
-    },
-    {
-      year: 2020,
-      month: 10,
-      day: 12,
-      cases: 10467,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 24,
-      cases: 2004,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 14,
-      cases: 7505,
+      cases: 2479,
     },
     {
       year: 2020,
       month: 9,
-      day: 11,
-      cases: 8932,
+      day: 15,
+      cases: 39751,
     },
     {
       year: 2020,
-      month: 6,
-      day: 20,
-      cases: 2905,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 8,
-      cases: 1551,
-    },
-    {
-      year: 2020,
-      month: 8,
-      day: 23,
-      cases: 8051,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 11,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 27,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 7,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 8,
-      cases: 8804,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 24,
-      cases: 79,
-    },
-    {
-      year: 2020,
-      month: 9,
-      day: 7,
-      cases: 8771,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 14,
-      cases: 1723,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 5,
-      cases: 0,
+      month: 7,
+      day: 31,
+      cases: 29116,
     },
     {
       year: 2020,
       month: 5,
       day: 18,
-      cases: 1834,
+      cases: 1653,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 14,
+      cases: 1530,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 2,
+      cases: 1240,
     },
     {
       year: 2020,
       month: 3,
-      day: 22,
-      cases: 51,
+      day: 31,
+      cases: 305,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 7,
+      cases: 2748,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 25,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 7,
+      cases: 608,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 10,
+      cases: 38917,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 3,
+      cases: 37821,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 2,
+      cases: 37668,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 23,
+      cases: 1008,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 2,
+      cases: 404,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 20,
+      cases: 40751,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 5,
+      cases: 1324,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 24,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 4,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 20,
+      cases: 24135,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 7,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 27,
+      cases: 167,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 25,
+      cases: 7329,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 17,
+      cases: 1614,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 3,
+      cases: 463,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 17,
+      cases: 924,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 28,
+      cases: 1080,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 13,
+      cases: 39450,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 12,
+      cases: 19150,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 3,
+      cases: 1281,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 10,
+      cases: 1432,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 23,
+      cases: 1823,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 30,
+      cases: 2129,
     },
     {
       year: 2020,
       month: 10,
+      day: 4,
+      cases: 42891,
+    },
+    {
+      year: 2020,
+      month: 8,
       day: 7,
-      cases: 10185,
+      cases: 31865,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 13,
+      cases: 3,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 11,
+      cases: 3174,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 13,
+      cases: 813,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 11,
+      cases: 1448,
     },
     {
       year: 2020,
       month: 2,
-      day: 20,
+      day: 5,
       cases: 0,
     },
     {
       year: 2020,
       month: 2,
-      day: 9,
+      day: 13,
       cases: 0,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 16,
+      cases: 4029,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 2,
+      cases: 12376,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 16,
+      cases: 4,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 14,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 19,
+      cases: 34851,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 6,
+      cases: 31563,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 12,
+      cases: 39298,
     },
     {
       year: 2020,
@@ -2421,125 +2261,305 @@ let c1 = {
     },
     {
       year: 2020,
-      month: 4,
-      day: 23,
-      cases: 1061,
-    },
-    {
-      year: 2020,
-      month: 2,
-      day: 3,
-      cases: 0,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 21,
-      cases: 1921,
-    },
-    {
-      year: 2020,
-      month: 3,
-      day: 13,
-      cases: 6,
+      month: 6,
+      day: 30,
+      cases: 10752,
     },
     {
       year: 2020,
       month: 7,
-      day: 10,
-      cases: 4519,
-    },
-    {
-      year: 2020,
-      month: 5,
-      day: 3,
-      cases: 1392,
+      day: 4,
+      cases: 13700,
     },
     {
       year: 2020,
       month: 8,
-      day: 2,
-      cases: 6629,
+      day: 10,
+      cases: 32731,
     },
     {
       year: 2020,
-      month: 5,
-      day: 4,
-      cases: 1421,
-    },
-    {
-      year: 2020,
-      month: 7,
-      day: 26,
-      cases: 6029,
+      month: 9,
+      day: 8,
+      cases: 38652,
     },
     {
       year: 2020,
       month: 3,
-      day: 25,
-      cases: 94,
+      day: 2,
+      cases: 1,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 6,
+      cases: 1331,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 3,
+      cases: 13044,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 29,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 3,
+      cases: 2384,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 5,
+      cases: 2,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 19,
+      cases: 960,
+    },
+    {
+      year: 2020,
+      month: 10,
+      day: 12,
+      cases: 44256,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 20,
+      cases: 973,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 30,
+      cases: 28742,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 28,
+      cases: 195,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 23,
+      cases: 0,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 19,
+      cases: 4982,
+    },
+    {
+      year: 2020,
+      month: 10,
+      day: 3,
+      cases: 42765,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 21,
+      cases: 47,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 13,
+      cases: 1494,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 28,
+      cases: 36574,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 9,
+      cases: 2,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 24,
+      cases: 26037,
+    },
+    {
+      year: 2020,
+      month: 6,
+      day: 27,
+      cases: 9130,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 19,
+      cases: 20,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 5,
+      cases: 536,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 30,
+      cases: 1124,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 12,
+      cases: 759,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 30,
+      cases: 37013,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 14,
+      cases: 819,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 8,
+      cases: 1371,
+    },
+    {
+      year: 2020,
+      month: 5,
+      day: 29,
+      cases: 2069,
+    },
+    {
+      year: 2020,
+      month: 9,
+      day: 24,
+      cases: 41351,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 23,
+      cases: 75,
+    },
+    {
+      year: 2020,
+      month: 4,
+      day: 21,
+      cases: 979,
+    },
+    {
+      year: 2020,
+      month: 7,
+      day: 23,
+      cases: 25432,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 24,
+      cases: 91,
+    },
+    {
+      year: 2020,
+      month: 8,
+      day: 3,
+      cases: 30450,
+    },
+    {
+      year: 2020,
+      month: 3,
+      day: 4,
+      cases: 2,
+    },
+    {
+      year: 2020,
+      month: 2,
+      day: 19,
+      cases: 0,
     },
   ],
   historicalweather: [
     {
-      month: 'Nov',
-      precipitation: 2.2309269442262374,
-      temperature: 46.270149253731354,
-    },
-    {
-      month: 'Jun',
-      precipitation: 3.9910447761194074,
-      temperature: 69.84642576590743,
-    },
-    {
-      month: 'Jan',
-      precipitation: 3.547564807541244,
-      temperature: 38.45129615082481,
-    },
-    {
-      month: 'May',
-      precipitation: 4.506087981146897,
-      temperature: 62.195915161036915,
-    },
-    {
-      month: 'Mar',
-      precipitation: 2.634650432050274,
-      temperature: 45.34084838963078,
-    },
-    {
-      month: 'Oct',
-      precipitation: 3.7357187745483107,
-      temperature: 58.45632364493329,
-    },
-    {
       month: 'Jul',
-      precipitation: 3.1278476040848378,
-      temperature: 75.13409269442265,
-    },
-    {
-      month: 'Dec',
-      precipitation: 3.6675726630007874,
-      temperature: 42.71358994501186,
-    },
-    {
-      month: 'Feb',
-      precipitation: 4.093534956794978,
-      temperature: 39.51060487038494,
+      precipitation: 12.27,
+      temperature: 82.7,
     },
     {
       month: 'Sep',
-      precipitation: 2.3753181461115496,
-      temperature: 70.70188531029086,
+      precipitation: 1.59,
+      temperature: 83.1,
     },
     {
-      month: 'Apr',
-      precipitation: 3.320329929300865,
-      temperature: 56.174234092694434,
+      month: 'Mar',
+      precipitation: 1.62,
+      temperature: 67.8,
+    },
+    {
+      month: 'Jan',
+      precipitation: 4.1,
+      temperature: 60.2,
+    },
+    {
+      month: 'Jun',
+      precipitation: 9.43,
+      temperature: 83.3,
+    },
+    {
+      month: 'May',
+      precipitation: 3.13,
+      temperature: 80.6,
     },
     {
       month: 'Aug',
-      precipitation: 3.3370699135899486,
-      temperature: 74.06763550667728,
+      precipitation: 10.83,
+      temperature: 83.6,
+    },
+    {
+      month: 'Feb',
+      precipitation: 2.38,
+      temperature: 69.1,
+    },
+    {
+      month: 'Oct',
+      precipitation: 7.21,
+      temperature: 80.3,
+    },
+    {
+      month: 'Nov',
+      precipitation: 0.89,
+      temperature: 68.4,
+    },
+    {
+      month: 'Apr',
+      precipitation: 2.13,
+      temperature: 73.5,
+    },
+    {
+      month: 'Dec',
+      precipitation: 4.01,
+      temperature: 66.4,
     },
   ],
 };
@@ -2790,9 +2810,11 @@ export const MainVisual = () => {
 
   c1.historicalincome = c1.historicalincome.sort(compare);
   c2.historicalincome = c2.historicalincome.sort(compare);
+  c1.historicalaveragehouse = c1.historicalaveragehouse.sort(compare);
+  c2.historicalaveragehouse = c2.historicalaveragehouse.sort(compare);
 
-  const household = c1.historicalincome.map(c => {
-    return c.householdincome;
+  const household = c1.historicalaveragehouse.map(c => {
+    return c.housingcost;
   });
 
   const individual = c1.historicalincome.map(c => {
@@ -2803,8 +2825,8 @@ export const MainVisual = () => {
     return c.year;
   });
 
-  const household2 = c2.historicalincome.map(c => {
-    return c.householdincome;
+  const household2 = c2.historicalaveragehouse.map(c => {
+    return c.housingcost;
   });
 
   const individual2 = c2.historicalincome.map(c => {
@@ -2820,33 +2842,19 @@ export const MainVisual = () => {
     datasets: [
       {
         label: 'Individual Income',
-        backgroundColor: '#d35540',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        backgroundColor: '#d3553f',
+        borderColor: '#d3553f',
+        pointBackgroundColor: '#d3553f',
+        pointBorderColor: '#d3553f',
         data: individual,
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        steppedLine: true,
       },
       {
-        label: 'Household Income',
-        backgroundColor: '#dd7a6a',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        label: 'House Cost',
+        backgroundColor: '#f2c8a6',
+        borderColor: '#f2c8a6',
+        pointBackgroundColor: '#f2c8a6',
+        pointBorderColor: '#f2c8a6',
         data: household,
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        steppedLine: true,
-      },
-      {
-        label: '',
-        backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: 'rgba(0,0,0,0)',
-        borderWidth: 0,
-        data: [0, 100000],
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        pointRadius: 0,
       },
     ],
   };
@@ -2856,33 +2864,19 @@ export const MainVisual = () => {
     datasets: [
       {
         label: 'Individual Income',
-        backgroundColor: '#218921',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        backgroundColor: '#d3553f',
+        borderColor: '#d3553f',
+        pointBackgroundColor: '#d3553f',
+        pointBorderColor: '#d3553f',
         data: individual2,
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        steppedLine: true,
       },
       {
-        label: 'Household Income',
-        backgroundColor: '#32cd32',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        label: 'House Cost',
+        backgroundColor: '#f2c8a6',
+        borderColor: '#f2c8a6',
+        pointBackgroundColor: '#f2c8a6',
+        pointBorderColor: '#f2c8a6',
         data: household2,
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        steppedLine: true,
-      },
-      {
-        label: '',
-        backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: 'rgba(0,0,0,0)',
-        borderWidth: 0,
-        data: [0, 100000],
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        pointRadius: 0,
       },
     ],
   };
@@ -2896,13 +2890,14 @@ export const MainVisual = () => {
       <Container>
         <div className="split">
           <h2>{c1.citynamestate}</h2>
+          <img src={c1.wikiimgurl} width="500px" alt={c1.citynamestate} />
           <article className="graph">
             <Line
               data={state}
               options={{
                 title: {
                   display: true,
-                  text: 'Average Individual & Household Income',
+                  text: 'Average Individual Income vs. House Cost',
                   fontSize: 20,
                   fontFamily: 'Roboto',
                   fontColor: '#000000',
@@ -2959,96 +2954,8 @@ export const MainVisual = () => {
           </article>
 
           <aside className="info">
-            <h4 className="infographic">
-              {c1.population > 500000 ? (
-                <FaCity size="30px" />
-              ) : (
-                <span>
-                  {c1.population > 100000 ? (
-                    <RiBuilding4Line size="30px" />
-                  ) : (
-                    <RiHome4Line size="30px" />
-                  )}
-                </span>
-              )}
-              &nbsp; <strong>Pop. Total:</strong> &nbsp;{' '}
-              {formatNumber(Math.round(c1.population))}{' '}
-            </h4>
-
-            <h4 className="infographic">
-              {c1.averagetemp > 0 ? (
-                <span>
-                  {c1.averagetemp > 40 ? (
-                    <FaTemperatureHigh size="30px" />
-                  ) : (
-                    <FaTemperatureLow size="30px" />
-                  )}
-                  &nbsp; <strong>Avg Temp:</strong> &nbsp;{' '}
-                  {c1.averagetemp.toFixed(1)}
-                  &deg;
-                </span>
-              ) : null}
-            </h4>
-
-            <h4 className="infographic">
-              {c1.averageperc > 0 ? (
-                <span>
-                  {c1.averageperc > 4 ? (
-                    <RiContrastDrop2Line size="30px" />
-                  ) : (
-                    <RiDropLine size="30px" />
-                  )}
-                  &nbsp; <strong>Avg Prec.:</strong> &nbsp;{' '}
-                  {c1.averageperc.toFixed(1)}
-                </span>
-              ) : null}
-            </h4>
-
-            <h4 className="infographic">
-              {c1.costoflivingindex > 100 ? (
-                <FaArrowCircleUp size="30px" />
-              ) : (
-                <FaArrowCircleDown size="30px" />
-              )}
-              &nbsp; <strong>CLI*:</strong> &nbsp;{' '}
-              {Math.round(c1.costoflivingindex)}%
-            </h4>
-
-            {c1.timezone ? (
-              <h4 className="infographic">
-                <RiTimerLine size="30px" />
-                &nbsp; <strong>TZ:</strong> &nbsp; {c1.timezone}
-              </h4>
-            ) : null}
-
-            <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; <strong>Avg Age:</strong> &nbsp;
-              {Math.round(c1.averageage)}
-            </h4>
-
-            <h4 className="infographic">
-              {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp;{' '}
-              <strong>Avg. Rent:</strong> &nbsp; $
-              {formatNumber(Math.round(c1.rent))}{' '}
-            </h4>
-            <h4 className="infographic">
-              {' '}
-              <RiBankFill size="30px" /> &nbsp;{' '}
-              <strong>Avg House Price:</strong> &nbsp; $
-              {formatNumber(Math.round(c1.averagehouse))}{' '}
-            </h4>
-
-            {c1.avgnewcovidcases > 0 ? (
-              <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp;{' '}
-                <strong>Avg Covid Cases**:</strong>{' '}
-                {formatNumber(Math.round(c1.avgnewcovidcases))}/month
-              </h4>
-            ) : null}
+            <CityDetails city={c1} />
           </aside>
-
-          <img src={c1.wikiimgurl} width="500px" alt={c1.citynamestate} />
         </div>
 
         <div className="float">
@@ -3060,13 +2967,14 @@ export const MainVisual = () => {
 
         <div className="split">
           <h2>{c2.citynamestate}</h2>
+          <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} />
           <article className="graph">
             <Line
               data={state2}
               options={{
                 title: {
                   display: true,
-                  text: 'Average Individual & Household Income',
+                  text: 'Average Individual Income vs. House Cost',
                   fontSize: 20,
                   fontFamily: 'Roboto',
                   fontColor: '#000000',
@@ -3123,85 +3031,8 @@ export const MainVisual = () => {
           </article>
 
           <aside className="info">
-            <h4 className="infographic">
-              {c2.population > 250000 ? (
-                <FaCity size="30px" />
-              ) : (
-                <span>
-                  (
-                  {c2.population > 100000 ? (
-                    <RiBuilding4Line size="30px" />
-                  ) : (
-                    <RiHome4Line size="30px" />
-                  )}
-                  )
-                </span>
-              )}
-              &nbsp; <strong>Pop. Total:</strong> &nbsp;{' '}
-              {formatNumber(c2.population)}{' '}
-            </h4>
-
-            <h4 className="infographic">
-              {c2.averagetemp > 40 ? (
-                <FaTemperatureHigh size="30px" />
-              ) : (
-                <FaTemperatureLow size="30px" />
-              )}
-              &nbsp; <strong>Avg Temp:</strong> &nbsp;{' '}
-              {c2.averagetemp.toFixed(1)}
-              &deg;
-            </h4>
-
-            <h4 className="infographic">
-              {c2.averageperc > 4 ? (
-                <RiContrastDrop2Line size="30px" />
-              ) : (
-                <RiDropLine size="30px" />
-              )}
-              &nbsp; <strong>Avg Perc.:</strong> &nbsp;{' '}
-              {c2.averageperc.toFixed(1)}
-            </h4>
-
-            <h4 className="infographic">
-              {c2.costoflivingindex > 100 ? (
-                <FaArrowCircleUp size="30px" />
-              ) : (
-                <FaArrowCircleDown size="30px" />
-              )}
-              &nbsp; <strong>CLI*:</strong> &nbsp; {c2.costoflivingindex}%
-            </h4>
-
-            <h4 className="infographic">
-              <RiTimerLine size="30px" />
-              &nbsp; <strong>TZ:</strong> &nbsp; {c2.timezone}
-            </h4>
-
-            <h4 className="infographic">
-              <RiGiftLine size="30px" /> &nbsp; <strong>Avg Age:</strong> &nbsp;{' '}
-              {Math.round(c2.averageage)}
-            </h4>
-
-            <h4 className="infographic">
-              {' '}
-              <RiMoneyDollarBoxLine size="30px" /> &nbsp;{' '}
-              <strong>Avg. Rent:</strong>&nbsp; ${formatNumber(c2.rent)}{' '}
-            </h4>
-            <h4 className="infographic">
-              {' '}
-              <RiBankFill size="30px" /> &nbsp;{' '}
-              <strong>Avg House Price:</strong>&nbsp; $
-              {formatNumber(Math.round(c2.averagehouse))}{' '}
-            </h4>
-
-            {c2.avgnewcovidcases > 0 ? (
-              <h4 className="infographic">
-                <RiSurgicalMaskLine size="30px" /> &nbsp;{' '}
-                <strong>Avg Covid Cases**:</strong> &nbsp;{' '}
-                {formatNumber(Math.round(c2.avgnewcovidcases))}/month
-              </h4>
-            ) : null}
+            <CityDetails city={c2} />
           </aside>
-          <img src={c2.wikiimgurl} width="500px" alt={c2.citynamestate} />
         </div>
       </Container>
     </>
