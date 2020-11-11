@@ -6,19 +6,34 @@ import SingleCityChartDiv from './style';
 export default function SingleCityChart(props) {
   const { city } = props;
 
-  const years = city.populationhist.map(c => c.year);
-  const population = city.populationhist.map(c => c.pop);
+  const years = city.historicalincome.map(c => c.year);
+  const income = city.historicalincome.map(c => c.householdincome);
+  const housingCost = [];
+  city.historicalaveragehouse.forEach((month) => {
+      if (month.month === 12) {
+        housingCost.push(month.housingcost);
+      }
+  });
+
 
   const chartData = {
     labels: years,
     datasets: [
       {
-        label: 'Population History',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        borderColor: '#264653',
-        pointBackgroundColor: '#fff',
-        pointBorderColor: '#B820FA',
-        data: population,
+        label: 'Income History',
+        backgroundColor: '#d3553f',
+        borderColor: '#d3553f',
+        pointBackgroundColor: '#d3553f',
+        pointBorderColor: '#d3553f',
+        data: income,
+      },
+      {
+        label: 'Housing History',
+        backgroundColor: '#f2c8a6',
+        borderColor: '#f2c8a6',
+        pointBackgroundColor: '#f2c8a6',
+        pointBorderColor: '#f2c8a6',
+        data: housingCost,
       },
     ],
   };
