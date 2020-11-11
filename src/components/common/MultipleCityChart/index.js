@@ -1,6 +1,17 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
+import styled from 'styled-components';
+
+const ChartContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 360px;
+  margin: 0 auto;
+`;
+
 export default function MultipleCityChart(props) {
   const { temp_data } = props;
   const mydata = ''; // placeholder for real data
@@ -48,7 +59,7 @@ export default function MultipleCityChart(props) {
   };
 
   return (
-    <div className="multiple-city-chart-container">
+    <ChartContainer>
       <Line
         data={chartData}
         options={{
@@ -65,6 +76,6 @@ export default function MultipleCityChart(props) {
           },
         }}
       />
-    </div>
+    </ChartContainer>
   );
 }
