@@ -668,6 +668,7 @@ const MultipleCityPageContainer = styled.div`
         &:focus {
           text-decoration: underline;
           color: #d3553f;
+          /* test */
         }
       }
     }
