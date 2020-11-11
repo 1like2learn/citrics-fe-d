@@ -18,6 +18,7 @@ import {
   LoginPage,
   ComparisonPage,
   LandingPage,
+  CitySearch,
   FavoritesPage,
 } from './components/pages';
 import MultipleCityPage from './components/pages/MultipleCityPage';
@@ -49,8 +50,9 @@ function App() {
       <Route path="/compare" component={ComparisonPage} />
       <Route path="/" exact component={LandingPage} />
       <Route path="/multiple-city" component={MultipleCityPage} />
+      <Route path="/city" component={CitySearch} />
 
-      {/* temporairly putting the landing component until we have a profile/favorites page */}
+      {/* temporarily putting the landing component until we have a profile/favorites page */}
       <Security {...config} onAuthRequired={authHandler}>
         <SecureRoute path="/profile" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallback} />

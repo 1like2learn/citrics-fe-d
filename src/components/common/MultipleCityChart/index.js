@@ -16,6 +16,8 @@ export default function MultipleCityChart(props) {
   const { temp_data } = props;
   const mydata = ''; // placeholder for real data
 
+  console.log('temp_data', temp_data);
+
   console.log('Multiple City Chart - citynamestate', temp_data[0].citynamestate);
 
   const years = temp_data[0].populationhist.map(c => c.year);
