@@ -643,6 +643,37 @@ const temp_data = [
   },
 ];
 
+const MultipleCityPageContainer = styled.div`
+  .multiple-city-page-chart-container {
+    .multiple-city-page-chart-menu {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem auto;
+      width: 40%;
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-family: 'Roboto';
+        font-weight: 700;
+        align-self: center;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+          color: #d3553f;
+          font-weight: 1200;
+        }
+        &:focus {
+          text-decoration: underline;
+          color: #d3553f;
+          /* test */
+        }
+      }
+    }
+  }
+`;
+
 export default function MultipleCityPage() {
   const [selectedCities, setSelectedCities] = useState(temp_data);
   return (

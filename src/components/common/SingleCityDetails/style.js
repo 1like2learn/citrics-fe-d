@@ -42,11 +42,11 @@ const CityDetailsContainer = styled.aside`
           font-weight: 800;
           padding: 0;
           .fahrenheit {
-            font-size: .5rem;
+            font-size: 0.5rem;
             align-self: flex-start;
           }
           .inch {
-            font-size: .5rem;
+            font-size: 0.5rem;
             align-self: flex-end;
           }
         }
