@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 // REDUX
 import { useSelector, useDispatch } from 'react-redux';
@@ -677,9 +676,8 @@ const MultipleCityPageContainer = styled.div`
 
 export default function MultipleCityPage() {
   const [selectedCities, setSelectedCities] = useState(temp_data);
-
   return (
-    <MultipleCityPageContainer>
+    <div className="multiple-city-page-container">
       <Header />
       <div className="multiple-city-page-chart-container">
         <div className="multiple-city-page-chart-menu">
@@ -695,6 +693,6 @@ export default function MultipleCityPage() {
         })}
       </div>
       <Footer />
-    </MultipleCityPageContainer>
+    </div>
   );
 }
