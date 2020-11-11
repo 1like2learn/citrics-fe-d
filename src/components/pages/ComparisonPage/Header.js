@@ -132,14 +132,18 @@ export const Header = () => {
       </div>
 
       <div className="right">
-        <div>
+        <div onClick={() => push('/multiple-city')}>
           <p>
             Advanced <br /> Search
           </p>{' '}
           &nbsp;
           <FaSearchengin size="45px" />
         </div>
-        <FaUserCircle className="profile" size="50px" />
+        <FaUserCircle
+          className="profile"
+          size="50px"
+          onClick={() => push('/testprofile')}
+        />
       </div>
     </HeaderBar>
   );
