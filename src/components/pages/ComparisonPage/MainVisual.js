@@ -2878,22 +2878,12 @@ export const MainVisual = () => {
         data: individual,
       },
       {
-        label: 'Household Income',
+        label: 'House Cost',
         backgroundColor: '#f2c8a6',
         borderColor: 'f2c8a6',
         pointBackgroundColor: '#f2c8a6',
         pointBorderColor: '#f2c8a6',
         data: household,
-      },
-      {
-        label: '',
-        backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: 'rgba(0,0,0,0)',
-        borderWidth: 0,
-        data: [0, 100000],
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        pointRadius: 0,
       },
     ],
   };
@@ -2910,22 +2900,12 @@ export const MainVisual = () => {
         data: individual2,
       },
       {
-        label: 'Household Income',
+        label: 'House Cost',
         backgroundColor: '#f2c8a6',
         borderColor: 'f2c8a6',
         pointBackgroundColor: '#f2c8a6',
         pointBorderColor: '#f2c8a6',
         data: household2,
-      },
-      {
-        label: '',
-        backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: 'rgba(0,0,0,0)',
-        borderWidth: 0,
-        data: [0, 100000],
-        pointBorderWidth: 1,
-        pointBackgroundColor: '#000000',
-        pointRadius: 0,
       },
     ],
   };
@@ -2946,7 +2926,7 @@ export const MainVisual = () => {
               options={{
                 title: {
                   display: true,
-                  text: 'Average Individual & Household Income',
+                  text: 'Average Individual Income vs. House Cost',
                   fontSize: 20,
                   fontFamily: 'Roboto',
                   fontColor: '#000000',
@@ -3023,7 +3003,7 @@ export const MainVisual = () => {
               options={{
                 title: {
                   display: true,
-                  text: 'Average Individual & Household Income',
+                  text: 'Average Individual Income vs. House Cost',
                   fontSize: 20,
                   fontFamily: 'Roboto',
                   fontColor: '#000000',
