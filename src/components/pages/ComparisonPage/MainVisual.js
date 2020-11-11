@@ -2839,9 +2839,11 @@ export const MainVisual = () => {
 
   c1.historicalincome = c1.historicalincome.sort(compare);
   c2.historicalincome = c2.historicalincome.sort(compare);
+  c1.historicalaveragehouse = c1.historicalaveragehouse.sort(compare);
+  c2.historicalaveragehouse = c2.historicalaveragehouse.sort(compare);
 
-  const household = c1.historicalincome.map(c => {
-    return c.householdincome;
+  const household = c1.historicalaveragehouse.map(c => {
+    return c.housingcost;
   });
 
   const individual = c1.historicalincome.map(c => {
@@ -2852,8 +2854,8 @@ export const MainVisual = () => {
     return c.year;
   });
 
-  const household2 = c2.historicalincome.map(c => {
-    return c.householdincome;
+  const household2 = c2.historicalaveragehouse.map(c => {
+    return c.housingcost;
   });
 
   const individual2 = c2.historicalincome.map(c => {
@@ -3001,7 +3003,7 @@ export const MainVisual = () => {
           </article>
 
           <aside className="info">
-            <CityDetails city={c2} />
+            <CityDetails city={c1} />
           </aside>
         </div>
 
