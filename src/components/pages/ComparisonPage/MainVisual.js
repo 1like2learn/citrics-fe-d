@@ -2880,7 +2880,7 @@ export const MainVisual = () => {
       {
         label: 'House Cost',
         backgroundColor: '#f2c8a6',
-        borderColor: 'f2c8a6',
+        borderColor: '#f2c8a6',
         pointBackgroundColor: '#f2c8a6',
         pointBorderColor: '#f2c8a6',
         data: household,
@@ -2902,7 +2902,7 @@ export const MainVisual = () => {
       {
         label: 'House Cost',
         backgroundColor: '#f2c8a6',
-        borderColor: 'f2c8a6',
+        borderColor: '#f2c8a6',
         pointBackgroundColor: '#f2c8a6',
         pointBorderColor: '#f2c8a6',
         data: household2,
