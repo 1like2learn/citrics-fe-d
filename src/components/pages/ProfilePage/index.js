@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Header } from '../ComparisonPage/Header';
 import { FaUserCircle } from 'react-icons/fa';
+import Footer from '../../common/Footer';
 
 const Container = styled.section`
   display: flex;
@@ -20,6 +21,7 @@ const Container = styled.section`
 
     .notcard {
       display: flex;
+      font-size: 1.2rem;
     }
   }
 
@@ -28,15 +30,40 @@ const Container = styled.section`
     display: flex;
     width: 25%;
     flex-direction: column;
+    align-items: flex-end;
 
     div {
       margin: 5% 0;
     }
   }
 
+  .middle {
+    align-items: center;
+  }
+
   .logout {
-    width: 50%;
-    background-color: orange;
+    padding: 2% 0;
+    width: 200px;
+    background-color: #d35540;
+    border-radius: 7.5px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 900;
+  }
+
+  .history {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    button {
+      background-color: rgba(0, 0, 0, 0);
+      border: 0;
+    }
   }
 `;
 
@@ -58,7 +85,7 @@ export const ProfilePage = () => {
               </div>
             ) : (
               <div className="notcard">
-                <FaUserCircle size="250px" />
+                <FaUserCircle color="#000000" size="250px" />
 
                 <div>
                   <h3>Name</h3>
@@ -70,18 +97,18 @@ export const ProfilePage = () => {
           </div>
 
           <div>
-            <div>
+            <div className="history">
               <h3>Activity History</h3>
               <button>Delete History</button>
             </div>
-            <ul>
+            <div>
               {/* {recentActivity.map(c => {
                             return (
-                                <li>{c.name}</li>
-                                <button onClick={}></button>
+                                <h4>{c.name}</h4>
+                                <p>{activityDate}</p>
                             )
                         })} */}
-            </ul>
+            </div>
           </div>
         </div>
         <div className="middle">
@@ -90,8 +117,7 @@ export const ProfilePage = () => {
             <ul>
               {/* {favoriteCities.map(c => {
                             return (
-                                <li>{c.name}</li>
-                                <button onClick={}></button>
+                                <li><button onClick={}>X</button>{c.name}</li>
                             )
                         })} */}
             </ul>
@@ -104,6 +130,7 @@ export const ProfilePage = () => {
           </div>
         </div>
       </Container>
+      <Footer />
     </>
   );
 };
