@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 // REDUX
 import { useSelector, useDispatch } from 'react-redux';
