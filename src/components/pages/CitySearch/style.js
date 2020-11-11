@@ -3,15 +3,15 @@ import styled from 'styled-components';
 const CitySearchDiv = styled.div`
   background-color: white;
   height: 100vh;
-
+  /* * {
+    border: grey solid 1px;
+  } */
   div.citySearchCont {
-    // left
     height: 100vh;
     width: 100%;
     display: flex;
 
     section.citySearchTextDescription {
-      // left
       width: 50%;
       display: flex;
       flex-direction: column-reverse;
@@ -21,7 +21,7 @@ const CitySearchDiv = styled.div`
       background-size: cover;
 
       div.citySearchTextCont {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.5);
         color: white;
         padding: 2%;
         margin: 4% auto;
@@ -36,19 +36,15 @@ const CitySearchDiv = styled.div`
       }
     }
     section.citySearchDataPanel {
-      // right
       width: 50%;
 
       div.citySearchMap {
-        // map
         height: 50vh;
       }
       div.citySearchDataCont {
-        // data card
         height: 50vh;
 
-        div {
-          // graph
+        div.citySearchSingleCityChart {
           height: 25vh;
         }
       }

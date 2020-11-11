@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 
 // import logic from './logic.js';
 import dummyData from '../../../utils/dummyData';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import SingleCityDetails from '../../common/SingleCityDetails';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import CitySearchDiv from './style';
+import SingleCityChart from '../../common/SingleCityChart';
 // import Header from '../../common/header';
 
 export default function CitySearch() {
@@ -13,7 +15,6 @@ export default function CitySearch() {
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
-  console.log('accessToken', Map.accessToken);
 
   return (
     <CitySearchDiv>
@@ -30,7 +31,7 @@ export default function CitySearch() {
         </section>
 
         <section className="citySearchDataPanel">
-          <div>
+          <div className="citySearchMap">
             <Map
               style="mapbox://styles/mapbox/light-v10"
               center={[longitude, latitude]}
@@ -50,8 +51,12 @@ export default function CitySearch() {
           </div>
 
           <div className="citySearchDataCont">
-            <div>graph</div>
-            <div>data panel</div>
+            <div className="citySearchSingleCityChart">
+              <SingleCityChart city={dummyData} />
+            </div>
+            <div>
+              <SingleCityDetails city={dummyData} />
+            </div>
           </div>
         </section>
       </div>
