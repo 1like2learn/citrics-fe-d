@@ -1,24 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  FaRegPlusSquare,
-  FaCity,
-  FaTemperatureHigh,
-  FaTemperatureLow,
-  FaArrowCircleDown,
-  FaArrowCircleUp,
-} from 'react-icons/fa';
-import {
-  RiBankFill,
-  RiBuilding4Line,
-  RiContrastDrop2Line,
-  RiDropLine,
-  RiGiftLine,
-  RiHome4Line,
-  RiMoneyDollarBoxLine,
-  RiSurgicalMaskLine,
-  RiTimerLine,
-} from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import CityDetails from '../../common/CityDetails';
@@ -110,16 +91,6 @@ const Container = styled.div`
     text-align: center;
     display: flex;
     font-size: 5rem;
-  }
-
-  .infographic {
-    width: 30%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5% auto;
-    text-align: center;
   }
 `;
 
