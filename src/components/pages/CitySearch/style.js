@@ -1,16 +1,12 @@
 import styled from 'styled-components';
 
 const CitySearchDiv = styled.div`
-  background-color: white;
-  height: 100vh;
-  /* * {
-    border: grey solid 1px;
-  } */
+  display: flex;
+  min-height: 100%;
+  width: 100%;
   div.citySearchCont {
-    height: 100vh;
-    width: 100%;
     display: flex;
-
+    min-height: 100vh;
     section.citySearchTextDescription {
       width: 50%;
       display: flex;
@@ -36,18 +32,29 @@ const CitySearchDiv = styled.div`
       }
     }
     section.citySearchDataPanel {
+      display: flex;
+      flex-direction: column;
       width: 50%;
-
       div.citySearchMap {
-        height: 50vh;
+        height: 45%;
+        width: 100%;
       }
       div.citySearchDataCont {
-        height: 50vh;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 55%;
         div.citySearchSingleCityChart {
-          height: 25vh;
+          height: 40%;
+          width: 80%;
+          padding: 0;
         }
-        .city-search-details {
+        div.city-search-details {
+          height: 60%;
+          width: 100%;
+          padding: 0;
+          margin: 0;
         }
       }
     }

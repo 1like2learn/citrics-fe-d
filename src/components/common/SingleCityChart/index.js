@@ -44,8 +44,8 @@ export default function SingleCityChart(props) {
           title: {},
           fill: 'start',
           legend: {
-            display: true,
-            position: 'bottom',
+            display: false,
+            position: 'right',
             fontFamily: 'Roboto',
           },
           maintainAspectRatio: false,
