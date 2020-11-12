@@ -60,6 +60,10 @@ const HeaderBar = styled.div`
       font-weight: 700;
       color: #ffffff;
       cursor: pointer;
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
 
     .compare-cities-btn {
@@ -74,6 +78,10 @@ const HeaderBar = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
       cursor: pointer;
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
   }
 `;
@@ -110,6 +118,9 @@ const SearchBar = styled.form`
       padding: 0 5%;
       height: 46.16px;
       width: 100%;
+      color: #000000;
+      font-size: 1.5rem;
+      font-family: 'Roboto', sans-serif;
       &::placeholder {
         color: #c4c4c4;
         font-size: 1.5rem;
