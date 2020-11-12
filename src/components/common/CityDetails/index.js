@@ -50,31 +50,31 @@ const CityDetailsContainer = styled.aside`
       }
       .count-div {
         display: flex;
-        height: 2.5rem;
+        height: calc(1rem + 3.25vh);
         align-items: flex-start;
         align-self: center;
         justify-content: flex-start;
         .icon {
           color: #000;
-          width: 2rem;
-          height: 2.25rem;
+          width: calc(0.8rem + 2.5vh);
+          height: calc(1rem + 3vh);
           margin-right: 0.4rem;
           object-fit: fill;
         }
         .count {
           display: flex;
-          height: 2.25rem;
+          height: calc(0.5rem + 3.5vh);
           align-items: center;
           font-family: 'Roboto';
-          font-size: 2.25rem;
+          font-size: calc(0.5rem + 3vh);
           font-weight: 800;
           padding: 0;
           .fahrenheit {
-            font-size: 1rem;
+            font-size: calc(0.08rem + 2vh);
             align-self: flex-start;
           }
           .inch {
-            font-size: 1rem;
+            font-size: calc(0.08rem + 2vh);
             align-self: flex-end;
           }
         }
