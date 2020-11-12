@@ -7,29 +7,31 @@ const LandingPageDiv = styled.div`
   background-position: center;
   background-size: cover;
 
-  div.landingPageCont {
-    padding: 3% 7%;
+  .landingPageCont {
+    padding: 4% 0;
     align-content: center;
-    width: 40%;
+    width: 33%;
     text-align: center;
 
-    img {
+    .landing-page-logo {
       width: 150px;
       padding: 10% auto;
     }
 
-    h1 {
-      font-family: 'Montserrat', sans serif;
+    .landing-page-h1 {
+      font-family: 'Norwester', sans-serif;
       color: #d3553f;
       font-size: 3rem;
       margin: 3% 0;
     }
 
-    p {
-      font-family: 'Norwester', sans serif;
+    .landing-page-p {
+      font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: large;
-      font-stretch: extra-expanded;
+      font-size: 1rem;
+      font-stretch: ultra-expanded;
+      letter-spacing: 2px;
+      font-weight: 800;
     }
   }
 `;
