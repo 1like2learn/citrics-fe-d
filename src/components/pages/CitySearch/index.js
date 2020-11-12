@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 
-// import logic from './logic.js';
 import dummyData from '../../../utils/dummyData';
-import SingleCityDetails from '../../common/SingleCityDetails';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
+
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
-// import Header from '../../common/header';
 
 export default function CitySearch() {
   const { citynamestate, wikiimgurl, summary, latitude, longitude } = dummyData;
@@ -39,8 +38,8 @@ export default function CitySearch() {
               style="mapbox://styles/mapbox/light-v10"
               center={[longitude, latitude]}
               containerStyle={{
-                height: '50vh',
-                width: '50vw',
+                height: '100%',
+                width: '100%',
               }}
             >
               <Layer
@@ -58,8 +57,7 @@ export default function CitySearch() {
               <SingleCityChart city={dummyData} />
             </div>
             <div className="city-search-details">
-              <SingleCityDetails city={dummyData} />
-              {/* <CityDetails city={dummyData}/> */}
+              <CityDetails city={dummyData} />
             </div>
           </div>
         </section>
