@@ -21,7 +21,7 @@ const HeaderBar = styled.div`
     margin: 1% 0 1% 2%;
 
     h1 {
-      font-family: 'Norwester', sans serif;
+      font-family: 'Norwester', sans-serif;
       text-transform: uppercase;
       font-size: 3.5rem;
       letter-spacing: 3px;
