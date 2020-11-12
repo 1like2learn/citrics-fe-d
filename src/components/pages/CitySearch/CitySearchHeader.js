@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HeaderBar, SearchBar } from './style';
-import { FaSearchengin } from 'react-icons/fa';
+import { FaUserCircle, FaSearch } from 'react-icons/fa';
+import logo from '../../../assets/citricslogo.svg';
 
 export default function CitySearchHeader() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,31 +14,31 @@ export default function CitySearchHeader() {
   return (
     <div>
       <HeaderBar>
-        <div className="search">
-          <SearchBar className="sb-dis">
-            <label name="term" htmlFor="term">
-              <input
-                name="term"
-                value={searchTerm.term}
-                onChange={handleChanges}
-                placeholder="Start your search..."
-                type="text"
-              />
-            </label>
-          </SearchBar>
-
-          <div className="aside">
-            <p>
-              Advanced <br /> Search
-            </p>{' '}
-            &nbsp;
-            <FaSearchengin size="25px" />
+        <div className="left">
+          <img src={logo} alt="citrics logo" />
+          <div className="search">
+            <SearchBar className="sb-dis">
+              <label name="term" htmlFor="term">
+                <input
+                  name="term"
+                  value={searchTerm.term}
+                  onChange={handleChanges}
+                  placeholder="search"
+                  type="text"
+                />
+              </label>
+              <div className="search-icon-container">
+                <FaSearch className="search-icon" />
+              </div>
+            </SearchBar>
+            <div className="aside">
+              <p>Advanced Search</p>
+            </div>
           </div>
         </div>
 
         <div className="right">
-          <button className="login">Login</button>
-          <button>Compare Cities</button>
+          <FaUserCircle size="42px" />
         </div>
       </HeaderBar>
     </div>

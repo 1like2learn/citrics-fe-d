@@ -8,6 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
+import CityDetails from '../../common/CityDetails';
 // import Header from '../../common/header';
 
 export default function CitySearch() {
@@ -16,6 +17,8 @@ export default function CitySearch() {
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
+
+  console.log('Access Token from CitySearch', process.env.REACT_APP_MAP_BOX_KEY);
   return (
     <CitySearchDiv>
       <CitySearchHeader />
@@ -54,8 +57,9 @@ export default function CitySearch() {
             <div className="citySearchSingleCityChart">
               <SingleCityChart city={dummyData} />
             </div>
-            <div>
+            <div className="city-search-details">
               <SingleCityDetails city={dummyData} />
+              {/* <CityDetails city={dummyData}/> */}
             </div>
           </div>
         </section>
