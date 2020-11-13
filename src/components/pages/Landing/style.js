@@ -7,25 +7,26 @@ const LandingPageDiv = styled.div`
   background-position: center;
   background-size: cover;
 
-  .landingPageCont {
+  .landing-page-logo {
     padding: 4% 0;
     align-content: center;
-    width: 33%;
+    width: 414px;
     text-align: center;
+    margin-left: 6.38vw;
 
-    .landing-page-logo {
+    .landing-page-logo-icon {
       width: 150px;
-      padding: 10% auto;
+      margin: 0 auto;
     }
 
-    .landing-page-h1 {
+    .landing-page-logo-h1 {
       font-family: 'Norwester', sans-serif;
       color: #d3553f;
       font-size: 3rem;
       margin: 3% 0;
     }
 
-    .landing-page-p {
+    .landing-page-logo-p {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
       font-size: 1rem;

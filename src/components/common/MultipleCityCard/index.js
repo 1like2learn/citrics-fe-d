@@ -48,8 +48,8 @@ const CardContainer = styled.div`
         justify-content: flex-end;
         align-items: flex-start;
         font-size: 2.25rem;
-        font-family: 'Roboto';
-        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
       }
     }
     .city-card-cityDetails {
