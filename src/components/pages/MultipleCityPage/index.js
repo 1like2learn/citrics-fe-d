@@ -7,7 +7,7 @@ import { cardContainerActs } from '../../../state/actions';
 //COMPONENTS
 import MultipleCityCard from '../../common/MultipleCityCard';
 import Footer from '../../common/Footer';
-import { Header } from '../../pages/ComparisonPage/Header';
+import { Header } from '../../common/Header';
 import MultipleCityChart from '../../common/MultipleCityChart';
 
 // DUMMY DATA
@@ -655,8 +655,8 @@ const MultipleCityPageContainer = styled.div`
         border: none;
         outline: none;
         font-size: 1rem;
-        font-family: 'Roboto';
-        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
         align-self: center;
         cursor: pointer;
         &:hover {
