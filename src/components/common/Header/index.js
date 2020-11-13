@@ -1,16 +1,58 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaSearchengin, FaSearch } from 'react-icons/fa';
+import logo from '../../../assets/Citrics Icon.svg';
+import { FaSearchengin, FaUserCircle } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const HeaderBar = styled.div`
-  position: relative;
+  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 15vh;
   align-items: center;
-  align-content: center;
   margin: 0 auto;
-  background-color: rgba(00, 00, 00, 0.3);
+  justify-content: space-around;
+  background-color: #c4c4c4;
+  .header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 245px;
+    margin: 1% 0 1% 2%;
+    cursor: pointer;
+    .header-logo-icon {
+      height: 70px;
+    }
+    .header-logo-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+      .header-logo-h1 {
+        font-family: 'Norwester', sans-serif;
+        text-transform: uppercase;
+        line-height: 56px;
+        font-size: 56px;
+        color: #d35540;
+        padding: 0;
+        margin: 0;
+      }
+      .header-logo-h3 {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 8px;
+        font-stretch: ultra-expanded;
+        letter-spacing: 1px;
+        font-weight: 800;
+        line-height: 8px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
 
   .search {
     display: flex;
@@ -27,14 +69,13 @@ const HeaderBar = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 15%;
     font-size: 0.875rem;
     color: #ffffff;
     cursor: pointer;
     .advanced-search {
       font-family: 'Roboto', sans-serif;
       text-align: left;
-      line-height: 1.1rem;
+      line-height: 0.875rem;
       margin-right: 1%;
       margin: auto 1%;
     }
@@ -46,96 +87,50 @@ const HeaderBar = styled.div`
 
   .right {
     display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    flex-direction: row;
-    width: 35%;
-    margin-right: 5%;
-
-    .login-btn {
-      background-color: unset;
-      border: unset;
-      font-size: 1.5rem;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      color: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    width: 11.13%;
+    margin: 2% 2% 2% 0;
+    .profile {
       cursor: pointer;
-      &:focus {
-        border: none;
-        outline: none;
-      }
+      color: #5e5e5e;
+      height: 42px;
+      width: 42px;
     }
 
-    .compare-cities-btn {
-      margin: 2%;
-      width: 13.3125rem;
-      background-color: #d35540;
-      border: 0;
-      border-radius: 15px;
-      color: #ffffff;
-      height: 3rem;
-      font-size: 1.5rem;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      cursor: pointer;
-      &:focus {
-        border: none;
-        outline: none;
-      }
+    div {
+      display: flex;
+      font-size: 0.75rem;
+      align-items: flex-end;
+      margin: 1% 0 1% 5%;
+      color: #d35540;
     }
   }
 `;
 
 const SearchBar = styled.form`
-  display: flex;
-  margin: auto 0;
-  margin-left: 10%;
-  width: 370px;
-  height: 46.16px;
-  .search-icon-container {
+  width: 60%;
+  padding: 20px;
+
+  input {
+    position: relative;
     display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 0 15px 15px 0;
-    color: #c4c4c4;
-    height: 46.16px;
-    width: 55px;
-    padding: 0 4%;
-    .search-icon {
-      height: 27.56px;
-      width: 27.56px;
-      color: #c4c4c4;
-    }
-  }
-  label {
-    width: 100%;
-    input {
-      display: flex;
-      border-radius: 15px 0 0 15px;
-      border: 0;
-      display: inline-block;
-      text-align: start;
-      padding: 0 5%;
-      height: 46.16px;
-      width: 100%;
-      color: #000000;
-      font-size: 1.5rem;
-      font-family: 'Roboto', sans-serif;
-      &::placeholder {
-        color: #c4c4c4;
-        font-size: 1.5rem;
-        font-family: 'Roboto', sans-serif;
-      }
-      &:focus {
-        border: none;
-        outline: none;
-      }
-    }
+    border-radius: 25px;
+    border: 0;
+    display: inline-block;
+    width: 150%;
+    text-align: center;
   }
 `;
 
-export const LandingHeader = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+const searchable = {
+  term: '',
+};
+
+export const Header = () => {
+  const [searchTerm, setSearchTerm] = useState(searchable);
+  const searching = useSelector(state => state.isSearching);
+  const { push } = useHistory();
 
   const handleChanges = e => {
     e.preventDefault();
@@ -143,37 +138,44 @@ export const LandingHeader = () => {
   };
 
   return (
-    <div>
-      <HeaderBar>
-        <div className="search">
+    <HeaderBar>
+      <div onClick={() => push('/')} className="header-logo">
+        <img src={logo} alt="Citrics Logo" className="header-logo-icon" />
+        <div className="header-logo-text">
+          <h1 className="header-logo-h1">Citrics</h1>
+          <h3 className="header-logo-h3">A Nomad's Guide To The City</h3>
+        </div>
+      </div>
+
+      <div className="search">
+        {searching ? (
           <SearchBar className="sb-dis">
             <label name="term" htmlFor="term">
               <input
                 name="term"
                 value={searchTerm.term}
                 onChange={handleChanges}
-                placeholder="search"
+                placeholder="Start your search..."
                 type="text"
               />
             </label>
-            <div className="search-icon-container">
-              <FaSearch className="search-icon" />
-            </div>
           </SearchBar>
+        ) : null}
+      </div>
 
-          <div className="aside">
-            <p className="advanced-search">
-              Advanced <br /> Search
-            </p>
-            <FaSearchengin size="40px" className="advanced-search-icon" />
-          </div>
+      <div className="right">
+        <div className="aside">
+          <p className="advanced-search">
+            Advanced <br /> Search
+          </p>
+          <FaSearchengin size="40px" className="advanced-search-icon" />
         </div>
-
-        <div className="right">
-          <button className="login-btn">Login</button>
-          <button className="compare-cities-btn">Compare Cities</button>
-        </div>
-      </HeaderBar>
-    </div>
+        <FaUserCircle
+          className="profile"
+          size="42px"
+          onClick={() => push('/testprofile')}
+        />
+      </div>
+    </HeaderBar>
   );
 };
