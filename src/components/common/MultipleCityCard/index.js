@@ -2,26 +2,6 @@ import React from 'react';
 
 // STYLING
 import styled from 'styled-components';
-import {
-  FaRegPlusSquare,
-  FaCity,
-  FaTemperatureHigh,
-  FaTemperatureLow,
-  FaArrowCircleDown,
-  FaArrowCircleUp,
-} from 'react-icons/fa';
-import {
-  RiBankFill,
-  RiBuilding4Line,
-  RiContrastDrop2Line,
-  RiDropLine,
-  RiGiftLine,
-  RiHome4Line,
-  RiMoneyDollarBoxLine,
-  RiSurgicalMaskLine,
-  RiTimerLine,
-  RiHospitalLine,
-} from 'react-icons/ri';
 
 //COMPONENTS
 import CloseButton from '../CloseButton';
