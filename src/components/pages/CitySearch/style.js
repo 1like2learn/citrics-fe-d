@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const CitySearchDiv = styled.div`
   display: flex;
   height: 100vh;
+  overflow-y: hidden;
   div.citySearchCont {
     display: flex;
     min-height: 100vh;
