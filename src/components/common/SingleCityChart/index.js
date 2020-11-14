@@ -6,14 +6,33 @@ import SingleCityChartDiv from './style';
 export default function SingleCityChart(props) {
   const { city } = props;
 
-  const years = city.historicalincome.map(c => c.year);
-  const income = city.historicalincome.map(c => c.householdincome);
-  const housingCost = [];
-  city.historicalaveragehouse.forEach(month => {
-    if (month.month === 12) {
-      housingCost.push(month.housingcost);
+  const compare = (a, b) => {
+    // Use toUpperCase() to ignore character casing
+    const yearA = a.year;
+    const yearB = b.year;
+
+    let comparison = 0;
+    if (yearA > yearB) {
+      comparison = 1;
+    } else if (yearA < yearB) {
+      comparison = -1;
     }
+    return comparison;
+  };
+
+  city.historicalaveragehouse = city.historicalaveragehouse.sort(compare);
+
+  const years = city.historicalincome.map(c => c.year).sort();
+  const income = city.historicalincome.map(c => c.householdincome).sort();
+  const housingCost = city.historicalaveragehouse.map(c => {
+    return c.housingcost;
   });
+  // const housingCost = [];
+  // city.historicalaveragehouse.forEach(month => {
+  //   if (month.month === 12) {
+  //     housingCost.push(month.housingcost);
+  //   }
+  // });
 
   const chartData = {
     labels: years,
@@ -36,6 +55,11 @@ export default function SingleCityChart(props) {
       },
     ],
   };
+
+  const formatNumber = num => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  };
+
   return (
     <SingleCityChartDiv>
       <Line
@@ -52,6 +76,39 @@ export default function SingleCityChart(props) {
           animation: {
             duration: '1500',
             easing: 'linear',
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  callback: function(label) {
+                    if (label === 0) {
+                      return '0';
+                    } else {
+                      return '$' + formatNumber(label);
+                    }
+                  },
+                  fontSize: 12,
+                  fontFamily: 'Roboto',
+                  fontColor: '#000000',
+                },
+                scaleLabel: {
+                  display: true,
+                  fontSize: 12,
+                  fontFamily: 'Roboto',
+                  fontColor: '#000000',
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  fontSize: 12,
+                  fontFamily: 'Roboto',
+                  fontColor: '#000000',
+                },
+              },
+            ],
           },
         }}
       />
