@@ -8,20 +8,38 @@ import ComparisonCard from './ComparisonCard.js';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 100vw;
-  min-width: 100%;
-  align-content: center;
   align-items: flex-start;
   justify-content: center;
+  max-width: 100vw;
+  min-width: 100%;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
+  align-content: center;
   font-size: 1rem;
   overflow: hidden;
   /* new styling */
+
+  .vs-text {
+    /* width: inherit;
+      height: inherit; */
+    position: absolute;
+    font-size: 4rem;
+    top: 30%;
+    color: #fff;
+    background-color: #d3553fcc;
+    border-radius: 50%;
+    width: 135px;
+    height: 135px;
+    text-align: center;
+    line-height: 120px;
+  }
+
   .compare-city-selected-container {
     display: flex;
+    font-family: 'Roboto', sans-serif;
   }
   /* end of new styling */
-  .h3 {
+  /* .h3 {
     margin: 2% auto 0;
     font-size: 1.75rem;
     font-family: 'Montserrat', sans-serif;
@@ -34,16 +52,15 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 50vw;
-    height: 100%;
-    border: 2px solid dodgerblue;
+    height: 100%; */
 
-    h2 {
+  /* h2 {
       font-family: 'Norwester', sans-serif;
       font-size: 2.25rem;
     }
-  }
+  } */
 
-  .float {
+  /* .float {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -69,9 +86,9 @@ const Container = styled.div`
         margin: auto;
       }
     }
-  }
+  } */
 
-  .info {
+  /* .info {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -97,7 +114,7 @@ const Container = styled.div`
     text-align: center;
     display: flex;
     font-size: 5rem;
-  }
+  } */
 `;
 
 /*
@@ -5696,6 +5713,7 @@ export const MainVisual = () => {
             <CityDetails city={c2} />
           </aside>
         </div> */}
+        <p className="vs-text">&nbsp;vs.</p>
         <div className="compare-city-selected-container">
           {dummydata.map(city => {
             return <ComparisonCard city={city} />;
