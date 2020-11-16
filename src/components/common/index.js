@@ -11,6 +11,7 @@ import SearchBar from './SearchBar';
 import SearchPanel from './SearchPanel';
 import SingleCityChart from './SingleCityChart';
 import SingleCityDetails from './SingleCityDetails';
+import AdvancedSearch from './AdvancedSearch';
 
 // notice we're building out a 'package' of reusables here and exporting them as an object of component properties.
 // to use this, simply `import {foo, bar, baz} from '<path-to-this-directory>/ReusableComponents';`
@@ -27,4 +28,5 @@ export {
   SearchPanel,
   SingleCityChart,
   SingleCityDetails,
+  AdvancedSearch,
 };
