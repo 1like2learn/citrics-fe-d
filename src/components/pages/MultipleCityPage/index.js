@@ -645,32 +645,6 @@ const temp_data = [
 
 const MultipleCityPageContainer = styled.div`
   .multiple-city-page-chart-container {
-    .multiple-city-page-chart-menu {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem auto;
-      width: 40%;
-      button {
-        background: none;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
-        align-self: center;
-        cursor: pointer;
-        &:hover {
-          text-decoration: underline;
-          color: #d3553f;
-          font-weight: 1200;
-        }
-        &:focus {
-          text-decoration: underline;
-          color: #d3553f;
-          /* test */
-        }
-      }
-    }
   }
 `;
 
@@ -680,11 +654,6 @@ export default function MultipleCityPage() {
     <MultipleCityPageContainer>
       <Header />
       <div className="multiple-city-page-chart-container">
-        <div className="multiple-city-page-chart-menu">
-          <button>Population Trend</button>
-          <button>Apartment Prices</button>
-          <button>Unemployment Rate</button>
-        </div>
         <MultipleCityChart temp_data={temp_data} /> {/*chart*/}
       </div>
       <div className="multiple-city-page-selected-container">
