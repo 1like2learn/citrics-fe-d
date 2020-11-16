@@ -1,12 +1,5 @@
 import Axios from 'axios';
-import theme from '../../styles/themes';
 import na from '../../utils/na';
-
-const cityColors = [
-  theme.dark.tangerineLight,
-  theme.dark.magentaLight,
-  theme.dark.skyLight,
-];
 
 export const fetchSpecificCityData = cityId => async (dispatch, getState) => {
   const currentCities = getState().cardContainer.cityData;
@@ -27,7 +20,6 @@ export const fetchSpecificCityData = cityId => async (dispatch, getState) => {
   dispatch({ type: 'CARDCONTAINER_FETCH_REQUEST' });
   Axios.get(`https://labs27-c-citrics-api.herokuapp.com/cities/city/${cityId}`)
     .then(response => {
-      response.data.color = cityColors[currentCities.length];
       response.data.colorIdx = currentCities.length;
       dispatch({
         type: 'CARDCONTAINER_FETCH_SUCCESS',
