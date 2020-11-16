@@ -9,7 +9,7 @@ const HeaderBar = styled.div`
   box-sizing: border-box;
   display: flex;
   width: 100%;
-  height: 15vh;
+  height: 134px;
   align-items: center;
   margin: 0 auto;
   justify-content: space-around;
