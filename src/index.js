@@ -19,10 +19,9 @@ import {
   ComparisonPage,
   LandingPage,
   CitySearch,
-  FavoritesPage,
+  MultipleCityPage,
+  ProfilePage,
 } from './components/pages';
-import MultipleCityPage from './components/pages/MultipleCityPage';
-import { ProfilePage } from './components/pages/ProfilePage';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -56,7 +55,6 @@ function App() {
       <Security {...config} onAuthRequired={authHandler}>
         <SecureRoute path="/profile" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <SecureRoute path="/favorites" exact component={FavoritesPage} />
       </Security>
       <Route component={NotFoundPage} />
     </Switch>
