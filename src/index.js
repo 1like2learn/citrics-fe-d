@@ -21,6 +21,7 @@ import {
   CitySearch,
   MultipleCityPage,
   ProfilePage,
+  CitySelect,
 } from './components/pages';
 
 ReactDOM.render(
@@ -50,6 +51,7 @@ function App() {
       <Route path="/" exact component={LandingPage} />
       <Route path="/multiple-city" component={MultipleCityPage} />
       <Route path="/city" component={CitySearch} />
+      <Route path="/city-select" component={CitySelect} />
 
       {/* temporarily putting the landing component until we have a profile/favorites page */}
       <Security {...config} onAuthRequired={authHandler}>
