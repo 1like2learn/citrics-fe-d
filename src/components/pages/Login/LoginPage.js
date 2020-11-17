@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginContainer from './LoginContainer.js';
-import { Layout } from 'antd';
-import NavBar from '../../layouts/NavBar/Component.js';
+import { Layout } from 'antd'; // TODO refactor to styled components
 
 function LoginPage() {
   return (
@@ -19,7 +18,6 @@ function LoginPage() {
           minHeight: '100vh',
         }}
       >
-        <NavBar />
         <LoginContainer />
       </Layout>
     </div>
