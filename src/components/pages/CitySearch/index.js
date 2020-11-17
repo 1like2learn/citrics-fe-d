@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 
 import dummyData from '../../../utils/dummyData';
@@ -9,15 +9,25 @@ import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
+import { grabCityData } from './logic';
 
 export default function CitySearch() {
-  const { citynamestate, wikiimgurl, summary, latitude, longitude } = dummyData;
+  const { citynamestate, wikiimgurl, latitude, longitude } = dummyData;
+  const [imageUrl, setImageUrl] = useState(wikiimgurl);
+  const [summary, setSummary] = useState();
 
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
 
-  console.log('Access Token from CitySearch', process.env.REACT_APP_MAP_BOX_KEY);
+  let formatedCityName = citynamestate.slice();
+
+  formatedCityName = formatedCityName.split(',')[0].replace(' ', '_');
+
+  useEffect(() => {
+    grabCityData(formatedCityName, setImageUrl, setSummary);
+  }, [setImageUrl, setSummary, citynamestate, formatedCityName]);
+
   return (
     <CitySearchDiv>
       <CitySearchHeader />
