@@ -1,117 +1,109 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaRegPlusSquare } from 'react-icons/fa';
-import { Header } from '../ComparisonPage/Header';
-import { DescriptionSection } from '../ComparisonPage/DecriptionSection';
+import { FaPlus } from 'react-icons/fa';
+import { Header } from '../../common/Header';
+import { DescriptionSection } from './DecriptionSection';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   max-width: 100vw;
   min-width: 100%;
-  height: 100%;
+  height: 100vh;
   font-family: 'Roboto', sans-serif;
   align-content: center;
   font-size: 1rem;
   overflow: hidden;
   /* new styling */
-
-  .vs-text {
-    /* width: inherit;
-      height: inherit; */
-    position: absolute;
-    font-size: 4rem;
-    top: 30%;
-    color: #fff;
-    background-color: #d3553fcc;
-    border-radius: 50%;
-    width: 135px;
-    height: 135px;
-    text-align: center;
-    line-height: 120px;
-  }
-
-  .compare-city-selected-container {
+  .city-select-inner-div {
     display: flex;
-    font-family: 'Roboto', sans-serif;
-  }
-  /* end of new styling */
-  .h3 {
-    margin: 2% auto 0;
-    font-size: 1.75rem;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .split {
-    flex-direction: column;
-    display: flex;
-    margin: 1% auto;
-    align-items: center;
-    justify-content: center;
-    width: 30vw;
-    height: 100%;
-    */ h2 {
-      font-family: 'Norwester', sans-serif;
-      font-size: 2.25rem;
-    }
-  }
-
-  .float {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 1%;
-    font-size: 2.5rem;
-    text-align: center;
-    align-items: center;
-    color: #000000;
-    margin: 15% 0;
-
-    div {
-      display: flex;
+    flex-direction: row;
+    .vs-text {
+      position: absolute;
+      font-size: 4rem;
+      top: 30%;
+      color: #fff;
+      background-color: #d3553fcc;
+      border-radius: 50%;
+      width: 135px;
+      height: 135px;
       text-align: center;
-      position: relative;
-      justify-content: center;
-      font-size: 1.1rem;
-      background-color: #d35540;
-      width: 100px;
-      border-radius: 30px;
-      color: #ffffff;
+      line-height: 120px;
+    }
+    /* end of new styling */
 
-      p {
-        margin: auto;
+    .split {
+      flex-direction: column;
+      display: flex;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 30vw;
+      height: 55vh;
+      .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: #c4c4c4;
+        width: 100px;
+        height: 100px;
       }
     }
-  }
-  */ .info {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    margin: 1%;
-    justify-content: center;
-  }
 
-  .icons {
-    margin: 45%;
-    border-radius: 10px;
-    background-color: #c4c4c4;
-  }
+    .float {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      color: #000000;
 
-  .bottom {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+      .vs {
+        font-size: 4rem;
+      }
 
-  .graph {
-    height: 35vh;
-    width: 40vw;
-    text-align: center;
-    display: flex;
-    font-size: 5rem;
-  }
+      .compare-btn {
+        display: flex;
+        text-align: center;
+        position: relative;
+        justify-content: center;
+        font-size: 1.5rem;
+        background-color: #d35540;
+        width: 275px;
+        height: 52px;
+        border-radius: 30px;
+        color: #ffffff;
+
+        p {
+          margin: auto;
+        }
+      }
+    }
+    */ .info {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      margin: 1%;
+      justify-content: center;
+    }
+
+    .bottom {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .graph {
+      height: 35vh;
+      width: 40vw;
+      text-align: center;
+      display: flex;
+      font-size: 5rem;
+    }
+  } //end
 `;
 
 export const CitySelect = () => {
@@ -120,38 +112,38 @@ export const CitySelect = () => {
 
   return (
     <>
-      <Header />
       <Container>
-        <div className="split">
-          {!cityOne ? (
-            <div></div>
-          ) : (
-            <div className="icons">
-              <FaRegPlusSquare size="50px" />
-            </div>
-          )}
-        </div>
+        <Header />
+        <div className="city-select-inner-div">
+          <div className="split">
+            {!cityOne ? (
+              <div></div>
+            ) : (
+              <div className="icons">
+                <FaPlus size="50px" />
+              </div>
+            )}
+          </div>
 
-        <div className="float">
-          vs.
-          <br />
-          <br />
-          <div>
-            <p>COMPARE</p>
+          <div className="float">
+            <p className="vs"> vs.</p>
+            <div className="compare-btn">
+              <p>COMPARE</p>
+            </div>
+          </div>
+
+          <div className="split">
+            {!cityTwo ? (
+              <div></div>
+            ) : (
+              <div className="icons">
+                <FaPlus size="50px" />
+              </div>
+            )}
           </div>
         </div>
-
-        <div className="split">
-          {!cityTwo ? (
-            <div></div>
-          ) : (
-            <div className="icons">
-              <FaRegPlusSquare size="50px" />
-            </div>
-          )}
-        </div>
+        <DescriptionSection />
       </Container>
-      <DescriptionSection />
     </>
   );
 };
