@@ -5,6 +5,8 @@ import { NotFoundPage } from './NotFound';
 import CitySearch from './CitySearch';
 import MultipleCityPage from './MultipleCityPage';
 import { ProfilePage } from './ProfilePage';
+import { CitySelect } from './CitySelect';
+
 // test
 export {
   ComparisonPage,
@@ -14,4 +16,5 @@ export {
   CitySearch,
   MultipleCityPage,
   ProfilePage,
+  CitySelect,
 };
