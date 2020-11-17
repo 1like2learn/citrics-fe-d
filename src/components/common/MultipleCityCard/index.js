@@ -2,26 +2,6 @@ import React from 'react';
 
 // STYLING
 import styled from 'styled-components';
-import {
-  FaRegPlusSquare,
-  FaCity,
-  FaTemperatureHigh,
-  FaTemperatureLow,
-  FaArrowCircleDown,
-  FaArrowCircleUp,
-} from 'react-icons/fa';
-import {
-  RiBankFill,
-  RiBuilding4Line,
-  RiContrastDrop2Line,
-  RiDropLine,
-  RiGiftLine,
-  RiHome4Line,
-  RiMoneyDollarBoxLine,
-  RiSurgicalMaskLine,
-  RiTimerLine,
-  RiHospitalLine,
-} from 'react-icons/ri';
 
 //COMPONENTS
 import CloseButton from '../CloseButton';
@@ -48,8 +28,8 @@ const CardContainer = styled.div`
         justify-content: flex-end;
         align-items: flex-start;
         font-size: 2.25rem;
-        font-family: 'Roboto';
-        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
       }
     }
     .city-card-cityDetails {

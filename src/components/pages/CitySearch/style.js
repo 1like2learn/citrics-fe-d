@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const CitySearchDiv = styled.div`
   display: flex;
-  min-height: 100%;
-  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
   div.citySearchCont {
     display: flex;
     min-height: 100vh;
@@ -70,30 +70,72 @@ const HeaderBar = styled.div`
   align-items: center;
   align-content: center;
   margin: 0 auto;
-  background-color: rgba(00, 00, 00, 0);
+  background-color: unset;
   z-index: 100;
   .left {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     width: 50%;
-
+    .header-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        margin: 1% 0 1% 10%;
+        cursor: pointer;
+        .header-logo-icon {
+            height: 70px;
+        }
+        .header-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+            .header-logo-h1 {
+                font-family: 'Norwester', sans-serif;
+                text-transform: uppercase;
+                line-height: 56px;
+                font-size: 56px;
+                color: #d35540;
+                padding: 0;
+                margin: 0;
+            }
+            .header-logo-h3 {
+                font-family: 'Montserrat', sans-serif;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 8px;
+                font-stretch: ultra-expanded;
+                letter-spacing: 1px;
+                font-weight: 800;
+                line-height: 8px;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
     .search {
       display: flex;
       flex-direction: column;
-      width: 60%;
+      width: 50%;
       align-items: flex-end;
       align-content: center;
       justify-content: center;
-      padding: 0;
+      padding-top: 2.5%;
+      margin-right: 5%;
     }
 
     .aside {
+      font-family: 'Roboto', sans-serif;
       display: flex;
-      font-size: 0.6rem;
       align-items: flex-end;
-      color: #ffffff;
       margin: 0;
+      color: #ffffff;
+      font-size: .875rem;
+      cursor: pointer;
+      }
     }
   }
 
@@ -139,9 +181,13 @@ const SearchBar = styled.form`
       padding: 0 5%;
       height: 46.16px;
       width: 100%;
+      color: #000000;
+      font-size: 1.5rem;
+      font-family: 'Roboto', sans-serif;
       &::placeholder {
         color: #c4c4c4;
         font-size: 1.5rem;
+        font-family: 'Roboto', sans-serif;
       }
       &:focus {
         border: none;

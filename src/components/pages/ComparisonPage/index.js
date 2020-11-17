@@ -35,7 +35,7 @@ export const ComparisonPage = () => {
   return (
     <>
       <Container />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

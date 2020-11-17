@@ -37,16 +37,16 @@ const CityDetailsContainer = styled.aside`
     .info-div {
       padding: 0;
       .UTC {
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         font-size: 1rem;
         font-weight: 800;
         height: 1rem;
         padding-left: 2.4rem;
       }
       span {
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         font-size: 0.75rem;
-        font-weight: 800;
+        font-weight: 500;
       }
       .count-div {
         display: flex;
@@ -65,9 +65,8 @@ const CityDetailsContainer = styled.aside`
           display: flex;
           height: calc(0.5rem + 3.5vh);
           align-items: center;
-          font-family: 'Roboto';
+          font-family: 'Roboto', sans-serif;
           font-size: calc(0.5rem + 3vh);
-          font-weight: 800;
           padding: 0;
           .fahrenheit {
             font-size: calc(0.08rem + 2vh);

@@ -4,7 +4,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import { config } from '../../../utils/oktaConfig';
 
-import logo from '../../../styles/logo/lime.png';
+import logo from '../../../assets/Citrics Icon.svg';
 
 const LoginContainer = () => {
   useEffect(() => {

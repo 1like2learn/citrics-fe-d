@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { HeaderBar, SearchBar } from './style';
 import { FaUserCircle, FaSearch } from 'react-icons/fa';
-import logo from '../../../assets/citricslogo.svg';
+import logo from '../../../assets/Citrics Icon.svg';
 
 export default function CitySearchHeader() {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const { push } = useHistory();
 
   const handleChanges = e => {
     e.preventDefault();
@@ -15,7 +19,13 @@ export default function CitySearchHeader() {
     <div>
       <HeaderBar>
         <div className="left">
-          <img src={logo} alt="citrics logo" />
+          <div onClick={() => push('/')} className="header-logo">
+            <img src={logo} alt="Citrics Logo" className="header-logo-icon" />
+            <div className="header-logo-text">
+              <h1 className="header-logo-h1">Citrics</h1>
+              <h3 className="header-logo-h3">A Nomad's Guide To The City</h3>
+            </div>
+          </div>
           <div className="search">
             <SearchBar className="sb-dis">
               <label name="term" htmlFor="term">
@@ -31,9 +41,7 @@ export default function CitySearchHeader() {
                 <FaSearch className="search-icon" />
               </div>
             </SearchBar>
-            <div className="aside">
-              <p>Advanced Search</p>
-            </div>
+            <div className="aside">Advanced Search</div>
           </div>
         </div>
 
