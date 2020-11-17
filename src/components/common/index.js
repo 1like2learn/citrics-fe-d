@@ -7,6 +7,7 @@ import MultipleCityCard from './MultipleCityCard';
 import MultipleCityChart from './MultipleCityChart';
 import SingleCityChart from './SingleCityChart';
 import AdvancedSearch from './AdvancedSearch';
+import Searchbar from './Searchbar';
 
 // notice we're building out a 'package' of reusables here and exporting them as an object of component properties.
 // to use this, simply `import {foo, bar, baz} from '<path-to-this-directory>/ReusableComponents';`
@@ -20,4 +21,5 @@ export {
   MultipleCityChart,
   SingleCityChart,
   AdvancedSearch,
+  Searchbar,
 };
