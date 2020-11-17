@@ -5,8 +5,7 @@ const Bottom = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 2% 0;
-
+  margin: 0 auto;
   div {
     width: 75%;
     margin: 1% auto;
@@ -29,8 +28,8 @@ export const DescriptionSection = () => {
           prices, respectively, when compared to the National Average.
         </p>
         <p>
-          ** Covid case count numbers may not be available in all areas. Where
-          data has been gathered, it has been provided.{' '}
+          To filter the results when you do the search in the search bar you can
+          toggle criteria in Advanced Search.
         </p>
       </div>
     </Bottom>
