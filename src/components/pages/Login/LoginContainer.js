@@ -20,10 +20,15 @@ const LoginContainer = () => {
       features: { registration: false },
       // turning this feature on allows your widget to use Okta for user registration
       logo: logo,
+      logoText: 'Citrics Logo',
+      colors: {
+        brand: '#d35540',
+      },
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
           'primaryauth.title': 'Welcome to Citrics',
+          'primaryauth.submit': 'Login',
           // change title for your app
         },
       },
@@ -32,6 +37,15 @@ const LoginContainer = () => {
         issuer,
         display: 'page',
         scopes,
+      },
+      helpLinks: {
+        custom: [
+          {
+            text: 'Sign up instead?',
+            href: '',
+            target: '_blank',
+          },
+        ],
       },
     });
 
