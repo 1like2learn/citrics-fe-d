@@ -2,7 +2,7 @@
 
 import 'rc-slider/assets/index.css';
 import React from 'react';
-import Slider, { createSliderWithTooltip, Range } from 'rc-slider';
+import { Range } from 'rc-slider';
 
 const handleStyleObj = {
   backgroundColor: '#d3553f',
@@ -21,14 +21,11 @@ const disabledStyle = {
   marginTop: '-13px',
 };
 
-function log(value) {
-  console.log(value) //eslint-disable-line
-}
-
-export default function RangeSlider({ disabled }) {
+export default function RangeSlider({ disabled, name, updatePreferences }) {
   return (
     <div>
       <Range
+        // Depending on the state of disabled the styles of the range slider will change
         trackStyle={[
           disabled
             ? { backgroundColor: '#afafaf' }
@@ -41,7 +38,7 @@ export default function RangeSlider({ disabled }) {
         allowCross={true}
         disabled={disabled}
         defaultValue={[0, 100]}
-        onChange={log}
+        onChange={data => updatePreferences(data, name)}
       />
     </div>
   );

@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Range } from 'rc-slider';
-import 'rc-slider/assets/index.css';
 
 import RangeSlider from './RangeSlider';
 import AdvancedSearchDiv from './style';
 
+const defaultPreferences = {
+  salary: [0, 100],
+  population: [0, 100],
+  rent: [0, 100],
+  temp: [0, 100],
+  walk: [0, 100],
+};
+
 export default function AdvancedSearch() {
-  const { register, handleSubmit, watch } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, watch } = useForm();
+  const [preferences, setPreferences] = useState(defaultPreferences);
+  const onSubmit = () => console.log(preferences);
 
   const salary = watch('salaryCheckbox');
   const population = watch('populationCheckbox');
@@ -16,9 +23,13 @@ export default function AdvancedSearch() {
   const temp = watch('tempCheckbox');
   const walk = watch('walkCheckbox');
 
+  const updatePreferences = (data, name) => {
+    setPreferences({ ...preferences, [`${name}`]: data });
+  };
+
   return (
     <AdvancedSearchDiv>
-      <form onSubmit={() => handleSubmit(onSubmit)}>
+      <form>
         <div className="advancedSearchField">
           <label>
             <input
@@ -31,7 +42,11 @@ export default function AdvancedSearch() {
             &nbsp;&nbsp;Salary
           </label>
           <div className="advancedSearchSlider">
-            <RangeSlider disabled={!salary} />
+            <RangeSlider
+              disabled={!salary}
+              name={'salary'}
+              updatePreferences={updatePreferences}
+            />
           </div>
         </div>
         <div className="advancedSearchField">
@@ -46,7 +61,11 @@ export default function AdvancedSearch() {
             &nbsp;&nbsp;Population
           </label>
           <div className="advancedSearchSlider">
-            <RangeSlider disabled={!population} />
+            <RangeSlider
+              disabled={!population}
+              name={'population'}
+              updatePreferences={updatePreferences}
+            />
           </div>
         </div>
         <div className="advancedSearchField">
@@ -61,7 +80,11 @@ export default function AdvancedSearch() {
             &nbsp;&nbsp;Rental Prices
           </label>
           <div className="advancedSearchSlider">
-            <RangeSlider disabled={!rent} />
+            <RangeSlider
+              disabled={!rent}
+              name={'rent'}
+              updatePreferences={updatePreferences}
+            />
           </div>
         </div>
         <div className="advancedSearchField">
@@ -76,7 +99,11 @@ export default function AdvancedSearch() {
             &nbsp;&nbsp;Average Temperature
           </label>
           <div className="advancedSearchSlider">
-            <RangeSlider disabled={!temp} />
+            <RangeSlider
+              disabled={!temp}
+              name={'temp'}
+              updatePreferences={updatePreferences}
+            />
           </div>
         </div>
         <div className="advancedSearchField">
@@ -92,8 +119,17 @@ export default function AdvancedSearch() {
           </label>
 
           <div className="advancedSearchSlider">
-            <RangeSlider disabled={!walk} />
+            <RangeSlider
+              disabled={!walk}
+              name={'walk'}
+              updatePreferences={updatePreferences}
+            />
           </div>
+        </div>
+        <div className="advancedSearchField">
+          <button type="button" onClick={onSubmit}>
+            Apply Filters
+          </button>
         </div>
       </form>
     </AdvancedSearchDiv>

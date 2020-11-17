@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 const AdvancedSearchDiv = styled.div`
-  padding: 10%;
-  margin: 10%;
+  position: absolute;
+  background-color: white;
+  padding: 5%;
+  width: 50vw;
+  height: 50vh;
+  left: 25vw;
+  top: 25vh;
+  transform: translateX(-50%), translateY(-50%);
+  z-index: 100;
 
   div.advancedSearchField {
     display: flex;
     justify-content: space-between;
-    padding: 1vw;
+    padding: 10px;
 
     label {
       position: relative;
@@ -62,6 +69,17 @@ const AdvancedSearchDiv = styled.div`
     div.advancedSearchSlider {
       width: 50%;
     }
+  }
+  button {
+    color: #d3553f;
+    border: none;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  button:active {
+    background-color: #d3553f;
+    color: white;
   }
 `;
 
