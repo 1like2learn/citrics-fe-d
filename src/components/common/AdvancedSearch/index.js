@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import RangeSlider from './RangeSlider';
 import AdvancedSearchDiv from './style';
+import store from '../../../state';
+import { updateFilter } from '../../../state/actions/cityActs';
 
 const defaultPreferences = {
   salary: [0, 100],
@@ -15,7 +17,9 @@ const defaultPreferences = {
 export default function AdvancedSearch() {
   const { register, watch } = useForm();
   const [preferences, setPreferences] = useState(defaultPreferences);
-  const onSubmit = () => console.log(preferences);
+  const { dispatch } = store;
+
+  const onSubmit = () => updateFilter(dispatch, preferences);
 
   const salary = watch('salaryCheckbox');
   const population = watch('populationCheckbox');

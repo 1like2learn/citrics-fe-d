@@ -1,32 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
-
-import dummyData from '../../../utils/dummyData';
-
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { connect } from 'react-redux';
 
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
-import { grabCityData } from './logic';
 
-export default function CitySearch() {
-  const { citynamestate, wikiimgurl, latitude, longitude } = dummyData;
-  const [imageUrl, setImageUrl] = useState(wikiimgurl);
-  const [summary, setSummary] = useState();
-
+function CitySearch(props) {
+  const {
+    citynamestate,
+    wikiimgurl,
+    summary,
+    latitude,
+    longitude,
+  } = props.currentCities[0];
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
-
-  let formatedCityName = citynamestate.slice();
-
-  formatedCityName = formatedCityName.split(',')[0].replace(' ', '_');
-
-  useEffect(() => {
-    grabCityData(formatedCityName, setImageUrl, setSummary);
-  }, [setImageUrl, setSummary, citynamestate, formatedCityName]);
 
   return (
     <CitySearchDiv>
@@ -64,10 +56,10 @@ export default function CitySearch() {
 
           <div className="citySearchDataCont">
             <div className="citySearchSingleCityChart">
-              <SingleCityChart city={dummyData} />
+              <SingleCityChart city={props.currentCities[0]} />
             </div>
             <div className="city-search-details">
-              <CityDetails city={dummyData} />
+              <CityDetails city={props.currentCities[0]} />
             </div>
           </div>
         </section>
@@ -75,3 +67,11 @@ export default function CitySearch() {
     </CitySearchDiv>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    currentCities: state.currentCities,
+  };
+};
+
+export default connect(mapStateToProps, {})(CitySearch);
