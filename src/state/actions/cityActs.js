@@ -125,30 +125,9 @@ export const updateFilter = async (dispatch, preferences, rangeValues) => {
     payload: preferences,
   });
 };
-// const defaultPreferences = {
-//   salary: [0, 100],
-//   population: [0, 100],
-//   rent: [0, 100],
-//   temp: [0, 100],
-// };
-export const updateFilterRange = dispatch => {
-  axios
-    .get(
-      'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch/minmax'
-    )
-    .then(response => {
-      dispatch({
-        type: 'UPDATE_RANGE_FILTER',
-        payload: {
-          salary: [response.data.salaryMin, response.data.salaryMax],
-          population: [
-            response.data.populationMin,
-            response.data.populationMax,
-          ],
-          rent: [response.data.rentMin, response.data.rentMax],
-          temp: [response.data.avgTempMin, response.data.avgTempMax],
-        },
-      });
-    })
-    .catch(error => console.log(error));
+
+export const toggleSearch = dispatch => {
+  dispatch({
+    type: 'TOGGLE_SEARCH',
+  });
 };
