@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 
 import RangeSlider from './RangeSlider';
 import AdvancedSearchDiv from './style';
 import store from '../../../state';
-import { updateFilter } from '../../../state/actions/cityActs';
+import {
+  updateFilter,
+  updateFilterRange,
+} from '../../../state/actions/cityActs';
 
-const defaultPreferences = {
-  salary: [0, 100],
-  population: [0, 100],
-  rent: [0, 100],
-  temp: [0, 100],
-  walk: [0, 100],
-};
-
-export default function AdvancedSearch() {
+function AdvancedSearch(props) {
   const { register, watch } = useForm();
-  const [preferences, setPreferences] = useState(defaultPreferences);
+  const { filter, rangeFilter } = props;
+  const [preferences, setPreferences] = useState(filter);
   const { dispatch } = store;
 
+  // changes preferences in global state and grabs new list of filtered cities
   const onSubmit = () => updateFilter(dispatch, preferences);
 
+  // checks to see if sliders should be enabled or not
   const salary = watch('salaryCheckbox');
   const population = watch('populationCheckbox');
   const rent = watch('rentCheckbox');
   const temp = watch('tempCheckbox');
-  const walk = watch('walkCheckbox');
 
+  // handles changes to preferences
   const updatePreferences = (data, name) => {
     setPreferences({ ...preferences, [`${name}`]: data });
   };
+
+  // first render grabs the values for the range
+  useEffect(() => {
+    updateFilterRange(dispatch);
+  }, [dispatch]);
 
   return (
     <AdvancedSearchDiv>
@@ -49,6 +53,8 @@ export default function AdvancedSearch() {
             <RangeSlider
               disabled={!salary}
               name={'salary'}
+              min={rangeFilter.salaryMin}
+              max={rangeFilter.salaryMax}
               updatePreferences={updatePreferences}
             />
           </div>
@@ -68,6 +74,8 @@ export default function AdvancedSearch() {
             <RangeSlider
               disabled={!population}
               name={'population'}
+              min={rangeFilter.populationMin}
+              max={rangeFilter.populationMax}
               updatePreferences={updatePreferences}
             />
           </div>
@@ -87,6 +95,8 @@ export default function AdvancedSearch() {
             <RangeSlider
               disabled={!rent}
               name={'rent'}
+              min={rangeFilter.rentMin}
+              max={rangeFilter.rentMax}
               updatePreferences={updatePreferences}
             />
           </div>
@@ -106,26 +116,8 @@ export default function AdvancedSearch() {
             <RangeSlider
               disabled={!temp}
               name={'temp'}
-              updatePreferences={updatePreferences}
-            />
-          </div>
-        </div>
-        <div className="advancedSearchField">
-          <label>
-            <input
-              className="advancedSearchCheckbox"
-              name="walkCheckbox"
-              type="checkbox"
-              ref={register}
-            ></input>
-            <span className="styledCheckbox"></span>
-            &nbsp;&nbsp;Walkability
-          </label>
-
-          <div className="advancedSearchSlider">
-            <RangeSlider
-              disabled={!walk}
-              name={'walk'}
+              min={rangeFilter.avgTempMin}
+              max={rangeFilter.avgTempMax}
               updatePreferences={updatePreferences}
             />
           </div>
@@ -139,3 +131,12 @@ export default function AdvancedSearch() {
     </AdvancedSearchDiv>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    rangeFilter: state.rangeFilter,
+    filter: state.filter,
+  };
+};
+
+export default connect(mapStateToProps, {})(AdvancedSearch);

@@ -12,15 +12,13 @@ export const getCities = (dispatch, cities) => {
 export const addToCurrent = async (dispatch, cityData) => {
   let formatedCityName = cityData.citynamestate.slice();
 
-  formatedCityName = formatedCityName.split(',')[0].replace(' ', '_');
+  formatedCityName = formatedCityName.replace(' ', '_');
 
   await axios
     .get(
       `https://en.wikipedia.org/api/rest_v1/page/media-list/${formatedCityName}`
     )
     .then(response => {
-      console.log('response.data.items[0].srcset[2].src', response);
-
       cityData.wikiimgurl = response.data.items[0].srcset[2].src;
     })
     .catch(error => console.log(error));
@@ -34,7 +32,6 @@ export const addToCurrent = async (dispatch, cityData) => {
     })
     .catch(error => console.log(error));
 
-  console.log('cityData', cityData);
   dispatch({
     type: 'ADD_TO_CURRENT_CITIES',
     payload: cityData,
@@ -43,20 +40,79 @@ export const addToCurrent = async (dispatch, cityData) => {
 
 // Takes in cityId to remove and the current list of Cities.
 export const removeFromCurrent = (dispatch, cityId, currentCityState) => {
-  const newState = currentCityState.filter(
-    () => currentCityState.cityId !== cityId
+  const newCurrentCities = currentCityState.filter(
+    city => city.cityid !== cityId
   );
 
   dispatch({
     type: 'REMOVE_FROM_CURRENT_CITIES',
-    payload: newState,
+    payload: newCurrentCities,
   });
 };
 
+// const defaultPreferences = {
+//   salary: [0, 100],
+//   population: [0, 100],
+//   rent: [0, 100],
+//   temp: [0, 100],
+// };
 // Takes in preferences to set the filter to.
-export const updateFilter = async (dispatch, preferences) => {
+export const updateFilter = async (dispatch, preferences, rangeValues) => {
+  const advanceSearchUrl =
+    'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch?';
+
+  // sal
+  if (preferences.salary[0] !== rangeValues.salary[0]) {
+    advanceSearchUrl.concat(`salMin=${preferences.salary[0]}&`);
+  }
+  if (preferences.salary[1] !== rangeValues.salary[1]) {
+    advanceSearchUrl.concat(`salMax=${preferences.salary[1]}&`);
+  } // pop
+  if (preferences.population[0] !== rangeValues.population[0]) {
+    advanceSearchUrl.concat(`popMin=${preferences.population[0]}&`);
+  }
+  if (preferences.population[1] !== rangeValues.population[1]) {
+    advanceSearchUrl.concat(`popMax=${preferences.population[1]}&`);
+  } // rent
+  if (preferences.rent[0] !== rangeValues.rent[0]) {
+    advanceSearchUrl.concat(`rentMin=${preferences.rent[0]}&`);
+  }
+  if (preferences.rent[1] !== rangeValues.rent[1]) {
+    advanceSearchUrl.concat(`rentMax=${preferences.rent[1]}&`);
+  } // avgTemp
+  if (preferences.temp[0] !== rangeValues.temp[0]) {
+    advanceSearchUrl.concat(`avgTempMin=${preferences.avg[0]}&`);
+  }
+  if (preferences.temp[1] !== rangeValues.temp[1]) {
+    advanceSearchUrl.concat(`avgTempMax=${preferences.temp[1]}&`);
+  }
+
+  // removes the last ampersand from end of string
+  const finalUrl = advanceSearchUrl.slice(0, -1);
+
+  axios
+    .get(finalUrl)
+    .then(response => {
+      getCities(dispatch, response.data);
+    })
+    .catch(error => console.log(error));
+
   dispatch({
     type: 'UPDATE_FILTER',
     payload: preferences,
   });
+};
+
+export const updateFilterRange = dispatch => {
+  axios
+    .get(
+      'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch/minmax'
+    )
+    .then(response => {
+      dispatch({
+        type: 'UPDATE_RANGE_FILTER',
+        payload: response,
+      });
+    })
+    .catch(error => console.log(error));
 };
