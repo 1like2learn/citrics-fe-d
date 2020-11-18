@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaSearchengin, FaSearch } from 'react-icons/fa';
+
 import Searchbar from '../Searchbar/searchbar';
 
 const HeaderBar = styled.div`
@@ -136,6 +138,7 @@ const SearchBar = styled.form`
 `;
 
 export const LandingHeader = () => {
+  const { push } = useHistory();
   return (
     <div>
       <HeaderBar>
@@ -159,7 +162,12 @@ export const LandingHeader = () => {
 
         <div className="right">
           <button className="login-btn">Login</button>
-          <button className="compare-cities-btn">Compare Cities</button>
+          <button
+            onClick={() => push('/city-select')}
+            className="compare-cities-btn"
+          >
+            Compare Cities
+          </button>
         </div>
       </HeaderBar>
     </div>
