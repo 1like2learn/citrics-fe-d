@@ -14,16 +14,18 @@ export const addToCurrent = async (dispatch, cityData) => {
 
   formatedCityName = formatedCityName.split(',')[0].replace(' ', '_');
 
-  axios
+  await axios
     .get(
       `https://en.wikipedia.org/api/rest_v1/page/media-list/${formatedCityName}`
     )
     .then(response => {
-      cityData.wikiimageurl = response.data.items[0].srcset[0].src;
+      console.log('response.data.items[0].srcset[2].src', response);
+
+      cityData.wikiimgurl = response.data.items[0].srcset[2].src;
     })
     .catch(error => console.log(error));
 
-  axios
+  await axios
     .get(
       `https://en.wikipedia.org/api/rest_v1/page/summary/${formatedCityName}`
     )
@@ -32,6 +34,7 @@ export const addToCurrent = async (dispatch, cityData) => {
     })
     .catch(error => console.log(error));
 
+  console.log('cityData', cityData);
   dispatch({
     type: 'ADD_TO_CURRENT_CITIES',
     payload: cityData,
