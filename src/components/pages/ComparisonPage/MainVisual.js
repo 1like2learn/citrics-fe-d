@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ComparisonCard from './ComparisonCard.js';
 import { connect } from 'react-redux';
 import AddButton from '../../common/AddButton';
+import { toggleSearch } from '../../../state/actions/cityActs';
 
 const Container = styled.div`
   display: flex;
@@ -56,6 +57,11 @@ const compare = (a, b) => {
 const MainVisual = props => {
   const { currentCities } = props;
 
+  const handletoggle = e => {
+    e.preventDefault();
+    props.toggleSearch();
+  };
+
   console.log('currentCities in Main Visuals', currentCities);
 
   return (
@@ -66,7 +72,7 @@ const MainVisual = props => {
           return <ComparisonCard city={city} key={city.cityid} />;
         })}
       </div>
-      <AddButton />
+      <AddButton onClick={handletoggle} />
     </Container>
   );
 };
@@ -78,4 +84,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(MainVisual);
+export default connect(mapStateToProps, { toggleSearch })(MainVisual);

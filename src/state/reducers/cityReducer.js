@@ -2,6 +2,7 @@ const initialState = {
   currentCities: [],
   allCities: [],
   filter: {},
+  isSearching: false,
 };
 
 export const currentCityReducers = (state = initialState, action) => {
@@ -26,6 +27,11 @@ export const currentCityReducers = (state = initialState, action) => {
       return {
         ...state,
         filter: action.payload,
+      };
+    case 'TOGGLE_SEARCH':
+      return {
+        ...state,
+        isSearching: !state.isSearching,
       };
     default:
       return state;

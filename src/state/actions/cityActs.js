@@ -60,3 +60,9 @@ export const updateFilter = async (dispatch, preferences) => {
     payload: preferences,
   });
 };
+
+export const toggleSearch = () => dispatch => {
+  dispatch({
+    type: 'TOGGLE_SEARCH',
+  });
+};
