@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { connect, store } from 'react-redux';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
@@ -9,12 +10,18 @@ import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
 
 function CitySearch(props) {
+  const history = useHistory();
+
+  if (props.currentCities < 1) {
+    history.push('/');
+  }
+
   const {
     citynamestate,
     wikiimgurl,
     summary,
     latitude,
-    longitude,
+    logitude,
   } = props.currentCities[0];
 
   // const { dispatch } = store;
@@ -41,7 +48,7 @@ function CitySearch(props) {
           <div className="citySearchMap">
             <Map
               style="mapbox://styles/mapbox/light-v10"
-              center={[longitude, latitude]}
+              center={[logitude, latitude]}
               containerStyle={{
                 height: '100%',
                 width: '100%',

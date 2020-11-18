@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchCities } from '../../../state/actions/searchBarActs';
 import { Container } from './Container';
 import Footer from '../../common/Footer';
 
@@ -27,10 +26,6 @@ export const ComparisonPage = () => {
   const searching = useSelector(state => state.isSearching);
   const cityOne = useSelector(state => state.cityOne);
   const cityTwo = useSelector(state => state.cityTwo);
-
-  useEffect(() => {
-    dispatch(fetchCities());
-  }, [dispatch]);
 
   return (
     <>

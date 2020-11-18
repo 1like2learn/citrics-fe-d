@@ -70,6 +70,7 @@ const mapStateToProps = state => {
   return {
     allCities: state.allCities,
     currentCities: state.currentCities,
+    filter: state.filter,
   };
 };
 
