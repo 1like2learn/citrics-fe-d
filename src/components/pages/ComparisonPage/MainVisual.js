@@ -62,7 +62,7 @@ const MainVisual = props => {
       <p className="vs-text">&nbsp;vs.</p>
       <div className="compare-city-selected-container">
         {currentCities.map(city => {
-          return <ComparisonCard city={city} />;
+          return <ComparisonCard city={city} key={city.cityid} />;
         })}
       </div>
     </Container>
