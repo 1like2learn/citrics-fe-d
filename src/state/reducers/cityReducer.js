@@ -2,7 +2,7 @@ const initialState = {
   currentCities: [],
   allCities: [],
   filter: {},
-  isSearching: true,
+  isSearching: false,
 };
 
 export const currentCityReducers = (state = initialState, action) => {
