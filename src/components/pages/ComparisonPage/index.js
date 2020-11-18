@@ -1,25 +1,11 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Container } from './Container';
-import Footer from '../../common/Footer';
+import { fetchCities } from '../../../state/actions/searchBarActs';
+import Container from './Container';
 
-const Bottom = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin: 2% 0;
-
-  div {
-    width: 75%;
-    margin: 1% auto;
-    text-align: center;
-    font-size: 0.75rem;
-  }
-`;
-
-export const ComparisonPage = () => {
+export default function ComparisonPage(props) {
+  const { currentCities } = props;
   const history = useHistory();
   const dispatch = useDispatch();
   const cities = useSelector(state => state.cityData);
@@ -29,8 +15,7 @@ export const ComparisonPage = () => {
 
   return (
     <>
-      <Container />
-      {/* <Footer /> */}
+      <Container currentCities={currentCities} />
     </>
   );
-};
+}

@@ -8,6 +8,23 @@ import { numCitiesToUrl } from '../../../utils/helpers';
 import { getCities, addToCurrent } from '../../../state/actions/cityActs';
 import store from '../../../state';
 
+import styled from 'styled-components';
+
+const SearchBarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  width: 320px;
+  height: 46.16px;
+  background-color: white;
+  border-radius: 15px 0 0 15px;
+  .search-bar {
+    margin-left: 2%;
+    border: unset;
+  }
+`;
+
 const { Option } = AutoComplete;
 function SearchBar(props) {
   const history = useHistory();
@@ -45,13 +62,13 @@ function SearchBar(props) {
     history.push(numCitiesToUrl(currentCities.length));
   }, [currentCities, history]);
   return (
-    <div className="search-bar">
+    <SearchBarContainer>
       <AutoComplete
         className="search-bar"
         onSelect={term}
-        placeholder="Search for a city . . . ."
+        placeholder="search"
         filterOption={true}
-        style={{ width: '100%' }}
+        style={{ width: '100%', border: 'unset' }}
       >
         {allCities.map(city => {
           cityDict[city.citynamestate] = city.cityid;
@@ -62,7 +79,7 @@ function SearchBar(props) {
           );
         })}
       </AutoComplete>
-    </div>
+    </SearchBarContainer>
   );
 }
 
