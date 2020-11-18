@@ -58,47 +58,52 @@ export const removeFromCurrent = (dispatch, cityId, currentCityState) => {
 // };
 // Takes in preferences to set the filter to.
 export const updateFilter = async (dispatch, preferences, rangeValues) => {
-  console.log('rangeValues actions', rangeValues);
+  console.log('preferences actions', preferences);
+
   let advanceSearchUrl =
     'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch/?';
 
   // sal
-  if (preferences.salary[0] !== rangeValues.salary[0]) {
+  if (
+    preferences.salary[0] !== rangeValues.salary[0] ||
+    preferences.salary[1] !== rangeValues.salary[1]
+  ) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `salMin=${preferences.salary[0]}&`
     );
-  }
-  if (preferences.salary[1] !== rangeValues.salary[1]) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `salMax=${preferences.salary[1]}&`
     );
   } // pop
-  if (preferences.population[0] !== rangeValues.population[0]) {
+  if (
+    preferences.population[0] !== rangeValues.population[0] ||
+    preferences.population[1] !== rangeValues.population[1]
+  ) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `popMin=${preferences.population[0]}&`
     );
-  }
-  if (preferences.population[1] !== rangeValues.population[1]) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `popMax=${preferences.population[1]}&`
     );
   } // rent
-  if (preferences.rent[0] !== rangeValues.rent[0]) {
+  if (
+    preferences.rent[0] !== rangeValues.rent[0] ||
+    preferences.rent[1] !== rangeValues.rent[1]
+  ) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `rentMin=${preferences.rent[0]}&`
     );
-  }
-  if (preferences.rent[1] !== rangeValues.rent[1]) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `rentMax=${preferences.rent[1]}&`
     );
   } // avgTemp
-  if (preferences.temp[0] !== rangeValues.temp[0]) {
+  if (
+    preferences.temp[0] !== rangeValues.temp[0] ||
+    preferences.temp[1] !== rangeValues.temp[1]
+  ) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `avgTempMin=${preferences.temp[0]}&`
     );
-  }
-  if (preferences.temp[1] !== rangeValues.temp[1]) {
     advanceSearchUrl = advanceSearchUrl.concat(
       `avgTempMax=${preferences.temp[1]}&`
     );

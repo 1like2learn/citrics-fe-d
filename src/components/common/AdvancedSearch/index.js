@@ -19,6 +19,7 @@ function AdvancedSearch(props) {
   // changes preferences in global state and grabs new list of filtered cities
   const onSubmit = () => {
     updateFilter(dispatch, preferences, rangeFilter);
+    console.log('preferences', preferences);
     console.log('rangeFilter advanced search', rangeFilter);
   };
 
@@ -35,9 +36,16 @@ function AdvancedSearch(props) {
 
   // first render grabs the values for the range
   useEffect(() => {
-    console.log('rangeFilter', rangeFilter);
     updateFilterRange(dispatch);
   }, [dispatch]);
+
+  useEffect(() => {
+    setPreferences(filter);
+  }, [filter, setPreferences]);
+
+  useEffect(() => {
+    updateFilter(dispatch, rangeFilter, filter);
+  }, [dispatch, rangeFilter]);
 
   return (
     <AdvancedSearchDiv>
@@ -51,17 +59,17 @@ function AdvancedSearch(props) {
               ref={register}
             />
             <span className="styledCheckbox"></span>
-            &nbsp;&nbsp;Salary &nbsp;&nbsp;{
-              preferences.salary[0]
-            }&nbsp;&nbsp; {preferences.salary[1]}
+            &nbsp;&nbsp;Salary
           </label>
           <div className="advancedSearchSlider">
+            {preferences.salary[0]}
             <RangeSlider
               disabled={!salary}
               name={'salary'}
               value={[rangeFilter.salary[0], rangeFilter.salary[1]]}
               updatePreferences={updatePreferences}
             />
+            {preferences.salary[1]}
           </div>
         </div>
         <div className="advancedSearchField">
@@ -120,14 +128,14 @@ function AdvancedSearch(props) {
             &nbsp;&nbsp;Average Temperature
           </label>
           <div className="advancedSearchSlider">
-            {preferences.temp[0]}
+            {preferences.temp[0].toFixed(1)}
             <RangeSlider
               disabled={!temp}
               name={'temp'}
               value={[rangeFilter.temp[0], rangeFilter.temp[1]]}
               updatePreferences={updatePreferences}
             />
-            {preferences.temp[1]}
+            {preferences.temp[1].toFixed(1)}
           </div>
         </div>
         <div className="advancedSearchField">

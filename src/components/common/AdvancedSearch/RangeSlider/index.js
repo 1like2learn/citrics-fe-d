@@ -27,8 +27,6 @@ export default function RangeSlider({
   updatePreferences,
   value,
 }) {
-  console.log('value', value);
-
   return (
     <div>
       <Range
@@ -45,6 +43,8 @@ export default function RangeSlider({
         allowCross={true}
         disabled={disabled}
         defaultValue={[value[0], value[1]]}
+        min={value[0]}
+        max={value[1]}
         onChange={data => {
           console.log(data);
           updatePreferences(data, name);
