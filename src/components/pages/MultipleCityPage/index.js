@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 //COMPONENTS
 import MultipleCityCard from '../../common/MultipleCityCard';
@@ -3072,17 +3073,18 @@ const MultipleCityPageContainer = styled.div`
   }
 `;
 
-export default function MultipleCityPage() {
-  const [selectedCities, setSelectedCities] = useState(temp_data);
+function MultipleCityPage(props) {
+  const { currentCities } = props;
+  console.log('currentCities from MultiplePage', currentCities);
   return (
     <MultipleCityPageContainer>
       <Header />
       <div className="multiple-city-page-chart-container">
-        <MultipleCityChart temp_data={temp_data} /> {/*chart*/}
+        <MultipleCityChart temp_data={currentCities} /> {/*chart*/}
       </div>
       <div className="multiple-city-page-selected-container">
-        {temp_data.map(city => {
-          return <MultipleCityCard city={city} selectCity={setSelectedCities} />;
+        {currentCities.map(city => {
+          return <MultipleCityCard city={city} />;
         })}
       </div>
       <AddButton />
@@ -3090,3 +3092,11 @@ export default function MultipleCityPage() {
     </MultipleCityPageContainer>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    currentCities: state.currentCities,
+  };
+};
+
+export default connect(mapStateToProps, {})(MultipleCityPage);

@@ -49,7 +49,7 @@ export default function MultipleCityCard(props) {
         <div className="city-card-title-section">
           <div className="city-card-color"></div>
           <div className="city-card-cityName">
-            <CloseButton />
+            <CloseButton cityid={city.cityid} />
             {city.citynamestate}
           </div>
         </div>

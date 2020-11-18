@@ -48,16 +48,17 @@ export default function MultipleCityChart(props) {
   const [chartData, setChartData] = useState();
   const years = temp_data[0].populationhist.map(c => c.year).sort();
   const colorSet = [
-    '#FF595E',
-    '#FFCA3A',
-    '#8AC926',
-    '#1982C4',
-    '#6A4C93',
+    '#0e252d',
     '#264653',
     '#2A9D8F',
     '#E9C46A',
     '#F4A261',
     '#E76F51',
+    '#FF595E',
+    '#FFCA3A',
+    '#8AC926',
+    '#1982C4',
+    '#6A4C93',
   ];
 
   const compare = (a, b) => {
