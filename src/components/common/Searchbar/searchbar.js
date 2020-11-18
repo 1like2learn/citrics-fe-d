@@ -1,23 +1,30 @@
 import { AutoComplete } from 'antd';
 import 'antd/dist/antd.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { numCitiesToUrl } from '../../../utils/helpers';
+
+import { getCities, addToCurrent } from '../../../state/actions/cityActs';
+import store from '../../../state';
 
 const { Option } = AutoComplete;
-
 function SearchBar(props) {
-  const cityDict = {};
+  const history = useHistory();
+  const { dispatch } = store;
 
-  const [data, setData] = useState([]);
+  const cityDict = {};
+  const { allCities, currentCities } = props;
+
   useEffect(() => {
     fetch('https://labs28-d-citrics-api.herokuapp.com/cities/allid')
       .then(response => {
         return response.json();
       })
       .then(data => {
-        console.log(data);
-        setData(data);
+        getCities(dispatch, data);
       });
-  }, []);
+  }, [dispatch]);
 
   function term(cityName) {
     single(cityDict[cityName]);
@@ -29,10 +36,14 @@ function SearchBar(props) {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        addToCurrent(dispatch, data);
       });
   }
 
+  useEffect(() => {
+    // Takes in the number of current cities and returns the url for the page to be on.
+    history.push(numCitiesToUrl(currentCities.length));
+  }, [currentCities, history]);
   return (
     <div className="search-bar">
       <AutoComplete
@@ -42,7 +53,7 @@ function SearchBar(props) {
         filterOption={true}
         style={{ width: '100%' }}
       >
-        {data.map(city => {
+        {allCities.map(city => {
           cityDict[city.citynamestate] = city.cityid;
           return (
             <Option key={city.cityid} value={city.citynamestate}>
@@ -54,4 +65,12 @@ function SearchBar(props) {
     </div>
   );
 }
-export default SearchBar;
+
+const mapStateToProps = state => {
+  return {
+    allCities: state.allCities,
+    currentCities: state.currentCities,
+  };
+};
+
+export default connect(mapStateToProps, {})(SearchBar);

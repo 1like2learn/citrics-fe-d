@@ -1,23 +1,28 @@
 import React from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
-
-import dummyData from '../../../utils/dummyData';
-
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { connect, store } from 'react-redux';
 
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
 
-export default function CitySearch() {
-  const { citynamestate, wikiimgurl, summary, latitude, longitude } = dummyData;
+function CitySearch(props) {
+  const {
+    citynamestate,
+    wikiimgurl,
+    summary,
+    latitude,
+    longitude,
+  } = props.currentCities[0];
+
+  // const { dispatch } = store;
 
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
 
-  console.log('Access Token from CitySearch', process.env.REACT_APP_MAP_BOX_KEY);
   return (
     <CitySearchDiv>
       <CitySearchHeader />
@@ -54,10 +59,10 @@ export default function CitySearch() {
 
           <div className="citySearchDataCont">
             <div className="citySearchSingleCityChart">
-              <SingleCityChart city={dummyData} />
+              <SingleCityChart city={props.currentCities[0]} />
             </div>
             <div className="city-search-details">
-              <CityDetails city={dummyData} />
+              <CityDetails city={props.currentCities[0]} />
             </div>
           </div>
         </section>
@@ -65,3 +70,11 @@ export default function CitySearch() {
     </CitySearchDiv>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    currentCities: state.currentCities,
+  };
+};
+
+export default connect(mapStateToProps, {})(CitySearch);
