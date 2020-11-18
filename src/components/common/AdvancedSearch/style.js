@@ -10,7 +10,8 @@ const AdvancedSearchDiv = styled.div`
   top: 25vh;
   transform: translateX(-50%), translateY(-50%);
   z-index: 100;
-
+  #closeAdvancedSearchButton {
+  }
   div.advancedSearchField {
     display: flex;
     justify-content: space-between;

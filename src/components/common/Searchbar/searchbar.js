@@ -34,6 +34,7 @@ function SearchBar(props) {
   const { allCities, currentCities } = props;
 
   useEffect(() => {
+    console.log('search works');
     fetch('https://labs28-d-citrics-api.herokuapp.com/cities/allid')
       .then(response => {
         return response.json();
@@ -43,7 +44,7 @@ function SearchBar(props) {
       });
   }, [dispatch]);
 
-  function term(cityName) {
+  function onSelect(cityName) {
     single(cityDict[cityName]);
   }
 
@@ -61,11 +62,12 @@ function SearchBar(props) {
     // Takes in the number of current cities and returns the url for the page to be on.
     history.push(numCitiesToUrl(currentCities.length));
   }, [currentCities, history]);
+
   return (
     <SearchBarContainer>
       <AutoComplete
         className="search-bar"
-        onSelect={term}
+        onSelect={onSelect}
         placeholder="search"
         filterOption={true}
         style={{ width: '100%', border: 'unset' }}

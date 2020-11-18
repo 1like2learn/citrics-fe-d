@@ -1,7 +1,15 @@
+const defaultRange = {
+  salary: [0, 100],
+  population: [0, 100],
+  rent: [0, 100],
+  temp: [0, 100],
+};
 const initialState = {
   currentCities: [],
   allCities: [],
-  filter: {},
+  filter: { ...defaultRange },
+  rangeFilter: { ...defaultRange },
+  isSearching: false,
 };
 
 export const currentCityReducers = (state = initialState, action) => {
@@ -12,7 +20,6 @@ export const currentCityReducers = (state = initialState, action) => {
         allCities: action.payload,
       };
     case 'ADD_TO_CURRENT_CITIES':
-      console.log('action: ', action);
       return {
         ...state,
         currentCities: [...state.currentCities, action.payload],
@@ -20,12 +27,22 @@ export const currentCityReducers = (state = initialState, action) => {
     case 'REMOVE_FROM_CURRENT_CITIES':
       return {
         ...state,
-        currentCities: state.currentCities,
+        currentCities: action.payload,
       };
     case 'UPDATE_FILTER':
       return {
         ...state,
         filter: action.payload,
+      };
+    case 'UPDATE_RANGE_FILTER':
+      return {
+        ...state,
+        rangeFilter: action.payload,
+      };
+    case 'TOGGLE_SEARCH':
+      return {
+        ...state,
+        isSearching: !state.isSearching,
       };
     default:
       return state;

@@ -5,6 +5,8 @@ import logo from '../../../assets/Citrics Icon.svg';
 import { FaSearchengin, FaUserCircle } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
+import AdvancedSearch from '../AdvancedSearch';
+
 const HeaderBar = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -129,6 +131,7 @@ const searchable = {
 
 export const Header = () => {
   const [searchTerm, setSearchTerm] = useState(searchable);
+  const [displayAdvanced, setDisplayAdvanced] = useState(false);
   const searching = useSelector(state => state.isSearching);
   const { push } = useHistory();
 
@@ -165,9 +168,15 @@ export const Header = () => {
 
       <div className="right">
         <div className="aside">
-          <p className="advanced-search">
+          <button
+            onClick={() => setDisplayAdvanced(true)}
+            className="advanced-search"
+          >
             Advanced <br /> Search
-          </p>
+          </button>
+          {displayAdvanced ? (
+            <AdvancedSearch setDisplayAdvanced={setDisplayAdvanced} />
+          ) : null}
           <FaSearchengin size="40px" className="advanced-search-icon" />
         </div>
         <FaUserCircle
