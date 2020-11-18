@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ComparisonCard from './ComparisonCard.js';
 import { connect } from 'react-redux';
+import AddButton from '../../common/AddButton';
 
 const Container = styled.div`
   display: flex;
@@ -51,6 +52,7 @@ const MainVisual = props => {
           return <ComparisonCard city={city} key={city.cityid} />;
         })}
       </div>
+      <AddButton />
     </Container>
   );
 };

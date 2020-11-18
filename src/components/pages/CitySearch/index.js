@@ -9,6 +9,7 @@ import SingleCityChart from '../../common/SingleCityChart';
 import AdvancedSearch from '../../common/AdvancedSearch';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
+import AddButton from '../../common/AddButton';
 
 function CitySearch(props) {
   const history = useHistory();
@@ -75,6 +76,7 @@ function CitySearch(props) {
           </>
         );
       })}
+      <AddButton />
     </CitySearchDiv>
   );
 }
