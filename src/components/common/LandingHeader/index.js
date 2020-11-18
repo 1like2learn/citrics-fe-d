@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaSearchengin, FaSearch } from 'react-icons/fa';
+import Searchbar from '../Searchbar/searchbar';
 
 const HeaderBar = styled.div`
   position: relative;
@@ -135,26 +136,13 @@ const SearchBar = styled.form`
 `;
 
 export const LandingHeader = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleChanges = e => {
-    e.preventDefault();
-    setSearchTerm({ ...searchTerm, [e.target.name]: e.target.value });
-  };
-
   return (
     <div>
       <HeaderBar>
         <div className="search">
           <SearchBar className="sb-dis">
             <label name="term" htmlFor="term">
-              <input
-                name="term"
-                value={searchTerm.term}
-                onChange={handleChanges}
-                placeholder="search"
-                type="text"
-              />
+              <Searchbar />
             </label>
             <div className="search-icon-container">
               <FaSearch className="search-icon" />
