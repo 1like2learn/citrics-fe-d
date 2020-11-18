@@ -8,6 +8,7 @@ import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
 import CitySearchHeader from './CitySearchHeader';
 import CityDetails from '../../common/CityDetails';
+import AddButton from '../../common/AddButton';
 
 function CitySearch(props) {
   const history = useHistory();
@@ -74,6 +75,7 @@ function CitySearch(props) {
           </div>
         </section>
       </div>
+      <AddButton />
     </CitySearchDiv>
   );
 }

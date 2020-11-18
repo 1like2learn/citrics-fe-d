@@ -6,6 +6,7 @@ import MultipleCityCard from '../../common/MultipleCityCard';
 import Footer from '../../common/Footer';
 import { Header } from '../../common/Header';
 import MultipleCityChart from '../../common/MultipleCityChart';
+import AddButton from '../../common/AddButton';
 
 // DUMMY DATA
 const temp_data = [
@@ -3084,6 +3085,7 @@ export default function MultipleCityPage() {
           return <MultipleCityCard city={city} selectCity={setSelectedCities} />;
         })}
       </div>
+      <AddButton />
       <Footer />
     </MultipleCityPageContainer>
   );
