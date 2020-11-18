@@ -1,4 +1,4 @@
-import { ComparisonPage } from './ComparisonPage';
+import ComparisonPage from './ComparisonPage';
 import LandingPage from './Landing';
 import { LoginPage } from './Login';
 import { NotFoundPage } from './NotFound';
