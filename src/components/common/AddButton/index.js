@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const AddButtonContainer = styled.div`
   position: absolute;
+  right: 100px;
+  bottom: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
