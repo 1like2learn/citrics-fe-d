@@ -37,7 +37,6 @@ function CloseButton({ cityid, currentCities }) {
   useEffect(() => {
     // When the number of current cities changes change the url the page is on if applicable
     history.push(numCitiesToUrl(currentCities));
-    console.log('currentCities', currentCities);
   }, [currentCities, history]);
 
   const onClick = e => {

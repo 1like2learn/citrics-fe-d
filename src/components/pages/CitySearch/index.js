@@ -16,64 +16,67 @@ function CitySearch(props) {
     history.push('/');
   }
 
-  const {
-    citynamestate,
-    wikiimgurl,
-    summary,
-    latitude,
-    logitude,
-  } = props.currentCities[0];
-
-  // const { dispatch } = store;
-
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
 
   return (
     <CitySearchDiv>
-      <CitySearchHeader />
-      <div className="citySearchCont">
-        <section
-          className="citySearchTextDescription"
-          style={{ backgroundImage: `url(${wikiimgurl})` }}
-        >
-          <div className="citySearchTextCont">
-            <h2>{citynamestate}</h2>
-            <p>{summary}</p>
-          </div>
-        </section>
-
-        <section className="citySearchDataPanel">
-          <div className="citySearchMap">
-            <Map
-              style="mapbox://styles/mapbox/light-v10"
-              center={[logitude, latitude]}
-              containerStyle={{
-                height: '100%',
-                width: '100%',
-              }}
+      {props.currentCities.map(city => {
+          const {
+            citynamestate,
+            wikiimgurl,
+            summary,
+            latitude,
+            logitude,
+          } = city;
+        return (
+        <>
+          <CitySearchHeader />
+          <div className="citySearchCont">
+            <section
+              className="citySearchTextDescription"
+              style={{ backgroundImage: `url(${wikiimgurl})` }}
             >
-              <Layer
-                type="symbol"
-                id="marker"
-                layout={{ 'icon-image': 'marker-15' }}
-              >
-                <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-              </Layer>
-            </Map>
-          </div>
+              <div className="citySearchTextCont">
+                <h2>{citynamestate}</h2>
+                <p>{summary}</p>
+              </div>
+            </section>
 
-          <div className="citySearchDataCont">
-            <div className="citySearchSingleCityChart">
-              <SingleCityChart city={props.currentCities[0]} />
-            </div>
-            <div className="city-search-details">
-              <CityDetails city={props.currentCities[0]} />
-            </div>
+            <section className="citySearchDataPanel">
+              <div className="citySearchMap">
+                <Map
+                  style="mapbox://styles/mapbox/light-v10"
+                  center={[logitude, latitude]}
+                  containerStyle={{
+                    height: '100%',
+                    width: '100%',
+                  }}
+                >
+                  <Layer
+                    type="symbol"
+                    id="marker"
+                    layout={{ 'icon-image': 'marker-15' }}
+                  >
+                    <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+                  </Layer>
+                </Map>
+              </div>
+
+              <div className="citySearchDataCont">
+                <div className="citySearchSingleCityChart">
+                  <SingleCityChart city={city} />
+                </div>
+                <div className="city-search-details">
+                  <CityDetails city={city} />
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
-      </div>
+        </>
+        );})}
+      
     </CitySearchDiv>
   );
 }
