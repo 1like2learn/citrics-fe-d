@@ -142,10 +142,14 @@ export default function CityDetails(props) {
               )}
             </span>
             <h4 className="count">
-              {city.averagetemp.toFixed(1)}{' '}
-              <span className="fahrenheit">
-                <RiFahrenheitLine />
-              </span>{' '}
+              {isNaN(city.averagetemp)
+                ? 'Data Not Found'
+                : city.averagetemp.toFixed(1)}{' '}
+              {isNaN(city.averagetemp) ? null : (
+                <span className="fahrenheit">
+                  <RiFahrenheitLine />
+                </span>
+              )}
             </h4>
           </div>
         </div>
@@ -163,7 +167,12 @@ export default function CityDetails(props) {
             </span>
             <h4 className="count">
               {' '}
-              {city.averageperc.toFixed(1)} <span className="inch">in.</span>
+              {isNaN(city.averageperc)
+                ? 'Data Not Found'
+                : city.averageperc.toFixed(1)}
+              {isNaN(city.averageperc) ? null : (
+                <span className="inch">in.</span>
+              )}
             </h4>
           </div>
         </div>
