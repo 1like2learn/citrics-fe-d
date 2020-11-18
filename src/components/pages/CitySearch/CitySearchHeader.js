@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { HeaderBar, SearchBar } from './style';
@@ -7,14 +7,7 @@ import { FaUserCircle, FaSearch } from 'react-icons/fa';
 import logo from '../../../assets/Citrics Icon.svg';
 
 export default function CitySearchHeader() {
-  const [searchTerm, setSearchTerm] = useState('');
-
   const { push } = useHistory();
-
-  const handleChanges = e => {
-    e.preventDefault();
-    setSearchTerm({ ...searchTerm, [e.target.name]: e.target.value });
-  };
 
   return (
     <div>

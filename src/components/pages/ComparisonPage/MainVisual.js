@@ -38,20 +38,6 @@ const Container = styled.div`
   }
 `;
 
-const compare = (a, b) => {
-  // Use toUpperCase() to ignore character casing
-  const yearA = a.year;
-  const yearB = b.year;
-
-  let comparison = 0;
-  if (yearA > yearB) {
-    comparison = 1;
-  } else if (yearA < yearB) {
-    comparison = -1;
-  }
-  return comparison;
-};
-
 const MainVisual = props => {
   const { currentCities } = props;
 
