@@ -57,7 +57,7 @@ export default function ComparisonCard(props) {
       >
         <div className="city-card-cityName">
           <div className="city-card-close-btn">
-            <CloseButton />
+            <CloseButton cityid={city.cityid} />
           </div>
           <div className="city-card-cityName-text">{city.citynamestate}</div>
         </div>
