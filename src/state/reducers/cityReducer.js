@@ -1,7 +1,5 @@
-import dummyData from '../../utils/dummyData';
-
 const initialState = {
-  currentCities: [dummyData],
+  currentCities: [],
   allCities: [],
   filter: {},
 };

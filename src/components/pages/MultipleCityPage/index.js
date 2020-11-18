@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// REDUX
-import { useSelector, useDispatch } from 'react-redux';
-import { cardContainerActs } from '../../../state/actions';
 
 //COMPONENTS
 import MultipleCityCard from '../../common/MultipleCityCard';

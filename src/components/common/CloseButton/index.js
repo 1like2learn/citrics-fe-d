@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { FaPlus } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { numCitiesToUrl } from '../../../utils/helpers';
+
+import { removeFromCurrent } from '../../../state/actions/cityActs';
+import store from '../../../state';
 
 const CloseButtonContainer = styled.button`
   display: flex;
@@ -24,12 +30,20 @@ const CloseButtonContainer = styled.button`
   }
 `;
 
-export default function CloseButton() {
-  const [isClose, setIsClosed] = useState(false);
+function CloseButton({ cityid, currentCities }) {
+  const history = useHistory();
+  const { dispatch } = store;
+
+  useEffect(() => {
+    // When the number of current cities changes change the url the page is on if applicable
+    history.push(numCitiesToUrl(currentCities));
+    console.log('currentCities', currentCities);
+  }, [currentCities, history]);
 
   const onClick = e => {
     e.preventDefault();
-    setIsClosed(!isClose);
+
+    removeFromCurrent(dispatch, cityid, currentCities);
   };
 
   return (
@@ -38,3 +52,11 @@ export default function CloseButton() {
     </CloseButtonContainer>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    currentCities: state.currentCities,
+  };
+};
+
+export default connect(mapStateToProps, {})(CloseButton);
