@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ComparisonCard from './ComparisonCard.js';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import AddButton from '../../common/AddButton';
 import { toggleSearch } from '../../../state/actions/cityActs';
 
@@ -55,7 +55,8 @@ const compare = (a, b) => {
 };
 
 const MainVisual = props => {
-  const { currentCities } = props;
+  const { currentCities, isSearching } = props;
+  const dispatch = useDispatch();
 
   const handletoggle = e => {
     e.preventDefault();
@@ -81,6 +82,7 @@ const mapStateToProps = state => {
   return {
     allCities: state.allCities,
     currentCities: state.currentCities,
+    isSearching: state.isSearching,
   };
 };
 
