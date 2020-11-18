@@ -5,6 +5,7 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import AddButton from '../../common/AddButton';
 import { toggleSearch } from '../../../state/actions/cityActs';
 import { IfSearching } from '../../common/IfSearching/index';
+import Searchbar from '../../common/Searchbar/searchbar';
 
 const Container = styled.div`
   display: flex;
@@ -41,6 +42,13 @@ const Container = styled.div`
   }
 `;
 
+const Floating = styled.div`
+  position: fixed;
+  margin-top: 15%;
+  background-color: rgba(83, 83, 83, 0.8);
+  height: 100px;
+`;
+
 const compare = (a, b) => {
   // Use toUpperCase() to ignore character casing
   const yearA = a.year;
@@ -75,8 +83,16 @@ const MainVisual = props => {
           return <ComparisonCard city={city} key={city.cityid} />;
         })}
       </div>
-      <AddButton onClick={handletoggle} />
-      <IfSearching />
+      <div onClick={() => toggleSearch(dispatch)}>
+        <AddButton />
+      </div>
+
+      {searching ? (
+        <Floating>
+          <button onClick={() => toggleSearch(dispatch)}>X</button>
+          <Searchbar />
+        </Floating>
+      ) : null}
     </Container>
   );
 };
