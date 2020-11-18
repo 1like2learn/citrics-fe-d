@@ -9,7 +9,6 @@ const initialState = {
   allCities: [],
   filter: { ...defaultRange },
   rangeFilter: { ...defaultRange },
-  filter: {},
   isSearching: false,
 };
 

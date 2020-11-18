@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { HeaderBar, SearchBar } from './style';
 import Searchbar from '../../common/Searchbar/searchbar';
+import AdvancedSearch from '../../common/AdvancedSearch';
 import { FaUserCircle, FaSearch } from 'react-icons/fa';
 import logo from '../../../assets/Citrics Icon.svg';
 
 export default function CitySearchHeader() {
   const { push } = useHistory();
+  const [displayAdvanced, setDisplayAdvanced] = useState(false);
 
   return (
     <div>
@@ -29,7 +31,18 @@ export default function CitySearchHeader() {
                 <FaSearch className="search-icon" />
               </div>
             </SearchBar>
-            <div className="aside">Advanced Search</div>
+            <div
+              onClick={e => {
+                e.preventDefault();
+                setDisplayAdvanced(true);
+              }}
+              className="aside"
+            >
+              Advanced Search
+            </div>
+            {displayAdvanced ? (
+              <AdvancedSearch setDisplayAdvanced={setDisplayAdvanced} />
+            ) : null}
           </div>
         </div>
 

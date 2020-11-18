@@ -24,7 +24,6 @@ function CitySearch(props) {
 
   return (
     <CitySearchDiv>
-      <AdvancedSearch />
       {props.currentCities.map(city => {
         const { citynamestate, wikiimgurl, summary, latitude, logitude } = city;
         return (

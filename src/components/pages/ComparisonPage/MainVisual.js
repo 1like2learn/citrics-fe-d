@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import ComparisonCard from './ComparisonCard.js';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import AddButton from '../../common/AddButton';
+import { toggleSearch } from '../../../state/actions/cityActs';
+import { IfSearching } from '../../common/IfSearching/index';
+import Searchbar from '../../common/Searchbar/searchbar';
 
 const Container = styled.div`
   display: flex;
@@ -39,8 +42,36 @@ const Container = styled.div`
   }
 `;
 
+const Floating = styled.div`
+  position: fixed;
+  margin-top: 15%;
+  background-color: rgba(83, 83, 83, 0.8);
+  height: 100px;
+`;
+
+const compare = (a, b) => {
+  // Use toUpperCase() to ignore character casing
+  const yearA = a.year;
+  const yearB = b.year;
+
+  let comparison = 0;
+  if (yearA > yearB) {
+    comparison = 1;
+  } else if (yearA < yearB) {
+    comparison = -1;
+  }
+  return comparison;
+};
+
 const MainVisual = props => {
   const { currentCities } = props;
+  const dispatch = useDispatch();
+  const searching = useSelector(state => state.isSearching);
+
+  const handletoggle = e => {
+    e.preventDefault();
+    props.toggleSearch();
+  };
 
   console.log('currentCities in Main Visuals', currentCities);
 
@@ -52,7 +83,16 @@ const MainVisual = props => {
           return <ComparisonCard city={city} key={city.cityid} />;
         })}
       </div>
-      <AddButton />
+      <div onClick={() => toggleSearch(dispatch)}>
+        <AddButton />
+      </div>
+
+      {searching ? (
+        <Floating>
+          <button onClick={() => toggleSearch(dispatch)}>X</button>
+          <Searchbar />
+        </Floating>
+      ) : null}
     </Container>
   );
 };
@@ -61,7 +101,8 @@ const mapStateToProps = state => {
   return {
     allCities: state.allCities,
     currentCities: state.currentCities,
+    isSearching: state.isSearching,
   };
 };
 
-export default connect(mapStateToProps, {})(MainVisual);
+export default connect(mapStateToProps, { toggleSearch })(MainVisual);
