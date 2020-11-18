@@ -27,12 +27,6 @@ export default function SingleCityChart(props) {
   const housingCost = city.historicalaveragehouse.map(c => {
     return c.housingcost;
   });
-  // const housingCost = [];
-  // city.historicalaveragehouse.forEach(month => {
-  //   if (month.month === 12) {
-  //     housingCost.push(month.housingcost);
-  //   }
-  // });
 
   const chartData = {
     labels: years,
