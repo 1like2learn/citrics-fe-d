@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { HeaderBar, SearchBar } from './style';
+import Searchbar from '../../common/Searchbar/searchbar';
 import { FaUserCircle, FaSearch } from 'react-icons/fa';
 import logo from '../../../assets/Citrics Icon.svg';
 
@@ -29,13 +30,7 @@ export default function CitySearchHeader() {
           <div className="search">
             <SearchBar className="sb-dis">
               <label name="term" htmlFor="term">
-                <input
-                  name="term"
-                  value={searchTerm.term}
-                  onChange={handleChanges}
-                  placeholder="search"
-                  type="text"
-                />
+                <Searchbar />
               </label>
               <div className="search-icon-container">
                 <FaSearch className="search-icon" />

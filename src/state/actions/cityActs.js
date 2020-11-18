@@ -1,12 +1,4 @@
 import axios from 'axios';
-import { history } from 'react-router-dom';
-
-const pages = {
-  0: '/',
-  1: '/city',
-  2: '/compare',
-  3: '/multiple-city',
-};
 
 export const getCities = (dispatch, cities) => {
   dispatch({
@@ -17,7 +9,7 @@ export const getCities = (dispatch, cities) => {
 
 // Takes in city data and grabs a new picture and summary for the city
 // Then it adds all that data to state.
-export const addToCurrent = async (dispatch, cityData, currentCityState) => {
+export const addToCurrent = async (dispatch, cityData) => {
   let formatedCityName = cityData.citynamestate.slice();
 
   formatedCityName = formatedCityName.split(',')[0].replace(' ', '_');
@@ -40,15 +32,6 @@ export const addToCurrent = async (dispatch, cityData, currentCityState) => {
     })
     .catch(error => console.log(error));
 
-  let pageUrl = '';
-
-  if (currentCityState.length > 3) {
-    pageUrl = '/multiple-city';
-  } else {
-    pageUrl = pages[currentCityState.length];
-  }
-  history.push(pageUrl);
-
   dispatch({
     type: 'ADD_TO_CURRENT_CITIES',
     payload: cityData,
@@ -60,15 +43,6 @@ export const removeFromCurrent = (dispatch, cityId, currentCityState) => {
   const newState = currentCityState.filter(
     () => currentCityState.cityId !== cityId
   );
-
-  let pageUrl = '';
-
-  if (currentCityState.length > 3) {
-    pageUrl = '/multiple-city';
-  } else {
-    pageUrl = pages[currentCityState.length];
-  }
-  history.push(pageUrl);
 
   dispatch({
     type: 'REMOVE_FROM_CURRENT_CITIES',

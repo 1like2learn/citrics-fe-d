@@ -14,14 +14,15 @@ export const currentCityReducers = (state = initialState, action) => {
         allCities: action.payload,
       };
     case 'ADD_TO_CURRENT_CITIES':
+      console.log('action: ', action);
       return {
         ...state,
-        allCities: [...state.allCities, action.payload],
+        currentCities: [...state.currentCities, action.payload],
       };
     case 'REMOVE_FROM_CURRENT_CITIES':
       return {
         ...state,
-        allCities: state.allCities,
+        currentCities: state.currentCities,
       };
     case 'UPDATE_FILTER':
       return {

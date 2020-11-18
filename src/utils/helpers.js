@@ -1,6 +1,6 @@
-export const isMobile = str => str == 'mobile';
-export const isTablet = str => str == 'tablet';
-export const isDesktop = str => str == 'desktop';
+export const isMobile = str => str === 'mobile';
+export const isTablet = str => str === 'tablet';
+export const isDesktop = str => str === 'desktop';
 
 const stateList = {
   Arizona: 'AZ',
@@ -68,4 +68,20 @@ export function shortNum(num) {
     return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
   }
   return num;
+}
+
+const pages = {
+  0: '/',
+  1: '/city',
+  2: '/compare',
+  3: '/multiple-city',
+};
+
+// takes in a number of items in an array and gives the correct url for the app.
+export function numCitiesToUrl(numCities) {
+  if (numCities > 3) {
+    return '/multiple-city';
+  } else {
+    return pages[numCities];
+  }
 }

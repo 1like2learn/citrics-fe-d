@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { connect } from 'react-redux';
+import { connect, store } from 'react-redux';
 
 import { CitySearchDiv } from './style';
 import SingleCityChart from '../../common/SingleCityChart';
@@ -16,6 +16,9 @@ function CitySearch(props) {
     latitude,
     longitude,
   } = props.currentCities[0];
+
+  // const { dispatch } = store;
+
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_BOX_KEY,
   });
