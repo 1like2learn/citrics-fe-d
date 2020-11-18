@@ -34,15 +34,14 @@ function SearchBar(props) {
   const { allCities, currentCities } = props;
 
   useEffect(() => {
-    if (allCities === []) {
-      fetch('https://labs28-d-citrics-api.herokuapp.com/cities/allid')
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          getCities(dispatch, data);
-        });
-    }
+    console.log('search works');
+    fetch('https://labs28-d-citrics-api.herokuapp.com/cities/allid')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        getCities(dispatch, data);
+      });
   }, [dispatch]);
 
   function onSelect(cityName) {

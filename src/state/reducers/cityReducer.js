@@ -1,8 +1,14 @@
+const defaultRange = {
+  salary: [0, 100],
+  population: [0, 100],
+  rent: [0, 100],
+  temp: [0, 100],
+};
 const initialState = {
   currentCities: [],
   allCities: [],
-  filter: {},
-  rangeFilter: {},
+  filter: { ...defaultRange },
+  rangeFilter: { ...defaultRange },
 };
 
 export const currentCityReducers = (state = initialState, action) => {

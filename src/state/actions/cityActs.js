@@ -58,33 +58,50 @@ export const removeFromCurrent = (dispatch, cityId, currentCityState) => {
 // };
 // Takes in preferences to set the filter to.
 export const updateFilter = async (dispatch, preferences, rangeValues) => {
-  const advanceSearchUrl =
-    'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch?';
+  console.log('rangeValues actions', rangeValues);
+  let advanceSearchUrl =
+    'https://labs28-d-citrics-api.herokuapp.com/cities/advancedsearch/?';
 
   // sal
   if (preferences.salary[0] !== rangeValues.salary[0]) {
-    advanceSearchUrl.concat(`salMin=${preferences.salary[0]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `salMin=${preferences.salary[0]}&`
+    );
   }
   if (preferences.salary[1] !== rangeValues.salary[1]) {
-    advanceSearchUrl.concat(`salMax=${preferences.salary[1]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `salMax=${preferences.salary[1]}&`
+    );
   } // pop
   if (preferences.population[0] !== rangeValues.population[0]) {
-    advanceSearchUrl.concat(`popMin=${preferences.population[0]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `popMin=${preferences.population[0]}&`
+    );
   }
   if (preferences.population[1] !== rangeValues.population[1]) {
-    advanceSearchUrl.concat(`popMax=${preferences.population[1]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `popMax=${preferences.population[1]}&`
+    );
   } // rent
   if (preferences.rent[0] !== rangeValues.rent[0]) {
-    advanceSearchUrl.concat(`rentMin=${preferences.rent[0]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `rentMin=${preferences.rent[0]}&`
+    );
   }
   if (preferences.rent[1] !== rangeValues.rent[1]) {
-    advanceSearchUrl.concat(`rentMax=${preferences.rent[1]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `rentMax=${preferences.rent[1]}&`
+    );
   } // avgTemp
   if (preferences.temp[0] !== rangeValues.temp[0]) {
-    advanceSearchUrl.concat(`avgTempMin=${preferences.avg[0]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `avgTempMin=${preferences.temp[0]}&`
+    );
   }
   if (preferences.temp[1] !== rangeValues.temp[1]) {
-    advanceSearchUrl.concat(`avgTempMax=${preferences.temp[1]}&`);
+    advanceSearchUrl = advanceSearchUrl.concat(
+      `avgTempMax=${preferences.temp[1]}&`
+    );
   }
 
   // removes the last ampersand from end of string
@@ -94,6 +111,7 @@ export const updateFilter = async (dispatch, preferences, rangeValues) => {
     .get(finalUrl)
     .then(response => {
       getCities(dispatch, response.data);
+      console.log('response.data', response.data);
     })
     .catch(error => console.log(error));
 
@@ -102,7 +120,12 @@ export const updateFilter = async (dispatch, preferences, rangeValues) => {
     payload: preferences,
   });
 };
-
+// const defaultPreferences = {
+//   salary: [0, 100],
+//   population: [0, 100],
+//   rent: [0, 100],
+//   temp: [0, 100],
+// };
 export const updateFilterRange = dispatch => {
   axios
     .get(
@@ -111,7 +134,15 @@ export const updateFilterRange = dispatch => {
     .then(response => {
       dispatch({
         type: 'UPDATE_RANGE_FILTER',
-        payload: response,
+        payload: {
+          salary: [response.data.salaryMin, response.data.salaryMax],
+          population: [
+            response.data.populationMin,
+            response.data.populationMax,
+          ],
+          rent: [response.data.rentMin, response.data.rentMax],
+          temp: [response.data.avgTempMin, response.data.avgTempMax],
+        },
       });
     })
     .catch(error => console.log(error));
