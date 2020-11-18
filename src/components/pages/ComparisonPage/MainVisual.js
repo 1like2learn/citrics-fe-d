@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import ComparisonCard from './ComparisonCard.js';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import AddButton from '../../common/AddButton';
 import { toggleSearch } from '../../../state/actions/cityActs';
+import { IfSearching } from '../../common/IfSearching/index';
 
 const Container = styled.div`
   display: flex;
@@ -55,8 +56,9 @@ const compare = (a, b) => {
 };
 
 const MainVisual = props => {
-  const { currentCities, isSearching } = props;
+  const { currentCities } = props;
   const dispatch = useDispatch();
+  const searching = useSelector(state => state.isSearching);
 
   const handletoggle = e => {
     e.preventDefault();
@@ -74,6 +76,7 @@ const MainVisual = props => {
         })}
       </div>
       <AddButton onClick={handletoggle} />
+      <IfSearching />
     </Container>
   );
 };

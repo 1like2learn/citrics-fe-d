@@ -61,7 +61,7 @@ export const updateFilter = async (dispatch, preferences) => {
   });
 };
 
-export const toggleSearch = () => dispatch => {
+export const toggleSearch = dispatch => {
   dispatch({
     type: 'TOGGLE_SEARCH',
   });

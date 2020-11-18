@@ -115,21 +115,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="search">
-        {searching ? (
-          <SearchBar className="sb-dis">
-            <label name="term" htmlFor="term">
-              <input
-                name="term"
-                value={searchTerm.term}
-                onChange={handleChanges}
-                placeholder="Start your search..."
-                type="text"
-              />
-            </label>
-          </SearchBar>
-        ) : null}
-      </div>
+      <div className="search"></div>
 
       <div className="right">
         <div onClick={() => push('/multiple-city')}>
