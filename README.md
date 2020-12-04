@@ -1,16 +1,15 @@
 
-# LABS 27 - CITRICS TEAM C
+# LABS 28 - CITRICS TEAM D
 
-You can find the deployed project [HERE](https://27-c.citrics.dev/).
-See a video demo [HERE](https://www.youtube.com/watch?v=K0kvbHh7vDY&feature=youtu.be). 
+You can find the deployed project [HERE](https://main.d2vgut56c5mq8l.amplifyapp.com/).
 
 ## Contributors
 
-|                                                      [Michael Johnson](https://github.com/glassbones)                                                       |                                                       [Jamie Sullivan](https://github.com/jme-sull)                                                        |                                                      [Erick Canales](https://github.com/e94canales)                                                       |                                                       [Wesley Ruedebusch](https://github.com/wesley-ruedebusch)                                                        |                                                                                                       |
+|                                                      [Ian Bautista](https://github.com/ianbautista)                                                       |                                                       [Nathan DeSpain](https://github.com/1like2learn)                                                        |                                                      [Zachary Peterson](https://github.com/zachary-peterson)                                                       |                                                       [Anthony Navarro](https://github.com/arn-foto)                                                        |                                                                                                       | 
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://ca.slack-edge.com/ESZCHB482-W012X6ZHT97-940a90e015a5-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D8NB88-a5a6b569f7e8-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D9M540-7c28e87840c9-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012QNU1NTE-f7e77e891394-512" width = "200" />](https://github.com/) | 
+| [<img src="https://ca.slack-edge.com/ESZCHB482-W012K9VAUR1-03c9f16338fb-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W01247EJE6B-0a7b590eed74-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W014G4N3X3K-9e824ab96a6f-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012JHWJYLS-2b68e2e4dae2-512" width = "200" />](https://github.com/) | 
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/glassbones)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jme-sull)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/e94canales)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wesley-ruedebusch)                           |                                                     |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/e94canales)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                
+|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/christianbautista/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/nathan-despain)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zacharytpeterson/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthonyrnavarro/)                 |                
 
 <br>
 <br>
@@ -24,14 +23,12 @@ See a video demo [HERE](https://www.youtube.com/watch?v=K0kvbHh7vDY&feature=yout
 ### Key Features
 
 - Search for a city and compare its stats to the US National Average
-- Add another city, and compare alongside currently displayed data
-- Add a city to your favorites
+- Add up to 10 cities to comparer
 - Authenticate with Okta
-- Display in desktop or mobile 
 
 #### Front end deployed to `AWS AMPLIFY`
 
-#### [Back end](https://github.com/Lambda-School-Labs/Labs27-C-Citrics-BE) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/citrics-be-d) built using:
 
 - Java/Spring
 
@@ -53,20 +50,23 @@ Clone this repo and install dependencies with npm
 
 ## Libaries and other info
 
-- Ant Design: Many of the components were built using AntDesign. Learn more about AntDesign [here](https://ant.design/components/overview/)
-- Styling: Styling was done using a combination of LESS and Javascript. We found it useful to override the AntDesign default styles with LESS by targeting the AntDesign classes
-- Media Breakpoints: Media Breakpoints were done using react-break. Learn more about react-break [here](https://www.npmjs.com/package/react-break)
--Redux - Redux was used for global state management 
+- Ant Design: A few of the components were built using AntDesign. Learn more about AntDesign [here](https://ant.design/components/overview/)
+- Styling: Styling was done primarily using styled components. Learn more about it [here](https://styled-components.com/)
+- Custom Maps: Created Utilizing mapbox. Learn more about it [here](https://www.mapbox.com/navigation/)
+- Summaries and Photos for the cities: Media was obtained through MediaWiki's API. Learn about it [here](https://en.wikipedia.org/api/rest_v1/#/)
+- Redux - Redux was used for global state management 
 
 ## File Organization
 
-- Canvases - Canvases are custom built layouts - they are NOT Ant Design. Use them to create new pages by passing in components, as needed.
-- Inline Styles - Each component folder has its own styles.js. These are inline styles being passed directly into the component. You can also edit styles from styles.less 
+- Components were separated into two folders:
+   - Common: Componets that appear on multiple pages.
+   - Pages: Folders for components that only appear on one page.
+- Styling will be found in the page folders or in the JavaScript files.
 - State Management - Find all of your Redux actions/reducers in the state folder
 
 ## Design Files and User Flow
 
--View our Figma designs and user flow outline on [Whimsical](https://whimsical.com/BrfVjttdRNhp7sbVNgKKNu)
+-View our Figma designs and user flow outline on [Figma](https://www.figma.com/file/fq2yp1hsHSOZ8gLoHUWglI/Initial-Design?node-id=2%3A298)
 
 # Contributing
 
@@ -105,7 +105,6 @@ Remember that this project is licensed under the MIT license, and by submitting 
 See [Backend Documentation](https://labs27-c-citrics-api.herokuapp.com/swagger-ui.html#/) for details on the backend of our project.
 
 ## CURRENT BUGS
-- Login does not work on deployed branch, it returns a CORS policy error 
-- When removing CityCard items from top down on /compare page it rearranges order of the cards, and leads to duplicate colors
-- National Average data is hardcoded at state/actions/cardContainerActs.js line 65. Needs to be updated to work with new National Average DS API endpoint 
+- Removing cities will not change page unless searchbar is being rendered
+- Searchbar styles are slightly off
 
